@@ -9,7 +9,7 @@
         "veil": 86,
         "kenburns": true,
         "eyebrow": "Chapter One · Look after the art",
-        "heading": "Earned.<br>Not <em>given</em>.",
+        "heading": "Earned. Not <em>given</em>.",
         "button_text": "Shop the Ritual",
         "button_url": "shopify://products/tattoo-aftercare-kit"
       }
@@ -17,11 +17,30 @@
     "tel_spec": {
       "type": "tel-spec-strip",
       "blocks": {
-        "s1": { "type": "item", "settings": { "text": "60 ml × 2" } },
-        "s2": { "type": "item", "settings": { "text": "Sealed as a set" } },
-        "s3": { "type": "item", "settings": { "text": "First run of five hundred" } }
+        "s1": {
+          "type": "item",
+          "settings": {
+            "text": "60 ml × 2"
+          }
+        },
+        "s2": {
+          "type": "item",
+          "settings": {
+            "text": "Sealed as a set"
+          }
+        },
+        "s3": {
+          "type": "item",
+          "settings": {
+            "text": "First run of five hundred"
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
       "settings": {}
     },
     "tel_product": {
@@ -33,28 +52,38 @@
         "heading": "Sealed, because the routine is the <em>product</em>.",
         "lead": "<p>One set. Two formulas. Restore Balm for fresh work. Recovery Cream for the second stage and the months after.</p>",
         "body": "<p>Detailed work needs both. No single product does the job, so they don't come apart. Not as a discount. As a discipline.</p>",
-        "shipping_line": "Free shipping<br>Australia-wide",
+        "shipping_line": "Free shipping · Australia-wide",
         "button_text": "Shop the Ritual",
-        "micro": "Ships in 1–2 days from Surfers Paradise<br>Sealed sets · Never sold apart"
+        "micro_1": "Ships in 1–2 days from Surfers Paradise",
+        "micro_2": "Sealed sets · Never sold apart"
       }
     },
     "tel_steps": {
       "type": "tel-steps",
       "blocks": {
-        "one": { "type": "step", "settings": {
-          "label": "Step one · Days 1–14",
-          "name": "Restore Balm",
-          "descriptor": "Richer · Sealing · Protective",
-          "body": "<p>A concentrated balm that lays down a protective layer and holds moisture in while the work closes over. Thin layer, clean dry skin, morning and night.</p>"
-        } },
-        "two": { "type": "step", "settings": {
-          "label": "Step two · The months after",
-          "name": "Recovery Cream",
-          "descriptor": "Calm · Condition · Refresh",
-          "body": "<p>A lighter daily cream that sinks in fast to hydrate and soothe while the work settles. The stage most people skip. Don't.</p>"
-        } }
+        "one": {
+          "type": "step",
+          "settings": {
+            "label": "Step one · Days 1–14",
+            "name": "Restore Balm",
+            "descriptor": "Richer · Sealing · Protective",
+            "body": "<p>A concentrated balm that lays down a protective layer and holds moisture in while the work closes over. Thin layer, clean dry skin, morning and night.</p>"
+          }
+        },
+        "two": {
+          "type": "step",
+          "settings": {
+            "label": "Step two · The months after",
+            "name": "Recovery Cream",
+            "descriptor": "Calm · Condition · Refresh",
+            "body": "<p>A lighter daily cream that sinks in fast to hydrate and soothe while the work settles. The stage most people skip. Don't.</p>"
+          }
+        }
       },
-      "block_order": ["one", "two"],
+      "block_order": [
+        "one",
+        "two"
+      ],
       "settings": {
         "eyebrow": "Why two",
         "heading": "Two stages. Two <em>formulas</em>.",
@@ -87,14 +116,57 @@
     "tel_proof": {
       "type": "tel-proof",
       "blocks": {
-        "p1": { "type": "item", "settings": { "icon": "shield", "title": "Heavy metals", "text": "Not detected. Lead, arsenic, mercury, cadmium, bismuth." } },
-        "p2": { "type": "item", "settings": { "icon": "check", "title": "Microbiology", "text": "No pathogenic micro-organisms." } },
-        "p3": { "type": "item", "settings": { "icon": "drop", "title": "pH 6.7", "text": "Measured on batch." } },
-        "p4": { "type": "item", "settings": { "icon": "clock", "title": "Three years", "text": "Shelf life." } },
-        "p5": { "type": "item", "settings": { "icon": "document", "title": "ISO 22716 · GMP", "text": "Held at the manufacturing site." } }
+        "p1": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "title": "Heavy metals",
+            "text": "Not detected. Lead, arsenic, mercury, cadmium, bismuth."
+          }
+        },
+        "p2": {
+          "type": "item",
+          "settings": {
+            "icon": "check",
+            "title": "Microbiology",
+            "text": "No pathogenic micro-organisms."
+          }
+        },
+        "p3": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "title": "pH 6.7",
+            "text": "Measured on batch."
+          }
+        },
+        "p4": {
+          "type": "item",
+          "settings": {
+            "icon": "clock",
+            "title": "Three years",
+            "text": "Shelf life."
+          }
+        },
+        "p5": {
+          "type": "item",
+          "settings": {
+            "icon": "document",
+            "title": "ISO 22716 · GMP",
+            "text": "Held at the manufacturing site."
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4", "p5"],
-      "settings": { "aria": "Batch testing" }
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "settings": {
+        "aria": "Batch testing"
+      }
     },
     "tel_founder": {
       "type": "tel-band",
@@ -141,5 +213,15 @@
       }
     }
   },
-  "order": ["tel_hero", "tel_spec", "tel_product", "tel_steps", "tel_studio", "tel_proof", "tel_founder", "tel_chapter", "tel_newsletter"]
+  "order": [
+    "tel_hero",
+    "tel_spec",
+    "tel_product",
+    "tel_steps",
+    "tel_studio",
+    "tel_proof",
+    "tel_founder",
+    "tel_chapter",
+    "tel_newsletter"
+  ]
 }
