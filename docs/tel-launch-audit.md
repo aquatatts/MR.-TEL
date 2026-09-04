@@ -215,3 +215,28 @@ Cosmetic (AICIS/ACCC) as long as copy stays at cleanse, moisturise, protect, app
 ## 14. v4 mobile render
 
 `docs/tel-v4-mobile-render.html` is a mobile-first render of v4's section order with the same fonts, black and gold, pushed to maximum premium. Twelve changes, all achievable in Prestige before Thursday: one metal (gold, matched to the jar foil), scene hero with slow push-in, mono spec strip, product before founder, one light product plate, hairline price ledger with no variant picker or quantity stepper, numbered two-step ledger, sideways proof strip, founder as pull quote, a "500" sets-remaining meter wired to inventory, 56px full-width mono buttons, monogram-only blurred header.
+
+## 15. v5 against v4
+
+v5 is built and unpublished in Shopify as "TEL v5 — premium draft (review vs v4)" (theme id 142920974399), duplicated from v4. Source in `theme/v5/`. Eight custom sections (`tel-hero`, `tel-spec-strip`, `tel-product`, `tel-steps`, `tel-band`, `tel-proof`, `tel-chapter`, `tel-newsletter`), one stylesheet (`assets/tel-v5.css`), rebuilt `templates/index.json`, de-cluttered `templates/product.json`, gold restored in `config/settings_data.json` and `layout/theme.liquid`, quieter header and announcement, sets-remaining meter wired to live inventory.
+
+| Dimension | v4 | v5 |
+|---|---|---|
+| Look | 6.5 | 8.5 |
+| Feel | 6.0 | 8.5 |
+| Style consistency | 5.5 | 8.0 |
+| Conversion mechanics | 5.0 | 7.5 |
+| Vision and retention after Chapter One | 5.0 | 8.0 |
+| **Overall** | **5.6** | **8.1** |
+
+To nine: CGI turntable in the hero, the CW Media film and studio photography in the bands, verified photo reviews, and the four custom pages restyled to the theme. A leftover test section "TEL probe" sits in the section list (not on any page); delete it from Edit code if wanted. Publishing stays with the owner.
+
+## 16. Klaviyo build (draft) and connectors
+
+Before: 3 live post-purchase flows, no form, no welcome, no abandoned checkout, no browse abandonment, no launch sequence, double opt-in, no UTMs.
+
+After, all draft: 12 branded templates; Welcome (3 emails, days 0/2/5); Abandoned checkout (1h, 24h, day 3, no discount, exits on purchase); Browse abandonment (4h, viewed but no checkout); Back in stock; four launch campaigns to the list, dated but unscheduled (Tue 7am, Wed 7am, Thu 6am with early-access password slot, Mon 7am) with full UTMs; first-access popup form.
+
+Decisions left to the owner: single opt-in for launch week, the early-access password, the day-four sets count, and confirming the dedicated sending domain.
+
+Connectors: Shopify, Klaviyo, Meta Ads and Facebook/Instagram Insights (Supermetrics), Xero (Squires Ink org; add a TEL tracking category), Google Drive (shoot assets present), Gmail, Calendar, Square, Mailchimp, GitHub connected. Not connected: GA4 (biggest gap; not installed on the store either), Google Ads, TikTok. Notion connected but empty.
