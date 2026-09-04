@@ -1,0 +1,563 @@
+<title>TEL Chapter One Audit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F4EFE6; --bg2:#EDE6DA; --ink:#15120E; --ink2:#4A443B; --mute:#7A7166; --rule:#D9CFC0;
+  --gold:#8F6F22; --gold2:#B08A33; --goldbg:rgba(143,111,34,.10);
+  --good:#4E7F4B; --warn:#B07A1E; --crit:#B4483B;
+  --cormorant:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --garamond:"EB Garamond",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0908; --bg2:#12100D; --ink:#F1EBE0; --ink2:#C9C1B4; --mute:#8D857A; --rule:#26221C;
+    --gold:#C9A24B; --gold2:#E3C878; --goldbg:rgba(201,162,75,.10);
+    --good:#7DB578; --warn:#D9A441; --crit:#D46A5C;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A0908; --bg2:#12100D; --ink:#F1EBE0; --ink2:#C9C1B4; --mute:#8D857A; --rule:#26221C;
+  --gold:#C9A24B; --gold2:#E3C878; --goldbg:rgba(201,162,75,.10);
+  --good:#7DB578; --warn:#D9A441; --crit:#D46A5C;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--garamond);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--goldbg)}
+a:hover{color:var(--gold2);border-color:var(--gold2)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3{font-family:var(--cormorant);font-weight:300;line-height:1.05;margin:0;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(44px,7vw,84px)}
+h2{font-size:clamp(32px,4.2vw,48px);margin-top:8px}
+h3{font-size:clamp(24px,2.6vw,30px);font-weight:400;margin-top:36px;margin-bottom:10px}
+h1 em,h2 em,h3 em{font-style:italic;color:var(--gold)}
+p{max-width:68ch;margin:0 0 16px}
+p.lede{font-size:clamp(19px,2.2vw,22px);color:var(--ink2);max-width:60ch}
+ul,ol{max-width:68ch;padding-left:22px;margin:0 0 16px}
+li{margin-bottom:8px}
+strong{font-weight:500;color:var(--ink)}
+.hr{width:44px;height:1px;background:var(--gold);margin:22px 0}
+header.hero{padding:76px 0 48px;border-bottom:1px solid var(--rule)}
+.meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:26px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.meta b{color:var(--ink);font-weight:500}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+nav.toc .wrap{display:flex;gap:2px 22px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
+nav.toc a{white-space:nowrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);border:0}
+nav.toc a:hover{color:var(--gold)}
+section{padding:60px 0;border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0}
+.sec-head{margin-bottom:28px}
+/* scorecard */
+.overall{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;padding:26px 0 30px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.overall .big{font-family:var(--cormorant);font-size:clamp(72px,10vw,120px);line-height:.9;font-weight:300;color:var(--gold);font-variant-numeric:tabular-nums}
+.overall .big small{font-size:.32em;color:var(--mute);font-family:var(--mono);letter-spacing:.1em;margin-left:6px}
+.scores{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.score{background:var(--bg);padding:20px 20px 18px;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto auto;gap:6px 14px}
+.score .n{grid-row:1/3;font-family:var(--cormorant);font-size:46px;line-height:1;font-weight:300;font-variant-numeric:tabular-nums;align-self:start}
+.score .t{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.score .bar{grid-column:1/3;height:3px;background:var(--rule);position:relative}
+.score .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--gold)}
+.score .r{grid-column:1/3;font-size:15.5px;color:var(--ink2);line-height:1.5}
+.s-good .n{color:var(--good)}.s-good .bar i{background:var(--good)}
+.s-warn .n{color:var(--warn)}.s-warn .bar i{background:var(--warn)}
+.s-crit .n{color:var(--crit)}.s-crit .bar i{background:var(--crit)}
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--rule);margin:18px 0 24px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:500;background:var(--bg2)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13.5px}
+tr:last-child td{border-bottom:0}
+td .tel{color:var(--gold);font-weight:500}
+tr.hl td{background:var(--goldbg)}
+/* callouts */
+.note{border-left:2px solid var(--gold);padding:6px 0 6px 20px;margin:22px 0;color:var(--ink2);max-width:68ch}
+.note b{color:var(--ink);font-weight:500}
+.verdict{font-family:var(--cormorant);font-size:clamp(26px,3.4vw,36px);font-weight:300;line-height:1.2;max-width:26ch;margin:30px 0 8px;font-style:italic}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 26px}
+.kv div{background:var(--bg);padding:16px 18px}
+.kv .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.kv .v{font-family:var(--cormorant);font-size:34px;line-height:1;font-weight:300;font-variant-numeric:tabular-nums}
+.kv .v small{font-size:.42em;font-family:var(--garamond);color:var(--ink2);margin-left:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+@media(max-width:820px){.two{grid-template-columns:1fr}.overall{grid-template-columns:1fr}}
+.steps{counter-reset:s;list-style:none;padding:0;max-width:72ch}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--rule)}
+.steps li:last-child{border-bottom:1px solid var(--rule)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--gold);padding-top:5px}
+.steps b{display:block;font-weight:500;font-family:var(--cormorant);font-size:22px;line-height:1.15;margin-bottom:4px}
+.pill{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--rule);color:var(--mute);border-radius:2px;margin-left:8px;vertical-align:middle}
+.pill.fix{border-color:var(--crit);color:var(--crit)}
+.pill.keep{border-color:var(--good);color:var(--good)}
+/* map */
+.map{border:1px solid var(--rule);background:var(--bg2);margin:18px 0 8px;overflow-x:auto}
+.map svg{display:block;width:100%;height:auto;min-width:560px}
+.cap{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--mute);margin-bottom:24px}
+.swatches{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 26px}
+.sw{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--mute)}
+.sw i{width:26px;height:26px;border:1px solid var(--rule);display:inline-block}
+footer{padding:48px 0 72px;border-top:1px solid var(--rule);color:var(--mute);font-size:14px}
+footer .mono{font-family:var(--mono);font-size:clamp(18px,3vw,26px);letter-spacing:.4em;color:var(--gold);padding-left:.4em}
+.sources{columns:2;column-gap:36px;font-size:13.5px;max-width:none}
+.sources li{break-inside:avoid;margin-bottom:6px}
+@media(max-width:700px){.sources{columns:1}}
+@media (prefers-reduced-motion:no-preference){.score .bar i{transition:width .6s ease}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">TEL Collection · Chapter One · The Ritual Duo</div>
+    <div class="hr"></div>
+    <h1>Where the site stands, six days <em>out</em>.</h1>
+    <p class="lede">A cross-examination of the v3 store, the brand against every aftercare competitor selling into Australia, the imagery and 3D route, the numbers behind the ads, and the launch plan for Thursday 10 September.</p>
+    <div class="meta">
+      <span>Prepared <b>4 Sep 2026</b></span>
+      <span>Theme <b>TEL v3 (Prestige)</b></span>
+      <span>Doors open <b>Thu 10 Sep</b></span>
+      <span>First run <b>500 sets · 450 in stock</b></span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a href="#score">Scorecard</a><a href="#site">The site</a><a href="#style">Style</a><a href="#field">The field</a><a href="#playbooks">Playbooks</a><a href="#imagery">Imagery &amp; 3D</a><a href="#numbers">Numbers</a><a href="#launch">Launch</a><a href="#audiences">Audiences</a><a href="#team">Team</a><a href="#gap">The gap</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="score">
+  <div class="sec-head"><div class="eyebrow">01 · Scorecard</div><h2>Brand is ready. The machine around it is <em>not</em>.</h2></div>
+  <div class="overall">
+    <div class="big">5.2<small>/ 10</small></div>
+    <div>
+      <p>Launch readiness, weighted across the ten areas below. The identity and the voice are already the strongest in the category. Everything that turns attention into orders and orders into proof is thin: imagery, trust, tracking, email, and the way the ads are aimed.</p>
+      <p><b>On premium feel</b>, TEL is top three in tattoo aftercare worldwide, alongside Stories &amp; Ink and Mad Rabbit's upper line. <b>On execution polish</b>, it sits in the bottom half today, purely because the assets and proof haven't been built yet.</p>
+    </div>
+  </div>
+  <div class="scores">
+    <div class="score s-good"><div class="t">Brand identity</div><div class="n">8</div><div class="bar"><i style="width:80%"></i></div><div class="r">Monogram, black glass, foil, one italic gold word. Nobody else in the category looks like this.</div></div>
+    <div class="score s-good"><div class="t">Voice &amp; copy</div><div class="n">8</div><div class="bar"><i style="width:80%"></i></div><div class="r">"Earned. Not given." and "Sealed, not split" are yours. Overwritten on the product page; the founder quote appears three times.</div></div>
+    <div class="score s-warn"><div class="t">Visual system</div><div class="n">6</div><div class="bar"><i style="width:60%"></i></div><div class="r">Theme is set up properly. Custom pages break the fonts and swap the metallic.</div></div>
+    <div class="score s-warn"><div class="t">Imagery</div><div class="n">5</div><div class="bar"><i style="width:50%"></i></div><div class="r">Nine clean packshots, no motion, no 3D, no editorial scene, no texture macro. The widest gap between ambition and page.</div></div>
+    <div class="score s-warn"><div class="t">Product page conversion</div><div class="n">5</div><div class="bar"><i style="width:50%"></i></div><div class="r">Sticky add-to-cart and price are right. Variant picker, quantity and badges on a one-variant product add noise; eight accordions below.</div></div>
+    <div class="score s-crit"><div class="t">Trust &amp; proof</div><div class="n">4</div><div class="bar"><i style="width:40%"></i></div><div class="r">Six reviews, one verified, several about the studio not the product. Gate claims "10 verified reviews".</div></div>
+    <div class="score s-warn"><div class="t">Structure &amp; nav</div><div class="n">6</div><div class="bar"><i style="width:60%"></i></div><div class="r">Clean four-item menu. Healing Guide is footer-only. Five empty chapter collections. Privacy page unpublished.</div></div>
+    <div class="score s-crit"><div class="t">Tracking</div><div class="n">3</div><div class="bar"><i style="width:30%"></i></div><div class="r">Hand-coded Lead pixel on the gate. No Conversions API or GA4 confirmed. Zero UTMs on 4,600 sessions.</div></div>
+    <div class="score s-crit"><div class="t">Email / CRM</div><div class="n">4</div><div class="bar"><i style="width:40%"></i></div><div class="r">Three post-purchase flows live. No sign-up form, welcome, abandoned checkout or launch sequence. List is double opt-in.</div></div>
+    <div class="score s-crit"><div class="t">Paid media readiness</div><div class="n">3</div><div class="bar"><i style="width:30%"></i></div><div class="r">A$2,970 in 90 days, mostly from the personal account, aimed 18 to 65+ flat, optimising for sales on a store that can't sell.</div></div>
+  </div>
+</section>
+
+<section id="site">
+  <div class="sec-head"><div class="eyebrow">02 · What is live</div><h2>Anatomy of <em>v3</em>.</h2></div>
+  <div class="kv">
+    <div><div class="k">Plan · currency</div><div class="v">Basic<small>AUD</small></div></div>
+    <div><div class="k">Active products</div><div class="v">1<small>The Ritual Duo · A$59.95</small></div></div>
+    <div><div class="k">Stock</div><div class="v">450<small>of 500 first run</small></div></div>
+    <div><div class="k">Theme copies</div><div class="v">9<small>v3 live · v4 WIP</small></div></div>
+  </div>
+  <div class="two">
+    <div>
+      <h3>Home page, v3 (published)</h3>
+      <ol>
+        <li>Hero: "Earned. Not <em>given</em>." · PNG background · Shop the Ritual</li>
+        <li>Founder band: "Fifteen years under the needle"</li>
+        <li>Featured product with badges, variant picker, quantity, ATC</li>
+        <li>Three columns: Restore Balm / Recovery Cream / Sealed, not split</li>
+        <li>Proof strip: heavy metals · microbiology · pH 6.7 · 3-year shelf life · ISO 22716 / FDA GMP</li>
+        <li>"Our Aim" overlay</li>
+        <li>Newsletter: "You trusted it on your skin"</li>
+      </ol>
+      <h3>Home page, v4 (in progress) <span class="pill keep">better order</span></h3>
+      <ol>
+        <li>Hero on the jars-on-box packshot</li>
+        <li>Product header + product band</li>
+        <li>"Why two": two stages, two formulas</li>
+        <li>Studio band: built at the counter</li>
+        <li>Proof strip</li>
+        <li>Founder band</li>
+        <li>Chapter One: "Five hundred sets. Doors open Thursday 10 September."</li>
+        <li>Newsletter</li>
+      </ol>
+      <p>v4 puts the product before the founder, one idea per band, and fixes the four identical footer icons. Ship v4's order; keep v3's gold.</p>
+    </div>
+    <div>
+      <h3>Product page</h3>
+      <p>Vendor · title · Judge.me badge · price · payment terms · lead copy · mono spec line ("60 ml × 2 · Sealed as a set · First run of five hundred") · variant picker · quantity · buy buttons, then eight accordions: The Ritual, The night/morning/second stage, Why it can't be split, Heavy work protocol, From the founder, Built to a standard, Shipping. Full Judge.me widget below. Nine JPG images, no video, no 3D model.</p>
+      <h3>Pages</h3>
+      <p>Contact · Our Aim · Shipping &amp; Returns (free AU shipping, 1–2 day dispatch from Surfers Paradise) · FAQs · Trusted By · The Founder · The Healing Guide. Privacy Policy page exists but is unpublished; the footer links to the Shopify policy URL instead.</p>
+      <h3>Gate page</h3>
+      <p>Custom section. Email capture is the primary action, password demoted to a toggle. Offer: 24 hours early access and "the founding price, which will not run twice." Fires a Meta PageView fallback and a Lead event on sign-up. Proof line reads "5.0 · 10 verified reviews."</p>
+      <h3>Behind the scenes</h3>
+      <p>Collections Ritual, Movement, Threads, Vision and Collective exist as the chapter roadmap; four are empty and must stay unlinked. Restore Balm and Recovery Cream exist as archived single products, correctly hidden. Judge.me core is installed as a theme app block. Klaviyo is connected with Shopify metrics flowing.</p>
+    </div>
+  </div>
+</section>
+
+<section id="style">
+  <div class="sec-head"><div class="eyebrow">03 · Style review</div><h2>A nine wearing a <em>six</em>.</h2></div>
+  <p class="lede">The identity is right. Black ground, cream type, one metallic, a serif pair with wide tracking, one italic gold word per heading. Packaging and site speak the same language, which most small brands never manage. What breaks the premium read is consistency, not concept.</p>
+  <div class="swatches">
+    <span class="sw"><i style="background:#080808"></i>#080808 ground</span>
+    <span class="sw"><i style="background:#F5F0E8"></i>#F5F0E8 cream</span>
+    <span class="sw"><i style="background:#C9A24B"></i>#C9A24B gold (v3, jars, box)</span>
+    <span class="sw"><i style="background:#DCA47B"></i>#DCA47B rose copper (v4, founder page, card)</span>
+  </div>
+  <ol class="steps">
+    <li><b>Two metallics <span class="pill fix">fix</span></b>The theme and the packaging are gold. The Founder page, the v4 theme and the Chapter One card are rose copper. Trusted By, FAQs and the gate are gold again. Pick the metal that is on the jar foil and use only that on the site. Copper can live on the card and on limited touches.</li>
+    <li><b>Three type systems <span class="pill fix">fix</span></b>Theme pages set Cormorant + EB Garamond. The Founder page adds IBM Plex Mono, which works. Trusted By, FAQs, Healing Guide and the gate fall back to the phone's system sans-serif, so on an iPhone your proof pages render in Helvetica-style type while the rest of the site is Garamond. Rebuild those pages on theme sections or copy the Founder page's font stack.</li>
+    <li><b>Density on mobile <span class="pill fix">fix</span></b>78% of sessions are Australian mobile. Long 17px serif paragraphs on black are hard going. The founder story deserves its page; on the product page it should be one pull quote and a link.</li>
+    <li><b>Single-product clutter <span class="pill fix">fix</span></b>Remove the variant picker, quantity selector and badges from the product page and the home featured product. One product, one price, one button is the "elevated essentials" promise made visible.</li>
+    <li><b>The hero is a still <span class="pill fix">upgrade</span></b>v3 uses a PNG; v4 uses a packshot. Either way it's static. The hero is where the 3D turntable or a six-second CGI loop belongs.</li>
+    <li><b>The one-word italic device <span class="pill keep">keep</span></b>"Earned. Not <em>given</em>." is genuinely yours. Protect it: never more than one italic word per heading, always the same colour.</li>
+    <li><b>Announcement bar <span class="pill keep">keep</span></b>"Chapter One · Five hundred sets · Thursday 10 September" is right. After launch it should count the sets remaining, honestly.</li>
+  </ol>
+  <h3>Trust layer, fix before Thursday</h3>
+  <ul>
+    <li>Keep only reviews about the product. Move the studio reviews (Chriso, Eli, Ejrule) to the "From the chair" block on Trusted By, labelled as Squires Ink Google reviews.</li>
+    <li>The gate says "10 verified reviews". Judge.me holds 6 reviews, 1 verified. Say what is true or drop the number.</li>
+    <li>Turn on Judge.me's post-fulfilment request (day 14 for the balm stage, day 45 for the cream stage) so every online order becomes a verified photo review.</li>
+    <li>Publish the batch test results as a Certificate of Analysis page. The proof strip makes claims; the document proves them.</li>
+    <li>Claims hygiene is already good: moisturise, condition, protect. Keep "heal", "antibacterial" and "recovery" out of product copy. "Healing Guide" as a page name is fine.</li>
+  </ul>
+</section>
+
+<section id="field">
+  <div class="sec-head"><div class="eyebrow">04 · The field</div><h2>The top-right quadrant is <em>empty</em>.</h2></div>
+  <p class="lede">Twenty-eight brands checked across Australia, the United States, the United Kingdom and Europe. The category splits four ways and none of the four is where TEL is standing.</p>
+  <div class="two">
+    <div>
+      <h3>Four camps, none of them yours</h3>
+      <ul>
+        <li><b>Pharmacy clinical.</b> Bepanthen (A$13 for 50g in Chemist Warehouse), TattooMed, Delab. Blue-and-white, dermatologically tested, sold on price and ubiquity.</li>
+        <li><b>Supermarket natural.</b> Dr Pickles (A$22.50 in Coles and Woolworths, rated 9.2 by GLOW), Ink Nurse (A$34.99 in 600-plus Chemist Warehouse stores), Aussie Inked. Australian-made, vegan, tubs and tubes.</li>
+        <li><b>Studio workhorse.</b> Hustle Butter (A$32.50 for 150ml), INK-EEZE, Redemption, ProTat (A$10 for 50g). Bought by artists in bulk, branded loud.</li>
+        <li><b>Organic apothecary.</b> Aftercare Collective and For Another Self, both Melbourne, both already using "ritual" language. Kraft tins, pastel flavours, magnetic gift boxes. Charming, not luxury.</li>
+      </ul>
+      <div class="note"><b>The finding that matters.</b> No brand selling into Australia occupies premium price and luxury codes at the same time. Stories &amp; Ink is the only scaled brand near it globally, and it is beauty-retail-coded for Target and Superdrug shelves, not black glass. The quadrant TEL is aiming at is genuinely open.</div>
+    </div>
+    <div>
+      <h3>Where A$59.95 sits</h3>
+      <p>The Ritual Duo is A$0.50 per ml across 120ml. That is the top of the Australian market, but it is not an outlier globally.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Brand</th><th>Hero product</th><th class="num">A$/ml</th></tr></thead>
+        <tbody>
+          <tr><td>Mad Rabbit (US)</td><td>Enhance Balm 50ml</td><td class="num">0.57</td></tr>
+          <tr class="hl"><td><span class="tel">TEL Ritual Duo</span></td><td>Balm + Cream, 120ml</td><td class="num">0.50</td></tr>
+          <tr><td>Papatui (US)</td><td>Tattoo Balm 59ml</td><td class="num">0.51</td></tr>
+          <tr><td>Stories &amp; Ink (UK)</td><td>Aftercare Cream 60ml</td><td class="num">0.49</td></tr>
+          <tr><td>Sorry Mom (DK)</td><td>Original Balm</td><td class="num">0.43</td></tr>
+          <tr><td>Ink Nurse (AU)</td><td>Remedy Cream 100ml</td><td class="num">0.40</td></tr>
+          <tr><td>Aussie Inked (AU)</td><td>Aftercare 100ml</td><td class="num">0.36</td></tr>
+          <tr><td>Dr Pickles (AU)</td><td>Original Balm 75g</td><td class="num">0.30</td></tr>
+          <tr><td>Bepanthen (AU)</td><td>Tattoo Ointment 50g</td><td class="num">0.26</td></tr>
+          <tr><td>Hustle Butter (AU price)</td><td>Deluxe Balm 150ml</td><td class="num">0.22</td></tr>
+          <tr><td>Butterluxe (UK)</td><td>Balm 250ml</td><td class="num">0.21</td></tr>
+          <tr><td>ProTat (AU)</td><td>Aftercare Cream 50g</td><td class="num">0.20</td></tr>
+          <tr><td>Harry's Tattoo Frost (US, 2026)</td><td>Aftercare Gel 233ml</td><td class="num">0.13</td></tr>
+        </tbody>
+      </table></div>
+      <p class="cap">Overseas prices converted at USD 1 ≈ A$1.50, GBP 1 ≈ A$1.95, EUR 1 ≈ A$1.70. Australian prices as listed on retailer sites.</p>
+    </div>
+  </div>
+
+  <h3>Positioning map — price against premium feel</h3>
+  <div class="map">
+    <svg viewBox="0 0 900 480" role="img" aria-label="Positioning map plotting Australian dollar price per millilitre against premium brand feel. TEL Collection sits alone in the top right quadrant at 0.50 dollars per millilitre with the highest premium score.">
+      <defs>
+        <pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="0" y2="8" stroke="var(--gold)" stroke-width="1" opacity=".18"/>
+        </pattern>
+      </defs>
+      <rect x="560" y="40" width="300" height="150" fill="url(#hatch)" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 4" opacity=".9"/>
+      <text x="570" y="60" fill="var(--gold)" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.6">OPEN IN AUSTRALIA</text>
+      <line x1="70" y1="410" x2="870" y2="410" stroke="var(--rule)" stroke-width="1"/>
+      <line x1="70" y1="30" x2="70" y2="410" stroke="var(--rule)" stroke-width="1"/>
+      <text x="70" y="446" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11">$0.10</text>
+      <text x="230" y="446" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11">$0.20</text>
+      <text x="390" y="446" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11">$0.30</text>
+      <text x="550" y="446" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11">$0.40</text>
+      <text x="710" y="446" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11">$0.50</text>
+      <text x="850" y="446" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11">$0.60</text>
+      <text x="470" y="470" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" text-anchor="middle">AUD PER ML</text>
+      <text x="24" y="230" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" transform="rotate(-90 24 230)" text-anchor="middle">PREMIUM FEEL</text>
+      <text x="56" y="66" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="end">5</text>
+      <text x="56" y="152" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="end">4</text>
+      <text x="56" y="238" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="end">3</text>
+      <text x="56" y="324" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="end">2</text>
+      <text x="56" y="410" fill="var(--mute)" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="end">1</text>
+
+      <circle cx="710" cy="62" r="8" fill="var(--gold)"/>
+      <text x="696" y="66" fill="var(--ink)" font-family="Cormorant Garamond, serif" font-size="21" text-anchor="end">TEL Ritual Duo</text>
+
+      <circle cx="702" cy="148" r="4.5" fill="var(--ink2)"/><text x="716" y="152" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14">Stories &amp; Ink</text>
+      <circle cx="290" cy="150" r="4.5" fill="var(--ink2)"/><text x="302" y="154" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14">For Another Self</text>
+      <circle cx="738" cy="192" r="4.5" fill="var(--ink2)"/><text x="750" y="196" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14">Aftercare Collective</text>
+      <circle cx="822" cy="234" r="4.5" fill="var(--ink2)"/><text x="810" y="238" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14" text-anchor="end">Mad Rabbit</text>
+      <circle cx="726" cy="252" r="4.5" fill="var(--ink2)"/><text x="714" y="256" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14" text-anchor="end">Papatui</text>
+      <circle cx="598" cy="238" r="4.5" fill="var(--ink2)"/><text x="586" y="242" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14" text-anchor="end">Sorry Mom</text>
+      <circle cx="246" cy="240" r="4.5" fill="var(--ink2)"/><text x="234" y="244" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14" text-anchor="end">Butterluxe</text>
+      <circle cx="550" cy="282" r="4.5" fill="var(--ink2)"/><text x="562" y="286" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14">Ink Nurse</text>
+      <circle cx="486" cy="296" r="4.5" fill="var(--ink2)"/><text x="474" y="300" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14" text-anchor="end">Aussie Inked</text>
+      <circle cx="262" cy="300" r="4.5" fill="var(--ink2)"/><text x="250" y="304" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14" text-anchor="end">Hustle Butter</text>
+      <circle cx="390" cy="330" r="4.5" fill="var(--ink2)"/><text x="402" y="334" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14">Dr Pickles</text>
+      <circle cx="214" cy="344" r="4.5" fill="var(--ink2)"/><text x="202" y="348" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14" text-anchor="end">After Inked</text>
+      <circle cx="326" cy="386" r="4.5" fill="var(--ink2)"/><text x="338" y="390" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14">Bepanthen</text>
+      <circle cx="230" cy="396" r="4.5" fill="var(--ink2)"/><text x="218" y="400" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14" text-anchor="end">ProTat</text>
+      <circle cx="118" cy="378" r="4.5" fill="var(--ink2)"/><text x="130" y="382" fill="var(--ink2)" font-family="EB Garamond, serif" font-size="14">Harry's Tattoo Frost</text>
+    </svg>
+  </div>
+  <p class="cap">Premium feel is a qualitative 1–5 read of packaging and brand world, where 5 is luxury skincare codes. Price is AUD per ml as found or converted.</p>
+
+  <h3>Kits and duos — what the set has to beat</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Set</th><th>Contents</th><th class="num">≈ A$</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td><span class="tel">TEL Ritual Duo</span></td><td>Restore Balm 60ml + Recovery Cream 60ml, sealed</td><td class="num">59.95</td></tr>
+      <tr><td>Stories &amp; Ink Aftercare Duo</td><td>Cream 60ml + Foam Cleanser</td><td class="num">52</td></tr>
+      <tr><td>Ink Nurse Healing Essentials Kit</td><td>Cream 100ml + 50ml + foam 200ml + 2 film squares</td><td class="num">84.99</td></tr>
+      <tr><td>Mad Rabbit Starter Set</td><td>Gel + Balm + SPF30</td><td class="num">90</td></tr>
+      <tr><td>Sorry Mom Aftercare Kit</td><td>Balm + soap + film</td><td class="num">94</td></tr>
+      <tr><td>Stories &amp; Ink Complete Care Kit</td><td>Five pieces</td><td class="num">128</td></tr>
+      <tr><td>Ink Nurse Mega Bundle</td><td>600ml total including 500ml pump</td><td class="num">139.99</td></tr>
+    </tbody>
+  </table></div>
+  <p>Almost every kit in the category pairs a <b>cleanser with a moisturiser</b>. Nobody sells a seal-then-condition two-stage pairing as a sealed, gift-grade set in Australia. That structure is the argument for the price, and it is the thing to lead with.</p>
+
+  <h3>The market you're entering</h3>
+  <div class="kv">
+    <div><div class="k">Australians with a tattoo</div><div class="v">25<small>% · record high, McCrindle 2025</small></div></div>
+    <div><div class="k">Women vs men</div><div class="v">31<small>% vs 19%</small></div></div>
+    <div><div class="k">Have more than one</div><div class="v">61<small>% · 18% have six or more</small></div></div>
+    <div><div class="k">Global category CAGR</div><div class="v">6–12<small>% · US$140–150M base</small></div></div>
+  </div>
+  <p>A quarter of Australians now carry work, up from 19% in 2016, and the tattooed population skews <b>female and repeat</b>. That matters for TEL: a giftable, skincare-coded ritual set is aimed better at that buyer than a utilitarian tub, and it argues for gifting and second-purchase mechanics from day one rather than as an afterthought.</p>
+  <p>The Australian dedicated-aftercare market is roughly <b>A$10 to 15 million a year</b> at retail on a bottom-up estimate, excluding pharmacy substitution and films. Small. Which is exactly why the studio channel and the artist relationship matter more than share of shelf.</p>
+
+  <div class="note"><b>What to watch.</b> Three pressures are real. Harry's launched Tattoo Frost in 2026 at A$0.13 per ml explicitly priced against Hustle Butter and Papatui. Stories &amp; Ink now sits in 800 Target and 600 Superdrug stores and could enter Australia through Amazon or Adore at your price point with retail credibility behind it. And Ink Nurse's 600-store Chemist Warehouse footprint owns "Australia's number one" volume language, so do not compete on that claim. Own "the considered choice" instead.</div>
+
+  <p><b>Also true:</b> a private-label supplier in Australia will sell anyone a tattoo balm. Formula alone is not a moat. The moat is the studio, the founder's body, the object, and the refusal to discount.</p>
+</section>
+
+
+<section id="playbooks">
+  <div class="sec-head"><div class="eyebrow">05 · Their playbooks, your counter-moves</div><h2>How the Australian market sells, and what TEL does <em>instead</em>.</h2></div>
+  <p class="lede">Every serious competitor in Australia runs one of eight plays. Most of them are unavailable to a premium brand by definition. The counter-move in each row is built only from what you already own: the studio, the founder's body, the object, the sealed system, and the artists in the room.</p>
+
+  <h3>The four that matter in Australia</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Brand</th><th>How they win</th><th>Where they are weak</th></tr></thead>
+    <tbody>
+      <tr><td><b>Ink Nurse</b><br><span class="cap">Melbourne · A$39.99 / 100ml · IG 18K</span></td><td>Owns the Chemist Warehouse aisle: 600-plus stores, its own First Aid category, three exclusive SKUs on a multi-year deal since September 2024. Australian Tattooists Guild partner. Aggressive comparison content ("the truth about Bepanthen", "Dr Pickles vs Ink Nurse"). Studio kit "saves $500, clients selling at 3x".</td><td>Price integrity is gone: RRP A$29.99 for 50ml while the 500ml pump works out at A$0.14/ml and resellers sit 33% under RRP. "Nurse" and first-aid framing is clinical, not desirable. Stretching into eczema, psoriasis and North America. Trustpilot sits around 4 stars. In a collector's eyes, Chemist Warehouse makes it a commodity.</td></tr>
+      <tr><td><b>Dr Pickles</b><br><span class="cap">Gold Coast · A$22.50 at Coles &amp; Woolworths · IG 21K</span></td><td>Studio counter, then pharmacy, then grocery. "Trusted by artists since 2010." Australian Tattoo Expo Mystery Tattoo tour, Inked Expo sponsor. A$7 travel tube as a studio hand-out. GLOW's best overall at 9.2.</td><td>Grocery placement caps premium permanently. Joke name. Functional tube. Uses claim language ("speeds up healing", "prevent scabbing", "antibacterial") that sits over the therapeutic line without an ARTG listing. It is the Gold Coast's mass brand, which leaves the Gold Coast's luxury slot open.</td></tr>
+      <tr><td><b>Bepanthen Tattoo</b><br><span class="cap">Bayer · ~A$12 / 50g · every pharmacy</span></td><td>Ubiquity and decades of habit. ARTG-registered as a medicine, so it can lawfully claim "helps skin regenerate", which no cosmetic competitor can. Ran an Instagram campaign aimed at first-timers.</td><td>Nappy-cream heritage, petroleum and lanolin, and it is now the named villain in competitor content. Tatt Lab claims 88% of Australian tattooists have moved away from recommending it (their figure, unverified).</td></tr>
+      <tr><td><b>Hustle Butter &amp; Mad Rabbit</b><br><span class="cap">US imports · IG 122K and ~90K</span></td><td>Hustle Butter is artist-first (used as glide), then consumer, sold through six-plus Australian supply houses and top of Amazon AU. Mad Rabbit runs 7,000-plus ambassadors, subscription-first landing pages and a Shark Tank halo.</td><td>Neither controls its Australian presence. Prices scatter across resellers. Mad Rabbit's bright DTC look reads "supplement brand", and the community was initially hostile to it. Discount-code dependence.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The strategy matrix</h3>
+  <div class="tbl"><table>
+    <thead><tr><th style="width:18%">Pattern</th><th style="width:22%">Who runs it</th><th style="width:16%">How well</th><th>TEL's counter-move</th></tr></thead>
+    <tbody>
+      <tr><td><b>Pharmacy and grocery shelf</b></td><td>Bepanthen, Ink Nurse, Dr Pickles, Love My Ink</td><td>Wins volume. Destroys premium. Dr Pickles sits next to nappy cream at A$22.50.</td><td><b>Refuse the shelf.</b> Studio counter and direct only. Make it a headline: "Five hundred sets. Not in pharmacies." Number the cards 001 to 500. Photograph the Duo on the Squires Ink station, not on white.</td></tr>
+      <tr><td><b>Discount-led direct</b></td><td>Ink Nurse (save $80 bundles, 14–15% codes), Mad Rabbit (subscription, ambassador codes), Aussie Inked (twin pack)</td><td>Effective for acquisition. Price integrity is visibly broken across the category.</td><td><b>Access replaces discount.</b> The email promise is first look at each run, healing notes from the studio, and priority when a run sells out. Scarcity of the run does the work a code would. A "Second Ritual" reorder invitation at six to eight weeks, when the 60ml jars run out, instead of subscribe-and-save. Show the sets-remaining counter on the product page.</td></tr>
+      <tr><td><b>Artist and studio wholesale</b></td><td>Ink Nurse (studio kit, Faire, Guild partnership), Dr Pickles (A$7 tubes, Artist Series), Hustle Butter (glide-first), Numbastay (selective)</td><td>Strong for the top two, but both are sold to studios as a margin line, not lived in one.</td><td><b>You own a studio, so invert it.</b> Squires Ink is the flagship: every client leaves with the Duo. A "Healed at Squires" monthly gallery of fresh versus four-week pieces, all on the Duo, shot the same way each time. Then a hand-picked "TEL Studios" list: ten to twenty nationally, one per city, exclusive by suburb, no Faire, no open wholesale, each with a twelve-set black-glass counter cabinet. Valerio's realism is the ideal demonstration because realism heals visibly worse with poor aftercare.</td></tr>
+      <tr><td><b>Ambassadors at scale</b></td><td>Mad Rabbit (7,000), Hustle Butter (artist reposts), Stories &amp; Ink (Artist Series kits)</td><td>Works in the US. No Australian brand has a credible artist-collab product.</td><td><b>Artist Edition.</b> Same two jars, a limited slip-case carrying one artist's flash, 100 sets per artist, launched on a booking-day event. Start in-house, then one interstate realism or Japanese artist per quarter. The proof is the artist's own client's healed piece, never a paid influencer's arm.</td></tr>
+      <tr><td><b>Convention sponsorship</b></td><td>Ink Nurse (sponsor, artists on booth), Dr Pickles (Expo tour, Inked Expo, Oz Comic-Con)</td><td>Reach, but the booths look cheap.</td><td><b>Don't sponsor. Tattoo.</b> Take a working booth for Squires Ink artists at Australian Tattoo Expo and Inked Expo (Brisbane, Sydney, Melbourne). Sell the Duo only to people tattooed at the booth, then document their healing. The convention becomes a proof factory, not a sampling stunt.</td></tr>
+      <tr><td><b>Short-form and UGC</b></td><td>Ink Nurse (Chemist Warehouse sale reels), Stories &amp; Ink (before/after), Mad Rabbit (influencers)</td><td>Works for retail-availability noise. Nobody in Australia is doing premium, slow, quiet content.</td><td><b>One piece, four weeks.</b> Vertical, silent-friendly 20 to 40 second time-lapses from the studio with the founder's voice over his own back and chest rework. One hero healing story a week, not daily volume. Dates on screen, artist named. Your own data already says this angle wins: 10% click-through on "Years in the making".</td></tr>
+      <tr><td><b>Natural, vegan, organic</b></td><td>Aussie Inked, Tattman, Aftercare Collective, Ever After, For Another Self, Tiger Spit, Ananda Life</td><td>Crowded, undifferentiated, mostly contract-made. A private-label supplier will sell anyone a tattoo balm.</td><td><b>Don't compete on "natural". Compete on function and object.</b> The two-step logic (occlusive first, panthenol and hyaluronate cream after) is the dermatological orthodoxy the vegan balms avoid explaining. Write "Why two steps" like a spec sheet and print it on the card in the box. Black glass and gold foil give it vanity-shelf and gift value no tin or tube has.</td></tr>
+      <tr><td><b>Attack content and SEO</b></td><td>Ink Nurse ("the truth about Bepanthen"), Tatt Lab ("Best of 2026" guide)</td><td>Ink Nurse dominates Australian search intent with it.</td><td><b>Don't attack. Teach.</b> Long-form healing notes from the studio by style (realism, fine-line, colour, blackwork) that rank for "how to heal a [style] tattoo" and quietly recommend the Duo. Pitch Tatt Lab and GLOW for inclusion as the premium pick: GLOW currently ranks Dr Pickles best overall with no luxury tier represented at all.</td></tr>
+      <tr><td><b>Reviews</b></td><td>Ink Nurse (Trustpilot ~498, ~4 stars), Amazon generics (4.7)</td><td>Thin or mid-quality proof across the whole category.</td><td><b>Photo-required reviews at week four.</b> Judge.me prompt timed to the healing curve so every review is a healed photo. Target 100 photo reviews from the first 500 sets.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note"><b>One thing to check before Thursday.</b> Two Melbourne brands already use your word. Aftercare Collective trades as "Conscious Tattoo Ritual Care" and Penguin Tattoo Co sells "The Ritual Kit". Neither is a threat on look or price, but run a class 3 trademark search on "The Ritual Duo" and, in the meantime, own the word visually through the sealed-set mechanic and the black-glass object rather than the name alone.</div>
+
+  <h3>Claims: what you can and cannot say in Australia</h3>
+  <div class="two">
+    <div>
+      <p>A tattoo aftercare cream is a <b>cosmetic</b> under Australian law (AICIS for ingredients, ACCC for advertising) as long as it is presented as cleansing, moisturising, protecting or improving the appearance of skin. It becomes a <b>therapeutic good</b> needing ARTG listing the moment it claims to prevent, treat or cure, or to influence a physiological process. Bepanthen is ARTG-registered, which is the only reason it can say "regenerate".</p>
+      <p>Your copy is already careful. Keep it that way. The founder's rework story stays a personal story, never a product claim.</p>
+    </div>
+    <div>
+      <p><b>Never on packaging, site or ads:</b> heals, healing, speeds healing, treats, repairs, regenerates, antibacterial, antiseptic, kills germs, prevents infection, reduces scarring, prevents scabbing, anti-inflammatory, medical grade, clinically proven, any SPF or UV claim, wound, first aid.</p>
+      <p><b>Safe and still strong:</b> soothes, hydrates, nourishes, helps maintain the skin's moisture barrier, protects, supports skin through the settling weeks, keeps fresh ink comfortable, helps ink look vivid, dermatologically tested (only with a test on file).</p>
+      <p><b>Labelling:</b> full INCI list in descending order, country of origin, and the "Australian Made" logo only under licence. Beeswax rules out "vegan" for Restore Balm and petrolatum rules out "natural". Don't claim either. You don't need them.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="imagery">
+  <div class="sec-head"><div class="eyebrow">06 · Imagery and 3D</div><h2>Direct, clean, and <em>insane</em>: in that order.</h2></div>
+  <p class="lede">Shopify supports 3D natively. Upload a .glb for the web and a .usdz for iPhone to the product's media and Prestige renders an interactive model in the gallery with a "View in your space" AR button on phones. No app, no custom code.</p>
+  <ol class="steps">
+    <li><b>Commission one photoreal model</b>Box plus both jars, built in Blender or Cinema 4D from the packaging dieline and label artwork. A$600–1,800, one to two weeks. This one asset produces everything below.</li>
+    <li><b>Render the hero loop</b>Six to eight second turntable, MP4 and WebM under 3 MB, for the home hero. Slow rotation, one gold rim light, black glass catching it. That is the "direct, clean" hero.</li>
+    <li><b>Export GLB + USDZ</b>Into the product gallery as image five. Buyers on phones can spin the set and place it on their bathroom shelf.</li>
+    <li><b>Render the scenes</b>Four to six CGI stills: obsidian slab, wet black stone, gold ring light, mist. The Firefly concept in this repo is the right mood; the difference is that the labels will be pixel-accurate. That is the "insane" layer, and it doubles as your ad creative at 1:1, 4:5 and 9:16.</li>
+    <li><b>Shoot what CGI cannot fake</b>Half a day with a skincare texture photographer: balm being scooped, the cream's surface, both textures side by side, the founder's chest and back under studio light, ink at day 1 / day 14 / day 90.</li>
+    <li><b>Phase two, post-launch</b>A scroll-driven 3D product story in a custom section (Spline or Three.js). A$3–8k. Worth it once traffic is real, not before.</li>
+  </ol>
+  <div class="note"><b>Why CGI over AI image generation for the product itself.</b> Generated images garble label text and jar proportions. For a brand whose pitch is "built to a standard", the label on the hero must be the real label. Use AI for mood boards and background plates only.</div>
+  <h3>Product gallery, seven images in this order</h3>
+  <p>Sealed set packshot · open-jar texture top-down · hand in cream · box and card · 3D model · founder proof shot · ingredient panel. Seven, not nine. Drop the near-duplicates.</p>
+</section>
+
+<section id="numbers">
+  <div class="sec-head"><div class="eyebrow">07 · The numbers</div><h2>Ninety days of traffic to a <em>gate</em>.</h2></div>
+  <div class="kv">
+    <div><div class="k">Sessions · 90d</div><div class="v">4,601</div></div>
+    <div><div class="k">From Facebook</div><div class="v">84<small>%</small></div></div>
+    <div><div class="k">Landed on /password</div><div class="v">93<small>%</small></div></div>
+    <div><div class="k">Subscribed customers</div><div class="v">60<small>≈1.4% of gate visits</small></div></div>
+    <div><div class="k">Orders · 12 months</div><div class="v">41<small>34 at the studio counter</small></div></div>
+    <div><div class="k">Online revenue</div><div class="v">A$0<small>pre-launch</small></div></div>
+  </div>
+  <p>Mobile Australia is 3,520 sessions. The 512 desktop United States sessions are Meta's ad-review crawlers and bots; ignore them. Instagram sent 46, Google 14. Nothing arrived with a UTM tag, so none of it can be attributed to a specific ad.</p>
+  <p>The gate itself is well built. A dedicated pre-launch gate with a real offer should convert 5–12% of visitors to email. It converts 1.4% because the traffic being sent to it is not the buyer.</p>
+  <h3>Meta Ads, both accounts, last 90 days (A$)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Campaign</th><th>Account</th><th>Objective</th><th class="num">Spend</th><th class="num">Link clicks</th><th class="num">CPC</th><th class="num">CTR</th></tr></thead>
+    <tbody>
+      <tr><td>New Sales ad set</td><td>Benny (personal)</td><td>Sales</td><td class="num">1,400</td><td class="num">844</td><td class="num">0.61</td><td class="num">3.2%</td></tr>
+      <tr><td>Walk-Ins — Gold Coast + strip</td><td>Benny (personal)</td><td>Engagement</td><td class="num">415</td><td class="num">227</td><td class="num">0.76</td><td class="num">1.6%</td></tr>
+      <tr class="hl"><td>Post: "Years in the making"</td><td>Benny (personal)</td><td>Traffic</td><td class="num">351</td><td class="num">3,044</td><td class="num">0.10</td><td class="num">8.1%</td></tr>
+      <tr><td>Artists Wanted — AU</td><td>Benny (personal)</td><td>Engagement</td><td class="num">260</td><td class="num">203</td><td class="num">0.44</td><td class="num">3.0%</td></tr>
+      <tr class="hl"><td>Warm Entry v2 — "Years in the making"</td><td>TEL Collection Ads</td><td>Traffic</td><td class="num">195</td><td class="num">1,548</td><td class="num">0.11</td><td class="num">10.2%</td></tr>
+      <tr><td>Gold Coast 18–55 — Reach</td><td>Benny (personal)</td><td>Awareness</td><td class="num">161</td><td class="num">2</td><td class="num">2.64</td><td class="num">0.07%</td></tr>
+      <tr><td>Bookings — Mandala reel</td><td>Benny (personal)</td><td>Engagement</td><td class="num">158</td><td class="num">61</td><td class="num">1.05</td><td class="num">1.5%</td></tr>
+      <tr><td>Tel Collection — engagement</td><td>Benny (personal)</td><td>Engagement</td><td class="num">28</td><td class="num">13</td><td class="num">0.96</td><td class="num">2.7%</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>"Years in the making" is the winner.</b> Ten percent click-through at ten cents a click across two runs. The founder story, fifteen years, the full rework, is what the market responds to. Build the launch creative from it.</li>
+    <li><b>"New Sales" has spent A$1,400 optimising for purchases that cannot happen.</b> Pause it until Thursday, then relaunch with Purchase as the event and the Conversions API sending it.</li>
+    <li><b>Studio and TEL spend share one personal ad account.</b> Move all TEL spend, the pixel and the audiences into the TEL Collection Ads account so lookalikes are built from TEL buyers, not walk-in enquiries.</li>
+    <li><b>Targeting is flat 18 to 65+, both genders.</b> Highest CTR sits in 55+ (the classic accidental-tap pattern), lowest in 18–24. Nothing says "heavily tattooed, 22 to 40". That is why the gate converts at 1.4%.</li>
+  </ul>
+  <h3>Klaviyo, as of today</h3>
+  <p>Three live flows: Post-purchase Healing Guide (online), Post-purchase Healing Guide, Post-purchase Long Stage reorder. Segments scaffolded (engaged 30/60/90, VIP, repeat, churn risk). Zero sign-up forms. No welcome, abandoned checkout, browse abandonment or launch campaign. The main Email List is double opt-in, which will drop a share of every launch-day sign-up before they ever see the early-access email.</p>
+</section>
+
+<section id="launch">
+  <div class="sec-head"><div class="eyebrow">08 · Stage two</div><h2>Six days, then <em>ninety</em>.</h2></div>
+  <h3>Before Thursday, in this order</h3>
+  <ol class="steps">
+    <li><b>List</b>Switch Klaviyo's Email List to single opt-in for the launch window. Confirm gate sign-ups (tagged "newsletter" in Shopify) are syncing into Klaviyo; if not, import the 60 now.</li>
+    <li><b>Flows</b>Welcome (three emails: the standard, the ritual, the founder) · Abandoned checkout (three touches in 24 hours) · Browse abandonment (one touch) · Back in stock (for when the 500 close). Healing Guide and reorder flows are already live.</li>
+    <li><b>Launch sequence</b>T-2 "Doors open Thursday, you go first" · T-1 "The founding price, once" · Thursday 6am early-access link and password for 24 hours · Friday public open · Monday "sets remaining".</li>
+    <li><b>Tracking</b>Shopify's Facebook &amp; Instagram app with Conversions API for server-side Purchase events; retire the hand-rolled fallback pixel once confirmed. GA4 through the Google &amp; YouTube app. One UTM convention on every ad and email link: utm_source=meta · utm_medium=paid · utm_campaign=ch1-launch · utm_content=creative-name.</li>
+    <li><b>Site</b>One metal. One type system. Product page de-cluttered. Studio reviews moved. Gate review line corrected. Healing Guide in the main menu. Privacy Policy published or deleted. Ship v4's home order with v3's gold.</li>
+    <li><b>Ads</b>Pause "New Sales". Keep "Years in the making" running to the gate until Wednesday night. Build three launch ads: founder story video, CGI turntable, artist testimonial (Valerio).</li>
+    <li><b>Studio</b>Every client tattooed this week leaves with the Ritual Duo and a card carrying a QR to the Healing Guide and the review link. Those are your first verified reviews.</li>
+  </ol>
+  <div class="two">
+    <div><h3>Launch to day 30</h3><p>Meta Purchase campaign, three ad sets on separate budgets: founder story, CGI product, artist testimonial. Gold Coast and Brisbane first, then Sydney and Melbourne. A$100–150 a day. Targets: first 100 online orders, 30 verified reviews, cost per purchase under A$35. Review ask at day 14.</p></div>
+    <div><h3>Day 30 to 90</h3><p>Lookalikes from purchasers. Retarget engaged non-buyers. Google Shopping and brand search. Studio wholesale pilot: five studios, twelve sets each, a counter display. Second shoot from real customers' healed work. Then decide Chapter Two from reorder data (cream vs balm), sell-through and the studios' word.</p></div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="sec-head"><div class="eyebrow">09 · Targeted audiences</div><h2>Who buys a sixty-dollar <em>set</em>.</h2></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Audience</th><th>Why they buy</th><th>Reach them</th><th>Creative</th></tr></thead>
+    <tbody>
+      <tr><td><b>Squires Ink clients</b>, past 24 months</td><td>Already trust the founder; already have fresh or settled work</td><td>POS list, booking list, counter, email + SMS</td><td>"The thing I never had, for the work you sat through"</td></tr>
+      <tr><td><b>Fresh-ink buyers</b>, Gold Coast / Brisbane, 22–40</td><td>Just booked or just tattooed; searching what to use</td><td>Meta interests: tattoo artists, Australian Tattoo Expo, Inked, Tattoo Life, named AU artists; geo 40 km</td><td>Two stages, two formulas; the Healing Guide as the hook</td></tr>
+      <tr><td><b>Heavily tattooed collectors</b>, AU-wide</td><td>Spend thousands per piece; care about year three</td><td>Lookalike from purchasers once 100+; artist audiences</td><td>The rework story: laser, three days, two artists</td></tr>
+      <tr><td><b>Gift buyers</b></td><td>Partner or friend has a session booked</td><td>Meta, Google "tattoo gift"; studio counter</td><td>The sealed black box, "for the day after"</td></tr>
+      <tr><td><b>Artists and studios</b> (B2B)</td><td>Want their work to hold; want a product they respect at the counter</td><td>Direct outreach, conventions, wholesale page, artist code</td><td>Valerio's word; batch testing; margin sheet</td></tr>
+      <tr><td><b>Laser removal and rework clients</b></td><td>Higher pain, higher spend, underserved</td><td>Laser clinics, rework specialists, search</td><td>The founder's own back</td></tr>
+    </tbody>
+  </table></div>
+  <p>Avoid until the pixel has 50+ purchases: broad AU 18–65+, and interest-free Advantage+ audiences. They are what has been running.</p>
+</section>
+
+<section id="team">
+  <div class="sec-head"><div class="eyebrow">10 · Marketing team</div><h2>Lean, mostly freelance, founder stays the <em>face</em>.</h2></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Role</th><th>Who / how</th><th class="num">A$ / month</th><th>First 30-day output</th></tr></thead>
+    <tbody>
+      <tr><td>Brand + founder content</td><td>Benny</td><td class="num">—</td><td>Three Reels a week from the studio; every session a story</td></tr>
+      <tr><td>Performance media buyer</td><td>Freelance, Meta + Google (Upwork or local)</td><td class="num">1,500–3,000 + spend</td><td>Account restructure, launch campaigns, weekly report</td></tr>
+      <tr><td>Content creator / videographer</td><td>Local, one half-day a week in studio</td><td class="num">1,200–2,000</td><td>Textures, healed client work, founder pieces</td></tr>
+      <tr><td>3D / CGI artist</td><td>Project</td><td class="num">600–1,800 once</td><td>Model, turntable, six scenes, AR files</td></tr>
+      <tr><td>Email / CRM</td><td>This workflow + Klaviyo</td><td class="num">—</td><td>Flows, launch sequence, weekly numbers</td></tr>
+      <tr><td>Customer care</td><td>Studio front desk</td><td class="num">—</td><td>Same-day replies, review requests</td></tr>
+    </tbody>
+  </table></div>
+  <p>Weekly scorecard: sessions, sign-ups, orders, conversion rate, cost per purchase, verified reviews, sets remaining. The Friday numbers review already exists in this workspace; it becomes the team's meeting.</p>
+</section>
+
+<section id="gap">
+  <div class="sec-head"><div class="eyebrow">11 · The gap</div><h2>Elevated essentials, and the three refusals that <em>protect</em> it.</h2></div>
+  <p class="lede">The niche is real and it is measurable: premium price with luxury codes, in Australia, in tattoo aftercare. Nobody is standing there. Holding it is a matter of discipline more than spend.</p>
+  <div class="two">
+    <div>
+      <h3>What you own that nobody can copy</h3>
+      <ul>
+        <li><b>A working studio.</b> Hundreds of fresh pieces a year walk back through the door. That is a permanent product-testing and content pipeline no DTC brand can buy.</li>
+        <li><b>The founder's own body.</b> A back removed by laser and reworked over three days with two artists; a chest rebuilt across five full-day sessions. That is the proof the entire category lacks, and it is not reproducible.</li>
+        <li><b>The object.</b> Black glass, gold foil, a sealed box. In a market of tubs, tubes and kraft tins, the packaging alone does the positioning work.</li>
+        <li><b>The two-stage system.</b> Seal, then condition. Everyone else pairs a cleanser with a moisturiser. Your structure maps to the healing timeline and gives the price a reason.</li>
+        <li><b>Artists in the room.</b> Australian studio recommendations are fragmented and artist-by-artist. An artist-founded brand with a pro tier converts that into distribution without fighting Chemist Warehouse for shelf.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>The three refusals</h3>
+      <p>Every competitor in the category does all three of these. The moment TEL does any of them, the position collapses and it becomes another balm brand with nice packaging.</p>
+      <ol class="steps">
+        <li><b>No discount codes on the product</b>Mad Rabbit runs escalating subscription discounts and build-your-own bundles. Ink Nurse runs a Mega Bundle at A$139.99 against A$220 of "value". Discounting teaches the buyer to wait. The line is already on your page: no sales, no starter sizes, no half measures.</li>
+        <li><b>No single jars</b>The moment the balm is sold alone, the system argument dies and you are competing with Dr Pickles at A$22.50 in Coles. Sealed, never split, is the product.</li>
+        <li><b>No merch bundling</b>Caps, singlets and stickers belong to the studio and to later chapters, not stapled to Chapter One to lift an order value.</li>
+      </ol>
+      <div class="note"><b>Where the growth comes from instead.</b> Not discounting: a Recovery Cream refill subscription (nobody in Australia runs one), gifting with a note or engraving, the studio pro tier, and the second, third and fourth chapters. Movement, Threads, Vision and Collective are already sitting there as empty collections waiting to be earned.</div>
+    </div>
+  </div>
+  <p class="verdict">The brand is a nine. The site is a six wearing it. Six days is enough to close that.</p>
+</section>
+
+
+</main>
+<footer><div class="wrap">
+  <div class="mono">TEL</div>
+  <p style="margin-top:14px">Look after the art. Audit prepared from the live Shopify store, both Meta ad accounts, Klaviyo, and public competitor sites. Figures are as of 4 September 2026; competitor prices are as found on their sites and marked where estimated.</p>
+    <h3 style="font-size:20px;margin-top:36px">Principal sources</h3>
+  <ul class="sources">
+    <li><a href="https://mccrindle.com.au/article/tattoos-on-the-rise-among-aussies/">McCrindle · Tattoos on the rise among Aussies (2025)</a></li>
+    <li><a href="https://www.ibisworld.com/australia/number-of-businesses/tattoo-studios/5728/">IBISWorld · Tattoo studios in Australia</a></li>
+    <li><a href="https://www.imarcgroup.com/tattoo-aftercare-products-market">IMARC · Tattoo aftercare products market</a></li>
+    <li><a href="https://www.researchandmarkets.com/report/tattoo-aftercare-product">Research and Markets · Tattoo aftercare</a></li>
+    <li><a href="https://glow.com.au/best/tattoo-balm">GLOW · Best tattoo balm 2026</a></li>
+    <li><a href="https://www.tattlab.com.au/blogs/journal/best-tattoo-aftercare-products-australia-2026-the-professional-guide-to-skin-integrity">Tatt Lab · Best tattoo aftercare Australia 2026</a></li>
+    <li><a href="https://insidefmcg.com.au/2025/10/07/how-ink-nurse-turned-subculture-into-a-scalable-retail-category/">Inside FMCG · How Ink Nurse turned subculture into a retail category</a></li>
+    <li><a href="https://www.chemistwarehouse.com.au/shop-online/6329/ink-nurse">Chemist Warehouse · Ink Nurse range</a></li>
+    <li><a href="https://ink-nurse.com/products/ink-foam-nurse-care-pack">Ink Nurse · Healing Essentials Kit</a></li>
+    <li><a href="https://www.coles.com.au/product/dr-pickles-original-formula-tattoo-balm-75g-7048242">Coles · Dr Pickles Original Formula 75g</a></li>
+    <li><a href="https://drpickles.com/en-us/pages/tattoo-aftercare-packs">Dr Pickles · Aftercare packs</a></li>
+    <li><a href="https://aussieinked.com.au/collections/premium-tattoo-aftercare">Aussie Inked · Premium aftercare</a></li>
+    <li><a href="https://aftercarecollective.com.au/">Aftercare Collective · Conscious Tattoo Ritual Care</a></li>
+    <li><a href="https://penguintattooco.com.au/collections/all-aftercare">Penguin Tattoo Co · The Ritual Kit</a></li>
+    <li><a href="https://foranotherself.com/products/the-ritual-kit">For Another Self · The Ritual Kit</a></li>
+    <li><a href="https://www.tga.gov.au/resources/artg/328541">TGA · ARTG 328541 Bepanthen Tattoo</a></li>
+    <li><a href="https://www.tattoodirect.com.au/store/Hustle-Butter-Deluxe-5oz.html">Tattoo Direct · Hustle Butter Deluxe 5oz</a></li>
+    <li><a href="https://www.madrabbit.com/products/starter-pack">Mad Rabbit · Starter Set</a></li>
+    <li><a href="https://madrabbitpro.com/">Mad Rabbit Pro · wholesale</a></li>
+    <li><a href="https://www.modernretail.co/operations/it-used-to-be-look-at-these-two-shark-tank-kids-coming-to-monetize-our-industry-mad-rabbit-ceo-oliver-zak-on-gaining-acceptance-from-the-tattoo-community/">Modern Retail · Mad Rabbit and the tattoo community</a></li>
+    <li><a href="https://www.storiesandink.com/en-us/products/tattoo-aftercare-duo">Stories &amp; Ink · Aftercare Duo</a></li>
+    <li><a href="https://www.beautyindependent.com/target-tattoo-aftercare-stories-ink/">Beauty Independent · Stories &amp; Ink into Target</a></li>
+    <li><a href="https://www.sorrymomshop.com/products/sorry-mom-aftercare-kit">Sorry Mom · Aftercare Kit</a></li>
+    <li><a href="https://www.thequalityedit.com/articles/best-tattoo-aftercare">The Quality Edit · Harry's Tattoo Frost</a></li>
+    <li><a href="https://www.target.com/p/papatui-enhancing-tattoo-balm-unscented-2-fl-oz/-/A-89966551">Target · Papatui Enhancing Tattoo Balm</a></li>
+    <li><a href="https://www.shopify.com/blog/ar-shopping">Shopify · AR shopping and 3D models</a></li>
+    <li><a href="https://www.modelry.ai/blog/rebecca-minkoff-case-study">Modelry · Rebecca Minkoff 3D case study</a></li>
+    <li><a href="https://www.tga.gov.au/resources/guidance/determining-if-your-product-cosmetic-or-therapeutic-good">TGA · Cosmetic or therapeutic good</a></li>
+    <li><a href="https://www.industrialchemicals.gov.au/cosmetics-and-soap/cosmetics-and-therapeutics">AICIS · Cosmetics and therapeutics</a></li>
+    <li><a href="https://www.cellular-cosmetics.com/products/tattoo-aftercare-balm">Cellular Cosmetics · private-label tattoo balm</a></li>
+  </ul>
+  <p style="font-size:13px;color:var(--mute);margin-top:18px">Competitor sites, Chemist Warehouse and the Meta Ad Library could not be opened directly from the research environment, so prices come from search extracts and retailer listings. Cells marked as estimates should be confirmed in a browser before they go into any external material. Active competitor ad counts were not verifiable.</p>
+
+</div></footer>

@@ -177,3 +177,41 @@ The category splits into three: pharmacy (Bepanthen, clinical, cheap), streetwea
 Protect it by refusing three things competitors all do: discount codes on the product, single-jar sizes, and bundling with merch. The "no sales, no starter sizes" line is already on the page. Hold it.
 
 (Competitor detail and positioning map in the companion artifact.)
+
+---
+
+## 11. Competitor field (summary; full tables in `tel-launch-audit.html`)
+
+Twenty-eight brands checked. The Australian market splits four ways: pharmacy clinical (Bepanthen ~A$12/50g, ARTG-registered), supermarket natural (Dr Pickles A$22.50 at Coles/Woolworths; Ink Nurse A$34.99 across 600+ Chemist Warehouse stores), studio workhorse (Hustle Butter A$32.50/150ml, ProTat A$10/50g) and organic apothecary (Aftercare Collective, For Another Self, Penguin Tattoo Co, all Melbourne, all already using "ritual" language).
+
+**Price per ml (A$):** Mad Rabbit 0.57 · **TEL 0.50** · Papatui 0.51 · Stories & Ink 0.49 · Sorry Mom 0.43 · Ink Nurse 0.40 · Aussie Inked 0.36 · Dr Pickles 0.30 · Bepanthen 0.26 · Hustle Butter 0.22 · Harry's Tattoo Frost 0.13.
+
+**Finding:** no brand selling into Australia occupies premium price and luxury codes at the same time. The top-right quadrant is empty. Stories & Ink is the only scaled brand near it globally and is retail-coded, not black glass.
+
+**Kits:** every competitor kit pairs a cleanser with a moisturiser (Stories & Ink Duo ~A$52, Ink Nurse Essentials A$84.99, Mad Rabbit Starter ~A$90). Nobody sells a seal-then-condition two-stage set. That structure is the argument for the price.
+
+**Market:** 25% of Australians have a tattoo (McCrindle 2025; women 31%, men 19%; 61% have more than one). 1,860 studios, growing 4.5% a year (IBISWorld). Australian dedicated-aftercare retail estimated at A$10–15M a year. The premium tier above A$40 is effectively unserved.
+
+**Watch:** Harry's Tattoo Frost (2026) at A$0.13/ml; Stories & Ink's 800 Target + 600 Superdrug footprint could enter AU via Amazon or Adore; Ink Nurse owns "Australia's #1" volume language, so own "the considered choice" instead. Run a class 3 trademark search on "The Ritual Duo" given Aftercare Collective ("Conscious Tattoo Ritual Care") and Penguin ("The Ritual Kit").
+
+## 12. Their playbooks, TEL's counter-moves
+
+| Pattern | Who | TEL's move |
+|---|---|---|
+| Pharmacy/grocery shelf | Bepanthen, Ink Nurse, Dr Pickles | Refuse the shelf. "Five hundred sets. Not in pharmacies." Number the cards 001–500. |
+| Discount-led DTC | Ink Nurse bundles/codes, Mad Rabbit subs | Access replaces discount: first look, healing notes, priority on the next run. "Second Ritual" reorder at 6–8 weeks. Live sets-remaining counter. |
+| Studio wholesale | Ink Nurse kit/Faire/Guild, Dr Pickles A$7 tubes | You own a studio: Squires Ink as flagship, "Healed at Squires" monthly gallery, then 10–20 hand-picked "TEL Studios" with a 12-set black-glass cabinet, exclusive by suburb, no open wholesale. |
+| Ambassadors at scale | Mad Rabbit 7,000, Stories & Ink Artist Series | Artist Edition slip-case, 100 sets per artist, one per quarter. Proof is the artist's own client's healed piece. |
+| Convention sponsorship | Ink Nurse, Dr Pickles | Don't sponsor; tattoo. A working Squires Ink booth, Duo sold only to people tattooed there, healing documented. |
+| Short-form/UGC | Ink Nurse sale reels, Stories & Ink before/after | "One piece, four weeks" silent time-lapses with the founder's voice. One a week. Your own data: 10% CTR on the founder story. |
+| Natural/vegan/organic | Aussie Inked, Tattman, Aftercare Collective, etc. | Don't compete on "natural". Compete on function (occlusive then humectant) and object (black glass, gold foil). |
+| Attack SEO | Ink Nurse "truth about Bepanthen" | Don't attack. Healing notes by style that rank for "how to heal a [style] tattoo". Pitch GLOW/Tatt Lab as the premium pick (no luxury tier is listed). |
+| Reviews | Ink Nurse ~4★ Trustpilot | Photo-required reviews at week four. 100 photo reviews from the first 500. |
+
+## 13. Claims in Australia
+
+Cosmetic (AICIS/ACCC) as long as copy stays at cleanse, moisturise, protect, appearance. Therapeutic (ARTG) the moment it claims to prevent, treat, cure or change physiology. **Never:** heals, healing, speeds healing, treats, repairs, regenerates, antibacterial, antiseptic, prevents infection, reduces scarring, prevents scabbing, anti-inflammatory, medical grade, clinically proven, SPF/UV, wound, first aid. **Safe:** soothes, hydrates, nourishes, maintains the moisture barrier, protects, supports skin through the settling weeks, keeps fresh ink comfortable, helps ink look vivid. Beeswax rules out "vegan" for Restore Balm; petrolatum rules out "natural". Don't claim either.
+
+## 14. v4 mobile render
+
+`docs/tel-v4-mobile-render.html` is a mobile-first render of v4's section order with the same fonts, black and gold, pushed to maximum premium. Twelve changes, all achievable in Prestige before Thursday: one metal (gold, matched to the jar foil), scene hero with slow push-in, mono spec strip, product before founder, one light product plate, hairline price ledger with no variant picker or quantity stepper, numbered two-step ledger, sideways proof strip, founder as pull quote, a "500" sets-remaining meter wired to inventory, 56px full-width mono buttons, monogram-only blurred header.
