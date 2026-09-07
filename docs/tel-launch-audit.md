@@ -240,3 +240,52 @@ After, all draft: 12 branded templates; Welcome (3 emails, days 0/2/5); Abandone
 Decisions left to the owner: single opt-in for launch week, the early-access password, the day-four sets count, and confirming the dedicated sending domain.
 
 Connectors: Shopify, Klaviyo, Meta Ads and Facebook/Instagram Insights (Supermetrics), Xero (Squires Ink org; add a TEL tracking category), Google Drive (shoot assets present), Gmail, Calendar, Square, Mailchimp, GitHub connected. Not connected: GA4 (biggest gap; not installed on the store either), Google Ads, TikTok. Notion connected but empty.
+
+---
+
+## 7 September — v6 reviewed, the hero swapped, v6.1 built
+
+**Context.** Ben built **TEL v6 — LAUNCH CANDIDATE (Thu 10 Sep)** (`142936834111`) on top of the v5 sections: real shoot photography in every slot, a reviews section wired to Judge.me, the credential box on the founder band, a live "sets remaining" line under the buy button, the Healing Guide linked from the steps band, and "seventeen years" made consistent. He likes where it is heading and asked for (a) the v5 hero photo, writing and placement on top, (b) the Aim part sorted, (c) an overall premium tune-up.
+
+**What was done.** v6 is untouched. It was duplicated to **TEL v6.1 — v5 hero + premium tune-up (DRAFT)** (`gid://shopify/OnlineStoreTheme/142983823423`, unpublished) and the changes below were written there. Files changed vs v6: `templates/index.json`, `templates/page.json`, `sections/header-group.json`, `sections/tel-hero.liquid` — mirrored in `theme/v6.1/`.
+
+Compare render (three phones, v5 · v6 · v6.1, rendered from source with the shoot images): `docs/tel-v5-v6-compare.html`.
+
+### The hero swap
+- The scene render (`docs/assets/tel-scene-hero.jpg`, 1200×1797) was uploaded to Shopify **Files** as `tel-chapter-one-scene-hero.jpg` (MediaImage `29840071426111`, alt text set) so the section serves responsive 800–1200 px copies with `fetchpriority=high`, instead of the raw 220 KB theme asset.
+- Hero settings: image = scene, no separate mobile image, mobile focal **top (50% 0%)**, desktop focal **centre (50% 50%)**, height 700 / 860, veil 86, push-in on. Eyebrow, heading ("Earned. Not *given*.") and "Shop the Ritual" are v5's and were already identical in v6; placement (low-left, 32 px / 72 px) unchanged.
+- `tel-hero.liquid` gained a **Desktop focal point** select (upper third / upper-centre = v6's hard-coded value / centre / lower-centre). Note: Shopify validates JSON templates against the section schema at write time — the new setting had to be sent *after* the section file, or it is silently stripped.
+
+### Tune-up applied in v6.1 (no copy changed)
+1. Announcement bar: one 73-character message wrapped to two rows on phones → two messages, rotating every 5 s: "CHAPTER ONE · NOW OPEN · FIVE HUNDRED SETS" / "FREE SHIPPING AUSTRALIA-WIDE · SHIPS FROM SURFERS PARADISE".
+2. Spec strip: back to three facts. "Free shipping" appeared four times on one page (bar, strip, price ledger, footer icons).
+3. Background rhythm: strict alternation product · *steps* · proof · *reviews* · chair · *founder* · aim · *chapter* · newsletter (steps now lifted). v6 had founder and chapter both lifted, back to back.
+4. **Our aim band** (`tel_aim`, type `tel-band`, no image) after the founder: eyebrow "Our aim", heading "Built on discipline. Driven by *purpose*.", pull quote "TEL isn't a brand you buy once. It's a standard you choose.", two lines from the page, outline button → `/pages/about`.
+5. **Page template**: Our Aim, The Founder, Trusted By and The Healing Guide all carry their own `<h1>` inside custom HTML; the default `page.json` was printing the page title above them as a second centred heading inside an extra-small column. `show_title: false`, `page_width: lg`. Page bodies untouched; nothing live changed.
+6. Desktop focal control on the hero (above).
+7. Live numbers verified: variant inventory 450 of 500; Judge.me metafields `reviews.rating_count` = 6, `reviews.rating` = 5.0 (the ledger hides itself at zero).
+8. `sections/tel-spec-strip-probe.liquid` is already neutralised in v6 (no preset, never listed in the section picker); deletion in the code editor is the only remaining step.
+
+### Ben's call (not changed)
+- Proof heading "We live and breathe tattoos — we know chemistry." is the only non-declarative heading and runs three lines on a phone. Alternative: "Tested. Not *claimed*." with the current line as the sub.
+- "Trusted by" as a button label reads unfinished — "From the Chair" (already used on the Founder page for the same link) or "The artists".
+- Founder band body is three paragraphs on a phone; the middle one is the one to cut.
+- Klaviyo list is still double opt-in (carried from the last audit).
+- Desktop hero: portrait scene crops to box + plinth on 16:9. If the landscape shoot is preferred on desktop, set Image = sealed-set r1 and Mobile image = scene (both pickers exist).
+
+### Ranking, out of ten
+
+| Axis | v5 | v6 | v6.1 |
+|---|---|---|---|
+| Look | 8.5 | 8.0 | **9.0** |
+| Feel | 8.5 | 8.5 | **9.0** |
+| Style | 8.5 | 8.5 | **9.0** |
+| Vision & retention | 8.0 | 8.5 | **9.0** |
+| Launch readiness | 6.5 | 8.5 | **9.0** |
+| **Overall** | 8.0 | 8.4 | **9.0** |
+
+Publish v6.1 as the Thursday theme.
+
+### Housekeeping
+- Seven `assets/zz-render-tmp-*.jpg` (600–900 px copies of the shoot images) were parked in the superseded **v5** draft theme (`142920974399`) purely to pull the images into the compare render, because the sandbox cannot reach the Shopify CDN and the API cannot delete theme files. Delete the v5 theme once v6.1 is approved.
+- Links: editor `https://admin.shopify.com/store/iw0xvm-v5/themes/142983823423/editor` · preview `https://telcollection.com.au/?preview_theme_id=142983823423` · Our Aim on v6.1 `https://telcollection.com.au/pages/about?preview_theme_id=142983823423`.
