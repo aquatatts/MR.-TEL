@@ -264,11 +264,11 @@ Compare render (three phones, v5 · v6 · v6.1, rendered from source with the sh
 5. **Page template**: Our Aim, The Founder, Trusted By and The Healing Guide all carry their own `<h1>` inside custom HTML; the default `page.json` was printing the page title above them as a second centred heading inside an extra-small column. `show_title: false`, `page_width: lg`. Plain-text pages that use the "page" template suffix (Shipping & Returns; Privacy Policy when published) keep their title through a new `templates/page.page.json` (`show_title: true`, `page_width: sm`). FAQs carries its own h1 and was moved from the "page" suffix to the default template — neither the live v3 theme nor v6 has a `page.page.json`, so both pages already resolved to `page.json` there and nothing visible changed on the live site. Page bodies untouched.
 6. Desktop focal control on the hero (above).
 7. Live numbers verified: variant inventory 450 of 500; Judge.me metafields `reviews.rating_count` = 6, `reviews.rating` = 5.0 (the ledger hides itself at zero).
+9. **Proof heading** (approved 7 Sep): "Tested. Not *claimed*." — the former heading leads the sub: "We live and breathe tattoos — we know chemistry. Both ingredient lists published in full, in order, exactly as they read on the jar. Nothing in there we can't explain."
+10. **Chair band button** (approved 7 Sep): "Trusted by" → "The artists" (same link; the band's eyebrow is already "From the chair").
 8. `sections/tel-spec-strip-probe.liquid` is already neutralised in v6 (no preset, never listed in the section picker); deletion in the code editor is the only remaining step.
 
 ### Ben's call (not changed)
-- Proof heading "We live and breathe tattoos — we know chemistry." is the only non-declarative heading and runs three lines on a phone. Alternative: "Tested. Not *claimed*." with the current line as the sub.
-- "Trusted by" as a button label reads unfinished — "From the Chair" (already used on the Founder page for the same link) or "The artists".
 - Founder band body is three paragraphs on a phone; the middle one is the one to cut.
 - Klaviyo list is still double opt-in (carried from the last audit).
 - Desktop hero: portrait scene crops to box + plinth on 16:9. If the landscape shoot is preferred on desktop, set Image = sealed-set r1 and Mobile image = scene (both pickers exist).

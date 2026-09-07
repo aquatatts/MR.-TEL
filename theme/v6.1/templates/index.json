@@ -165,8 +165,8 @@
       ],
       "settings": {
         "eyebrow": "The chemistry",
-        "heading": "We live and breathe tattoos — we know <em>chemistry</em>.",
-        "sub": "Both ingredient lists published in full, in order, exactly as they read on the jar. Every batch tested, not claimed. Nothing in there we can't explain.",
+        "heading": "Tested. Not <em>claimed</em>.",
+        "sub": "We live and breathe tattoos — we know chemistry. Both ingredient lists published in full, in order, exactly as they read on the jar. Nothing in there we can't explain.",
         "aria": "Batch testing"
       }
     },
@@ -235,7 +235,7 @@
         "body": "<p>Calabria to the Gold Coast. Best Realism Piece, Caserta 2019. The artist currently working the founder's chest, session after session, with the Ritual on the counter beside him.</p><p>No payment. No free product. No arrangement. His words are his own.</p>",
         "ornament": false,
         "mono_line": "",
-        "button_text": "Trusted by",
+        "button_text": "The artists",
         "button_url": "shopify://pages/trusted-by",
         "button_solid": false
       }
