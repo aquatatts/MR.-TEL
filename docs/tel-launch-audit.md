@@ -289,3 +289,26 @@ Publish v6.1 as the Thursday theme.
 ### Housekeeping
 - Seven `assets/zz-render-tmp-*.jpg` (600–900 px copies of the shoot images) were parked in the superseded **v5** draft theme (`142920974399`) purely to pull the images into the compare render, because the sandbox cannot reach the Shopify CDN and the API cannot delete theme files. Delete the v5 theme once v6.1 is approved.
 - Links: editor `https://admin.shopify.com/store/iw0xvm-v5/themes/142983823423/editor` · preview `https://telcollection.com.au/?preview_theme_id=142983823423` · Our Aim on v6.1 `https://telcollection.com.au/pages/about?preview_theme_id=142983823423`.
+
+---
+
+## 7 September, evening — Klaviyo and the launch emails
+
+Audit of what actually sends (Klaviyo clones a library template into every flow and campaign message, so the sending copies have their own IDs), then the fixes.
+
+**State found.** Welcome (3 emails) and Abandoned checkout (3 emails) flows are live; Post-purchase Healing Guide (studio and online variants) and Long Stage reorder are live; Back-in-stock and Browse-abandonment are draft. Two campaigns were already scheduled by Ben: *Doors Open — Founding Price* (9am Thu 10 Sep) and *Founding Price Closes* (9am Mon 14 Sep), both to the segment "TEL — Emailable (subscribed)", both driving the TELTAKEOVER code ($9.96 off → $49.99, once per customer, live midnight Thu 10 to 11:59pm Mon 14 Sep AEST, verified in Shopify).
+
+**Fixed.**
+1. "Fifteen years" → "seventeen" in the live Welcome 2, Healing Guide (studio) and Healing Guide (online) emails, and their library templates.
+2. Online post-purchase email said "you picked up the Ritual Duo yesterday" to people who ordered online; now reads as a delivery.
+3. Long Stage reorder email claimed the set "has never been discounted and it will not be" — contradicted the founding price. Now: "the founding price was a one-time thanks to the people who were first through the door, and it will not run again."
+4. The two scheduled launch emails rebuilt in the house design (logo, scene hero, Cormorant headings, gold button) with Ben's copy and offer unchanged; swapped in without unscheduling. Sends unchanged: Thu 9am, Mon 9am.
+5. Draft T-1 (Wed 9am) rewritten to match the founding-price plan ($49.99 list-only until midnight Monday, then $59.95); no site link because the store is still password-gated on Wednesday. Draft T+3 moved from Monday 7am to **Saturday 12 Sep 9am** so it no longer lands two hours before the Monday last-call, and now carries the founding-price deadline and button. Both drafts moved to the same "Emailable" segment as Ben's sends. T+3 still has the `[###]` count placeholder — fill from Shopify on Saturday morning before scheduling.
+
+**Cadence.** Wed 9am T-1 (draft) → Thu 9am Doors Open (scheduled) → Fri 10am Review ask to August studio buyers (draft) → Sat 9am Sets remaining (draft) → Mon 9am Founding closes (scheduled).
+
+**Still to do before Thursday.**
+- **Klaviyo on-site tracking is not enabled in any theme** (no app embed in v3, v6 or v6.1). The popup form and browse-abandonment cannot fire until it is on: theme editor → App embeds → Klaviyo → toggle on. One click, in v6.1 before publishing.
+- Email List still double opt-in → single.
+- Publish the popup form (draft) once the embed is on.
+- Schedule T-1, Review ask and T+3 (all draft, times set).
