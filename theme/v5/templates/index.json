@@ -1,0 +1,227 @@
+{
+  "sections": {
+    "tel_hero": {
+      "type": "tel-hero",
+      "settings": {
+        "focal": "50% 0%",
+        "mobile_height": 700,
+        "desktop_height": 860,
+        "veil": 86,
+        "kenburns": true,
+        "eyebrow": "Chapter One · Look after the art",
+        "heading": "Earned. Not <em>given</em>.",
+        "button_text": "Shop the Ritual",
+        "button_url": "shopify://products/tattoo-aftercare-kit"
+      }
+    },
+    "tel_spec": {
+      "type": "tel-spec-strip",
+      "blocks": {
+        "s1": {
+          "type": "item",
+          "settings": {
+            "text": "60 ml × 2"
+          }
+        },
+        "s2": {
+          "type": "item",
+          "settings": {
+            "text": "Sealed as a set"
+          }
+        },
+        "s3": {
+          "type": "item",
+          "settings": {
+            "text": "First run of five hundred"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {}
+    },
+    "tel_product": {
+      "type": "tel-product",
+      "settings": {
+        "product": "tattoo-aftercare-kit",
+        "use_product_image": false,
+        "eyebrow": "The Ritual Duo",
+        "heading": "Sealed, because the routine is the <em>product</em>.",
+        "lead": "<p>One set. Two formulas. Restore Balm for fresh work. Recovery Cream for the second stage and the months after.</p>",
+        "body": "<p>Detailed work needs both. No single product does the job, so they don't come apart. Not as a discount. As a discipline.</p>",
+        "shipping_line": "Free shipping · Australia-wide",
+        "button_text": "Shop the Ritual",
+        "micro_1": "Ships in 1–2 days from Surfers Paradise",
+        "micro_2": "Sealed sets · Never sold apart"
+      }
+    },
+    "tel_steps": {
+      "type": "tel-steps",
+      "blocks": {
+        "one": {
+          "type": "step",
+          "settings": {
+            "label": "Step one · Days 1–14",
+            "name": "Restore Balm",
+            "descriptor": "Richer · Sealing · Protective",
+            "body": "<p>A concentrated balm that lays down a protective layer and holds moisture in while the work closes over. Thin layer, clean dry skin, morning and night.</p>"
+          }
+        },
+        "two": {
+          "type": "step",
+          "settings": {
+            "label": "Step two · The months after",
+            "name": "Recovery Cream",
+            "descriptor": "Calm · Condition · Refresh",
+            "body": "<p>A lighter daily cream that sinks in fast to hydrate and soothe while the work settles. The stage most people skip. Don't.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "one",
+        "two"
+      ],
+      "settings": {
+        "eyebrow": "Why two",
+        "heading": "Two stages. Two <em>formulas</em>.",
+        "intro": "<p>Fresh work needs sealing. Settling work needs conditioning. The balm is too heavy for the second stage; the cream too light for the first.</p>",
+        "outro": "<p>Heavy, detailed work uses both, layered. Fifteen years in the chair says one product can't do it. That is why they're sealed together.</p>",
+        "button_text": "The full protocol",
+        "button_url": "shopify://products/tattoo-aftercare-kit"
+      }
+    },
+    "tel_studio": {
+      "type": "tel-band",
+      "settings": {
+        "alt": true,
+        "image": "shopify://shop_images/telfounderretailcabinet.jpg",
+        "image_position": "start",
+        "focal": "50% 30%",
+        "eyebrow": "The studio",
+        "heading": "Built at the counter of a working <em>studio</em>.",
+        "quote": "",
+        "attr_name": "",
+        "attr_role": "",
+        "body": "<p>Every piece that leaves this counter comes back through it. We see what holds, what fades, and what it was looked after with. Hundreds of times a year.</p><p>So we built the thing that couldn't be bought.</p>",
+        "ornament": true,
+        "mono_line": "Squires Ink · Orchid Avenue · Surfers Paradise",
+        "button_text": "Our aim",
+        "button_url": "shopify://pages/about",
+        "button_solid": false
+      }
+    },
+    "tel_proof": {
+      "type": "tel-proof",
+      "blocks": {
+        "p1": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "title": "Heavy metals",
+            "text": "Not detected. Lead, arsenic, mercury, cadmium, bismuth."
+          }
+        },
+        "p2": {
+          "type": "item",
+          "settings": {
+            "icon": "check",
+            "title": "Microbiology",
+            "text": "No pathogenic micro-organisms."
+          }
+        },
+        "p3": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "title": "pH 6.7",
+            "text": "Measured on batch."
+          }
+        },
+        "p4": {
+          "type": "item",
+          "settings": {
+            "icon": "clock",
+            "title": "Three years",
+            "text": "Shelf life."
+          }
+        },
+        "p5": {
+          "type": "item",
+          "settings": {
+            "icon": "document",
+            "title": "ISO 22716 · GMP",
+            "text": "Held at the manufacturing site."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "settings": {
+        "aria": "Batch testing"
+      }
+    },
+    "tel_founder": {
+      "type": "tel-band",
+      "settings": {
+        "alt": false,
+        "image": "shopify://shop_images/tel-founder-back-work-skyline.jpg",
+        "image_position": "end",
+        "focal": "50% 15%",
+        "eyebrow": "The founder",
+        "heading": "Fifteen years under the <em>needle</em>.",
+        "quote": "Nothing goes on a client's skin that has not been proven on my own first.",
+        "attr_name": "Benny Aquilina",
+        "attr_role": "Collector of fifteen years · Owner, Squires Ink",
+        "body": "<p>TEL was not built at a distance. It was built at the counter of a working studio on Orchid Avenue, by a collector who has taken work from Sydney to Bali and still sits in the chair today.</p>",
+        "ornament": false,
+        "mono_line": "",
+        "button_text": "The founder",
+        "button_url": "shopify://pages/founder",
+        "button_solid": false
+      }
+    },
+    "tel_chapter": {
+      "type": "tel-chapter",
+      "settings": {
+        "eyebrow": "Chapter One",
+        "numeral": "500",
+        "heading": "Five hundred <em>sets</em>.",
+        "body": "<p>Doors open Thursday 10 September. Sealed, never sold apart. When they're gone, Chapter One closes.</p>",
+        "product": "tattoo-aftercare-kit",
+        "run_size": 500,
+        "show_meter": true,
+        "meter_label": "Sets remaining"
+      }
+    },
+    "tel_newsletter": {
+      "type": "tel-newsletter",
+      "settings": {
+        "eyebrow": "First access",
+        "heading": "You trusted it on your <em>skin</em>.",
+        "body": "<p>Hundreds of fresh pieces through the studio. One standard. Chapter Two gets named when it's ready, and you hear first.</p>",
+        "placeholder": "Your email address",
+        "button_text": "Join",
+        "micro": "One email when it opens. Nothing else."
+      }
+    }
+  },
+  "order": [
+    "tel_hero",
+    "tel_spec",
+    "tel_product",
+    "tel_steps",
+    "tel_studio",
+    "tel_proof",
+    "tel_founder",
+    "tel_chapter",
+    "tel_newsletter"
+  ]
+}
