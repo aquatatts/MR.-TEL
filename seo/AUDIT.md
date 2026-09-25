@@ -1,9 +1,11 @@
 # SEO Audit — TEL Collection & Squires Ink
 
-**Date:** 2026-08-16
-**Scope:** `telcollection.com.au` (Shopify Basic, AUD, AEST) + Squires Ink (Squarespace/Wix — *domain pending*)
+**Date:** 2026-08-16 · **re-checked 2026-09-25**
+**Scope:** `telcollection.com.au` (Shopify Basic, AUD, AEST) + `www.squiresink.com` (Surfers Paradise, QLD)
 **Priority:** Both properties, weighted toward local search
-**Status:** Phase 1 complete (Shopify data layer). Phases 2–4 blocked on access — see [Blockers](#blockers).
+**Status:** Phase 1 complete (Shopify data layer). **Phase 4 complete — see [`squires-ink-local.md`](./squires-ink-local.md).**
+Phases 2–3 still blocked on access — see [Blockers](#blockers).
+**Re-checked 2026-09-25 — see [§6 Re-check](#6-re-check-2026-09-25).**
 
 ---
 
@@ -132,14 +134,20 @@ audit dimensions once the URL is available:
 
 ## 4. Blockers
 
-| # | Blocker | Owner | Unblocks |
+Status as at **2026-09-25**.
+
+| # | Blocker | State | Unblocks |
 |---|---|---|---|
-| B-1 | Squires Ink domain unknown | You | All of §3 |
-| B-2 | Egress proxy blocks `telcollection.com.au` (403 at CONNECT) | You — allowlist in environment network policy | Rendered titles, canonicals, Product JSON-LD, OG tags, `robots.txt`, `sitemap.xml`, Core Web Vitals |
-| B-3 | Google Search Console `NOT_AUTHENTICATED` | You — connect | Queries, impressions, CTR, index coverage, F-5 confirmation |
-| B-4 | Google Analytics 4 `NOT_AUTHENTICATED` | You — connect | Organic landing pages, conversion paths |
-| B-5 | Shopify app missing `read_product_listings` | You — re-auth with scope | Definitive answer on F-1 |
-| B-6 | No backlink tool connected | — | Off-page analysis (out of scope unless Ahrefs/Semrush available) |
+| B-1 | Squires Ink domain | ✅ **resolved** — `www.squiresink.com` | Phase 4 (done via Business Profile) |
+| B-2 | Egress proxy blocks both domains | ❌ **still blocked** — 403 at CONNECT for `telcollection.com.au` and `www.squiresink.com` | Rendered titles, canonicals, JSON-LD, OG tags, `robots.txt`, `sitemap.xml`, Core Web Vitals, Squarespace-vs-Wix, service-page inventory |
+| B-3 | Google Search Console | ❌ **still `NOT_AUTHENTICATED`** | Queries, impressions, CTR, index coverage, F-5 confirmation |
+| B-4 | Google Analytics 4 | ⚠️ **authenticated but unusable** — `LICENSE_DATA_SOURCE_NOT_AVAILABLE` on Supermetrics licence 1890836. Also: only a **Squires Ink** property is connected, none for TEL Collection | Organic landing pages, conversion paths |
+| B-5 | Shopify app missing `read_product_listings` | ➖ **moot** — F-1 answered another way (`onlineStoreUrl` now populated) | — |
+| B-6 | No backlink tool connected | ❌ unchanged | Off-page analysis (out of scope unless Ahrefs/Semrush available) |
+
+Sources that **are** live and licensed: Google Business Profile (`GMB`), Google Ads (`AW`),
+Facebook Ads (`FA`), Instagram Insights (`IGI`), plus Shopify, Klaviyo and Square via their own
+connectors.
 
 ---
 
@@ -168,3 +176,64 @@ Prioritised 90-day plan across both properties, effort vs. impact.
 All Phase 1 findings were read directly from the Shopify Admin GraphQL API against the connected
 `TEL Collection` store on 2026-08-16. No live-site crawling was possible (B-2). No figure in this
 document is estimated or inferred from outside that data; anything unverified is labelled as such.
+
+---
+
+## 6. Re-check 2026-09-25
+
+The store was re-read against the Shopify Admin API six weeks after Phase 1. Real movement.
+
+### Fixed
+
+| # | Was | Now |
+|---|---|---|
+| **F-1** 🔴 | `onlineStoreUrl` null on the only ACTIVE product — possibly unpublished | ✅ **Resolved.** Live at `https://telcollection.com.au/products/tattoo-aftercare-kit`. The product is published to Online Store. The critical finding is closed. |
+| **F-3** 🟠 | Shipping and Returns, Privacy Policy, FAQs all unpublished | ⚠️ **Two of three fixed.** `shipping-and-returns` ✅ published, `faqs` ✅ published, **`privacy-policy` still unpublished**. |
+
+### Still open, unchanged
+
+| # | Finding |
+|---|---|
+| **F-2** 🟠 | All six collections still have `seo.title: null` and `seo.description: null`. Drafts have been sitting in [`fixes.md`](./fixes.md) since August. |
+| **F-4** 🟠 | `movement`, `threads`, `vision`, `collective` still hold zero products and are still live. |
+| **F-5** 🟡 | `restore-balm` and `recovery-cream` still ARCHIVED, still no redirects confirmed. |
+| **F-6** 🟡 | `/collections/frontpage` unchanged. |
+
+### New since Phase 1
+
+**F-15 🟠 — A published page changed its URL.**
+
+"The Healing Guide" is now **"The Aftercare Guide"**, and the handle moved with it:
+
+```
+/pages/healing-guide   →   /pages/aftercare-guide
+```
+
+If the old URL had picked up any indexing or inbound links, it is now a 404. Add a redirect under
+**Online Store → Navigation → URL Redirects**:
+
+| From | To |
+|---|---|
+| `/pages/healing-guide` | `/pages/aftercare-guide` |
+
+This costs nothing and is safe to add whether or not the old URL was ever indexed. Note that
+Search Console is the only way to confirm whether it *was* — which is B-3.
+
+**F-16 🟡 — Product copy and page title drifted; check nothing else points at the old names.**
+
+- `about` page retitled "About" → **"Our Aim"** (handle unchanged, so no redirect needed).
+- The product's SEO description changed "Recovery Cream for the **years** after" → "the **months**
+  after", and "a collector of **fifteen** years" → "**seventeen** years".
+
+Both are fine in themselves. Worth one pass over internal links and the Aftercare Guide to make
+sure nothing still links to `/pages/healing-guide` or refers to the guide by its old name — the
+product description contained a hard-coded `/pages/founder` link in August, so hand-written
+internal links do exist in this store.
+
+### Revised priority
+
+1. **F-2** — apply the collection metadata. Drafted, waiting six weeks, zero risk.
+2. **F-15** — add the healing-guide redirect. One line.
+3. **F-3** — publish the privacy policy.
+4. **F-4** — noindex the four empty collections.
+5. **F-5 / F-16** — redirects and internal-link pass.
