@@ -1,0 +1,258 @@
+# SEO Audit — TEL Collection & Squires Ink
+
+**Date:** 2026-08-16 · **re-checked 2026-09-25**
+**Scope:** `telcollection.com.au` (Shopify Basic, AUD, AEST) + `www.squiresink.com` (Surfers Paradise, QLD)
+**Priority:** Both properties, weighted toward local search
+**Status:** Phase 1 complete (Shopify data layer). **Phase 4 complete — see [`squires-ink-local.md`](./squires-ink-local.md).**
+Phases 2–3 still blocked on access — see [Blockers](#blockers).
+**Re-checked 2026-09-25 — see [§6 Re-check](#6-re-check-2026-09-25).**
+
+---
+
+## 1. Executive summary
+
+TEL Collection is a **one-product store**: three products exist, two are archived, and a single
+sealed set (`The Ritual Duo`) is sellable. Six collections exist; four contain zero products.
+
+That shape dictates the strategy. There is no catalogue to optimise, so organic growth has to come
+from **content depth** (The Healing Guide, the founder story, aftercare long-tail) and — for Squires
+Ink — **local search**, where a Surfers Paradise studio can realistically win the map pack.
+
+The product page itself is well optimised. The problems are everything *around* it.
+
+---
+
+## 2. Findings — TEL Collection
+
+### 🔴 Critical (verify before anything else)
+
+**F-1 — Active product may not be published to the Online Store channel.**
+
+`onlineStoreUrl` returns `null` for all three products, including the ACTIVE one. That field is
+normally populated for any product published to Online Store. If the product genuinely isn't
+published, it is not crawlable, not indexable, and not purchasable — which would make every other
+finding in this document irrelevant until fixed.
+
+*Not confirmed.* The connected Shopify app lacks the `read_product_listings` scope, so
+`publishedOnCurrentPublication` and `resourcePublications` could not be read.
+
+> **Action:** Shopify admin → Products → The Ritual Duo → **Publishing** → confirm *Online Store*
+> is ticked. Also confirm the storefront is not password-protected (Online Store → Preferences).
+
+---
+
+### 🟠 High
+
+**F-2 — Every collection is missing its SEO title and meta description.**
+
+All six collections return `seo.title: null` and `seo.description: null`. Google is generating
+snippets unaided on every category page. Drafted replacements: [`fixes.md`](./fixes.md).
+
+| Collection | Handle | Products | SEO title | Meta description |
+|---|---|---:|---|---|
+| Home page | `frontpage` | 1 | ❌ | ❌ |
+| Ritual | `ritual` | 1 | ❌ | ❌ |
+| Movement | `movement` | 0 | ❌ | ❌ |
+| Threads | `threads` | 0 | ❌ | ❌ |
+| Vision | `vision` | 0 | ❌ | ❌ |
+| Collective | `collective` | 0 | ❌ | ❌ |
+
+**F-3 — Three trust pages are unpublished.**
+
+`Shipping and Returns`, `Privacy Policy`, and `FAQs` all have `isPublished: false`.
+
+For a product applied to broken skin, policy and trust pages carry real E-E-A-T weight, and buyers
+look for them before a first purchase. `FAQs` is also the cheapest long-tail content on the site —
+"how long does a tattoo take to heal", "can I use moisturiser on a new tattoo", and similar queries
+map directly onto FAQ entries and are eligible for rich results.
+
+**F-4 — Four empty collections are live.**
+
+`Movement`, `Threads`, `Vision`, and `Collective` each hold zero products and carry only a
+"Coming soon" line. On a site with one sellable product, four thin pages meaningfully dilute
+crawl signal and risk a thin-content assessment.
+
+> **Recommendation:** `noindex` them (or remove from navigation and the sitemap) until each holds
+> real stock. Do not write SEO metadata for pages that should not be indexed — that is why
+> `fixes.md` deliberately omits them.
+
+---
+
+### 🟡 Medium
+
+**F-5 — Archived products need redirects.**
+
+`Restore Balm` (`/products/restore-balm`) and `Recovery Cream` (`/products/recovery-cream`) are
+ARCHIVED. Archived Shopify products return 404. If either URL was ever indexed or linked, add
+301 redirects to `/products/tattoo-aftercare-kit` to preserve equity and avoid soft-404s.
+
+*Depends on:* Search Console coverage data to confirm whether these were ever indexed.
+
+**F-6 — `/collections/frontpage` is a duplicate-content risk.**
+
+The `frontpage` collection has no description and no SEO fields, and typically surfaces the same
+product as the homepage. Canonicalise to `/` or `noindex`.
+
+---
+
+### 🟢 Working well — keep
+
+- **Product SEO on The Ritual Duo is genuinely strong.** The SEO title
+  (`Tattoo Aftercare Kit | The Ritual Duo — TEL Collection`) leads with the category term rather
+  than the brand name, and the handle is `tattoo-aftercare-kit` rather than `the-ritual-duo`.
+  That is the correct trade — search volume sits on the category, not the product name.
+- **Descriptive image alt text** on the featured media.
+- **The Healing Guide** (`/pages/healing-guide`) is a strong topical asset and the natural hub for
+  an aftercare content cluster.
+- **The Founder** (`/pages/founder`) — a named practitioner with fifteen years of first-hand
+  experience and studio ownership is exactly the experience signal Google's guidelines reward.
+  This is an under-exploited asset.
+
+---
+
+## 3. Squires Ink — pending
+
+**Blocked: domain not yet supplied.** Platform confirmed as Squarespace/Wix.
+
+A tattoo studio in Surfers Paradise competes in the local pack, not in classic organic. Planned
+audit dimensions once the URL is available:
+
+- **Google Business Profile** — category accuracy, service list, hours, booking link, photo
+  cadence, Q&A, post frequency
+- **Reviews** — volume, velocity, response rate, keyword content
+- **NAP consistency** — name/address/phone identical across GBP, site, socials, and AU directories
+  (True Local, Yellow Pages, Hotfrog, Localsearch)
+- **On-site local signals** — `LocalBusiness` / `TattooParlor` schema, embedded map, address in
+  footer, location-qualified titles
+- **Service-page coverage** — cover-ups, full back, sleeves, laser removal, walk-ins, and
+  Gold Coast / Surfers Paradise geo-modified variants
+- **Artist pages** — individual artist profiles are a reliable long-tail and portfolio-search win
+- **Cross-property link** — Squires Ink → TEL Collection is a natural, relevant internal link
+  between two genuinely related properties
+
+---
+
+## 4. Blockers
+
+Status as at **2026-09-25**.
+
+| # | Blocker | State | Unblocks |
+|---|---|---|---|
+| B-1 | Squires Ink domain | ✅ **resolved** — `www.squiresink.com` | Phase 4 (done via Business Profile) |
+| B-2 | Egress proxy blocks both domains | ❌ **still blocked** — 403 at CONNECT for `telcollection.com.au` and `www.squiresink.com` | Rendered titles, canonicals, JSON-LD, OG tags, `robots.txt`, `sitemap.xml`, Core Web Vitals, Squarespace-vs-Wix, service-page inventory |
+| B-3 | Google Search Console | ❌ **still `NOT_AUTHENTICATED`** | Queries, impressions, CTR, index coverage, F-5 confirmation |
+| B-4 | Google Analytics 4 | ⚠️ **authenticated but unusable** — `LICENSE_DATA_SOURCE_NOT_AVAILABLE` on Supermetrics licence 1890836. Also: only a **Squires Ink** property is connected, none for TEL Collection | Organic landing pages, conversion paths |
+| B-5 | Shopify app missing `read_product_listings` | ➖ **moot** — F-1 answered another way (`onlineStoreUrl` now populated) | — |
+| B-6 | No backlink tool connected | ❌ unchanged | Off-page analysis (out of scope unless Ahrefs/Semrush available) |
+
+Sources that **are** live and licensed: Google Business Profile (`GMB`), Google Ads (`AW`),
+Facebook Ads (`FA`), Instagram Insights (`IGI`), plus Shopify, Klaviyo and Square via their own
+connectors.
+
+---
+
+## 5. Plan
+
+**Phase 1 — Shopify data layer** ✅ complete (this document)
+
+**Phase 2 — Technical crawl** *(needs B-2)*
+Rendered `<title>` / meta / canonical per template, Product + Organization + Breadcrumb JSON-LD,
+Open Graph, `robots.txt`, `sitemap.xml` completeness, redirect chains, Core Web Vitals on mobile.
+
+**Phase 3 — Search performance** *(needs B-3, B-4)*
+Query and page-level performance, striking-distance terms, CTR outliers against drafted metadata,
+index coverage, cannibalisation between the product page and The Healing Guide.
+
+**Phase 4 — Local** *(needs B-1)*
+Full Squires Ink local audit per §3, plus a Gold Coast keyword map.
+
+**Phase 5 — Roadmap**
+Prioritised 90-day plan across both properties, effort vs. impact.
+
+---
+
+## Appendix — method
+
+All Phase 1 findings were read directly from the Shopify Admin GraphQL API against the connected
+`TEL Collection` store on 2026-08-16. No live-site crawling was possible (B-2). No figure in this
+document is estimated or inferred from outside that data; anything unverified is labelled as such.
+
+---
+
+## 6. Re-check 2026-09-25
+
+The store was re-read against the Shopify Admin API six weeks after Phase 1. Real movement.
+
+### Fixed
+
+| # | Was | Now |
+|---|---|---|
+| **F-1** 🔴 | `onlineStoreUrl` null on the only ACTIVE product — possibly unpublished | ✅ **Resolved.** Live at `https://telcollection.com.au/products/tattoo-aftercare-kit`. The product is published to Online Store. The critical finding is closed. |
+| **F-3** 🟠 | Shipping and Returns, Privacy Policy, FAQs all unpublished | ✅ **Effectively resolved.** `shipping-and-returns` and `faqs` are published. The unpublished `privacy-policy` *page* turned out to be an **empty shell** (blank body, created 1 July, never edited). The real privacy policy is Shopify's built-in one under **Settings → Policies**, served at `/policies/privacy-policy`. See the correction below. |
+
+### Still open, unchanged
+
+| # | Finding |
+|---|---|
+| **F-2** 🟠 | All six collections still have `seo.title: null` and `seo.description: null`. Drafts have been sitting in [`fixes.md`](./fixes.md) since August. |
+| **F-4** 🟠 | `movement`, `threads`, `vision`, `collective` still hold zero products and are still live. |
+| **F-5** 🟡 | `restore-balm` and `recovery-cream` still ARCHIVED, still no redirects confirmed. |
+| **F-6** 🟡 | `/collections/frontpage` unchanged. |
+
+### New since Phase 1
+
+**F-15 🟠 — A published page changed its URL.**
+
+"The Healing Guide" is now **"The Aftercare Guide"**, and the handle moved with it:
+
+```
+/pages/healing-guide   →   /pages/aftercare-guide
+```
+
+If the old URL had picked up any indexing or inbound links, it is now a 404. Add a redirect under
+**Online Store → Navigation → URL Redirects**:
+
+| From | To |
+|---|---|
+| `/pages/healing-guide` | `/pages/aftercare-guide` |
+
+This costs nothing and is safe to add whether or not the old URL was ever indexed. Note that
+Search Console is the only way to confirm whether it *was* — which is B-3.
+
+**F-16 🟡 — Product copy and page title drifted; check nothing else points at the old names.**
+
+- `about` page retitled "About" → **"Our Aim"** (handle unchanged, so no redirect needed).
+- The product's SEO description changed "Recovery Cream for the **years** after" → "the **months**
+  after", and "a collector of **fifteen** years" → "**seventeen** years".
+
+Both are fine in themselves. Worth one pass over internal links and the Aftercare Guide to make
+sure nothing still links to `/pages/healing-guide` or refers to the guide by its old name — the
+product description contained a hard-coded `/pages/founder` link in August, so hand-written
+internal links do exist in this store.
+
+### Revised priority
+
+1. **F-2** — apply the collection metadata. Drafted, waiting six weeks, zero risk.
+2. **F-15** — add the healing-guide redirect. One line.
+3. **F-3** — do **not** publish the empty `privacy-policy` page. Redirect `/pages/privacy-policy` → `/policies/privacy-policy` instead.
+4. **F-4** — noindex the four empty collections.
+5. **F-5 / F-16** — redirects and internal-link pass.
+
+### Correction — privacy policy (2026-09-26)
+
+The Phase 1 and 2026-09-25 versions of this audit recommended publishing the `privacy-policy`
+page. **That was wrong.** Reading the page body shows it is empty. TEL already has a populated
+privacy policy as a Shopify store policy (Settings → Policies, last edited 21 June 2026), which
+Shopify serves at `/policies/privacy-policy` and links from checkout.
+
+Publishing the empty page would have put a blank "Privacy Policy" page live, competing with the
+real one. Instead:
+
+| From | To |
+|---|---|
+| `/pages/privacy-policy` | `/policies/privacy-policy` |
+
+Then either delete the empty page or leave it unpublished — it does no harm unpublished.
+
+*Not verified against the live storefront:* the domain is still egress-blocked, so the
+`/policies/privacy-policy` URL is inferred from Shopify's standard routing rather than fetched.
