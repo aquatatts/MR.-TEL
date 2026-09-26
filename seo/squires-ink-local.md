@@ -97,20 +97,28 @@ Primary category is among the heaviest local ranking factors there is, and this 
 its own demand. Add `Tattoo shop` (and `Tattoo parlour` if the listing offers it) as additional
 categories. This is the single highest-leverage change available.
 
-### 🔴 F-8 — Piercing demand is real and the profile does not claim it
+### 🟡 F-8 — Piercing impressions are wasted — **resolved: tattoos only**
 
 `piercing` (20), `piercing gold coast` (16), plus sub-threshold `piercing surfers paradise`,
 `piercing near me`, `piercing shops near me`, `piercing studio`, `body piercing gold coast`,
 `piercing shop near meriton suites`, `open tattoos and piercing gold coast`.
 
-Two possibilities, and they need opposite responses:
+**Confirmed 2026-09-26: the studio does not pierce.** So this is not an opportunity — it is drag.
+Roughly 36 measurable impressions plus a sub-threshold tail are being spent on a service that
+cannot be delivered, and every one of those is a searcher who bounces.
 
-- **If the studio pierces** — add `Body piercing shop` as a category and a piercing service entry.
-  Free demand currently going to competitors.
-- **If it does not** — these impressions are diluting relevance and wasting the profile's
-  authority on queries it can never satisfy. Worth noting rather than chasing.
+Downgraded from 🔴 to 🟡: nothing is being lost that could have been won. Actions are narrow:
 
-Answer this one before acting on it.
+- **Do not** add any piercing category, service or attribute.
+- Check the profile's services and attributes for anything implying piercing, and remove it.
+- Leave the description as it is — it already says "custom tattoo studio" and never mentions
+  piercing, which is why the drag is as small as it is.
+- Expect this to persist regardless. Google infers adjacency because most tattoo studios pierce;
+  you cannot fully opt out of being shown for it.
+
+The one thing worth watching: if piercing impressions ever climb enough to depress the profile's
+overall click-through, that becomes a relevance problem rather than a rounding error. It is
+nowhere near that now.
 
 ### 🟠 F-9 — Bookings and messaging are switched off
 
@@ -192,11 +200,70 @@ in F-11.
 ## 5. Suggested order
 
 1. **F-7** — add `Tattoo shop` as a category. Cheapest change, largest expected effect.
-2. **F-8** — settle the piercing question, then act on it in whichever direction is true.
-3. **F-9** — enable messaging; add a booking link.
-4. **F-10** — switch the profile URL to HTTPS.
+2. **F-9** — enable messaging; add a booking link.
+3. **F-10** — switch the profile URL to HTTPS.
+4. **F-17** — waiver marketing opt-in (see §6), once the TEL privacy policy is published.
 5. **F-11 / F-12** — walk-ins and fine line service pages, once the site is reachable.
 6. **F-13** — keep replies inside 48 hours.
+7. **F-8** — strip any piercing implication from services/attributes. Housekeeping.
 
 Items 1–4 are all Business Profile changes and need no developer, no crawl access, and no
 Search Console.
+
+---
+
+## 6. F-17 — Waiver marketing opt-in (Smartwaiver)
+
+**Goal:** every client signing a tattoo waiver can opt in to hear from Squires Ink *and* TEL
+Collection — studio news, aftercare guidance, offers.
+
+This is the strongest list-building position either brand has. The waiver is the one step **every
+single client completes**, so it captures people at the exact moment they are most engaged, and it
+reaches walk-ins who never touched the website, never saw an ad, and are invisible to every other
+channel. It is also the only place the two brands meet naturally: someone who just got tattooed is
+the perfect audience for aftercare.
+
+### ⚠️ Do this before you switch it on
+
+**The TEL privacy policy is still unpublished** (`privacy-policy`, `isPublished: false` — see
+[`AUDIT.md`](./AUDIT.md) F-3). Under Australian Privacy Principle 5 you have to tell people how
+their data will be used *at the point you collect it*, and the opt-in needs to link to a policy
+that actually resolves. Right now that link would 404.
+
+**Publish the privacy policy first.** It turns a hygiene item into a blocker.
+
+### How to build it
+
+1. **Smartwaiver → waiver template → add a custom checkbox field.** It must be its own field, not
+   a line inside the waiver agreement body.
+2. **Leave it unticked.** Under the Spam Act 2003 consent must be *express* — the person ticks it
+   themselves. A pre-ticked box is not consent, and a pre-ticked box inside a form someone must
+   complete to get tattooed is considerably worse.
+3. **Never a condition of service.** A client must be able to decline and still get tattooed.
+   Keep it visually and logically separate from the waiver consent.
+4. **Name both brands explicitly.** One checkbox covering two brands is fine if the wording is
+   unambiguous, and it converts far better than two boxes.
+
+Suggested wording:
+
+> ☐ Yes — send me aftercare tips, studio news and offers from **Squires Ink** and
+> **TEL Collection**. Unsubscribe any time. See our [Privacy Policy](/pages/privacy-policy).
+
+5. **Route the data.** Smartwaiver offers webhooks and a REST API; Zapier or Make will bridge it
+   without code. Send to the Squires Ink Mailchimp audience and the TEL Klaviyo list.
+6. **Tag the source.** Something like `source: waiver` on both sides, so waiver-sourced contacts
+   can be measured separately from web signups and ad traffic. Without this you will never know
+   whether this worked.
+7. **Store the consent record** — timestamp and wording version. Smartwaiver keeps the signed
+   document, which is exactly the audit trail you want if a complaint ever lands.
+
+### What to expect
+
+At roughly 17 reviews a month the studio is seeing well over that in actual clients. Even a modest
+opt-in rate on a form nobody skips should out-perform the website's signup form quickly — and it
+builds a list of people who have already paid, which is a different quality of audience to a
+discount-code subscriber.
+
+Worth measuring after one month: opt-in rate, and whether waiver-sourced contacts open and buy at
+a different rate to web-sourced ones. If they behave better — and they should — that changes where
+the email effort belongs for both brands.
