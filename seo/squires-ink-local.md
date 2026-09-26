@@ -202,7 +202,7 @@ in F-11.
 1. **F-7** — add `Tattoo shop` as a category. Cheapest change, largest expected effect.
 2. **F-9** — enable messaging; add a booking link.
 3. **F-10** — switch the profile URL to HTTPS.
-4. **F-17** — waiver marketing opt-in (see §6), once a Squires Ink privacy policy covering it exists.
+4. **F-17** — waiver marketing opt-in (see §6), once the combined privacy policy is published.
 5. **F-11 / F-12** — walk-ins and fine line service pages, once the site is reachable.
 6. **F-13** — keep replies inside 48 hours.
 7. **F-8** — strip any piercing implication from services/attributes. Housekeeping.
@@ -225,24 +225,16 @@ the perfect audience for aftercare.
 
 ### ⚠️ Do this before you switch it on
 
-**The opt-in needs to link to a privacy policy that covers the waiver** — and the one that exists
-does not.
+**The opt-in needs to link to a privacy policy that covers the waiver.** The one that exists
+doesn't yet.
 
-TEL's privacy policy is live (Settings → Policies, served at `/policies/privacy-policy`), but it is
-Shopify's generated template and it is scoped to *"this store and website"*. It says nothing about:
+TEL Collection and Squires Ink are the **same legal entity** (ABN 62 679 571 021, confirmed
+2026-09-26). So the fix is **one policy for both brands**: extend TEL's existing Shopify privacy
+policy (served at `/policies/privacy-policy`) to cover the studio, the waiver, health information,
+and opt-in marketing. Then link the waiver checkbox and the squiresink.com footer to it.
 
-- **Squires Ink collecting data in the studio** — the waiver is a Squires Ink form, not a TEL one.
-- **Health information** — waivers typically ask about medical conditions, medication, pregnancy
-  and similar. That is *sensitive information* under the Privacy Act, and it is the part of the
-  waiver that most needs a clear notice.
-- **Sharing opted-in contacts with TEL Collection** — if Squires Ink and TEL are separate legal
-  entities, that is a disclosure to another business and the notice has to say so.
-- **Australian specifics** — it references the EEA and US-style "sell/share" rights, but not the
-  Privacy Act, the APPs, or the OAIC as the complaints body.
-
-So the fix is a short **Squires Ink privacy policy** (or a section added to the studio site's
-existing one) that covers the waiver, and a one-line addition to TEL's policy naming Squires Ink as
-a source for people who opt in. Link the checkbox to the Squires Ink one.
+The drafted additions are in [`privacy-policy-draft.md`](./privacy-policy-draft.md), along with a
+field-mapping note so health answers from the waiver never reach Mailchimp or Klaviyo.
 
 **Whether the Privacy Act binds you at all** depends on turnover and a few exceptions — many small
 businesses under $3M are exempt, but collecting health information is one of the things that can
@@ -267,8 +259,8 @@ Suggested wording:
 > ☐ Yes — send me aftercare tips, studio news and offers from **Squires Ink** and
 > **TEL Collection**. Unsubscribe any time. See our Privacy Policy.
 
-*(Link "Privacy Policy" to the Squires Ink policy that covers the waiver — not to
-`/pages/privacy-policy` on the TEL store, which is an empty unpublished page.)*
+*(Link "Privacy Policy" to the full URL `https://telcollection.com.au/policies/privacy-policy`
+once it has been extended to cover the studio — see [`privacy-policy-draft.md`](./privacy-policy-draft.md).)*
 
 5. **Route the data.** Smartwaiver offers webhooks and a REST API; Zapier or Make will bridge it
    without code. Send to the Squires Ink Mailchimp audience and the TEL Klaviyo list.
