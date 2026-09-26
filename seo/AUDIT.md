@@ -188,7 +188,7 @@ The store was re-read against the Shopify Admin API six weeks after Phase 1. Rea
 | # | Was | Now |
 |---|---|---|
 | **F-1** 🔴 | `onlineStoreUrl` null on the only ACTIVE product — possibly unpublished | ✅ **Resolved.** Live at `https://telcollection.com.au/products/tattoo-aftercare-kit`. The product is published to Online Store. The critical finding is closed. |
-| **F-3** 🟠 | Shipping and Returns, Privacy Policy, FAQs all unpublished | ⚠️ **Two of three fixed.** `shipping-and-returns` ✅ published, `faqs` ✅ published, **`privacy-policy` still unpublished**. |
+| **F-3** 🟠 | Shipping and Returns, Privacy Policy, FAQs all unpublished | ✅ **Effectively resolved.** `shipping-and-returns` and `faqs` are published. The unpublished `privacy-policy` *page* turned out to be an **empty shell** (blank body, created 1 July, never edited). The real privacy policy is Shopify's built-in one under **Settings → Policies**, served at `/policies/privacy-policy`. See the correction below. |
 
 ### Still open, unchanged
 
@@ -234,6 +234,25 @@ internal links do exist in this store.
 
 1. **F-2** — apply the collection metadata. Drafted, waiting six weeks, zero risk.
 2. **F-15** — add the healing-guide redirect. One line.
-3. **F-3** — publish the privacy policy.
+3. **F-3** — do **not** publish the empty `privacy-policy` page. Redirect `/pages/privacy-policy` → `/policies/privacy-policy` instead.
 4. **F-4** — noindex the four empty collections.
 5. **F-5 / F-16** — redirects and internal-link pass.
+
+### Correction — privacy policy (2026-09-26)
+
+The Phase 1 and 2026-09-25 versions of this audit recommended publishing the `privacy-policy`
+page. **That was wrong.** Reading the page body shows it is empty. TEL already has a populated
+privacy policy as a Shopify store policy (Settings → Policies, last edited 21 June 2026), which
+Shopify serves at `/policies/privacy-policy` and links from checkout.
+
+Publishing the empty page would have put a blank "Privacy Policy" page live, competing with the
+real one. Instead:
+
+| From | To |
+|---|---|
+| `/pages/privacy-policy` | `/policies/privacy-policy` |
+
+Then either delete the empty page or leave it unpublished — it does no harm unpublished.
+
+*Not verified against the live storefront:* the domain is still egress-blocked, so the
+`/policies/privacy-policy` URL is inferred from Shopify's standard routing rather than fetched.

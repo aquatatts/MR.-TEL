@@ -69,12 +69,16 @@ A sealed two-step tattoo aftercare system, never sold apart. Restore Balm for fr
 
 Set `isPublished: true` on:
 
-- `shipping-and-returns`
-- `privacy-policy`
-- `faqs`
+- `shipping-and-returns` *(done by 2026-09-25)*
+- `faqs` *(done by 2026-09-25)*
 
-Shopify also expects refund, privacy, and terms policies to be populated under
-**Settings → Policies** — these generate their own indexable `/policies/*` URLs.
+**Do not publish `privacy-policy`.** That page is empty. The real policy already exists under
+**Settings → Policies** and is served at `/policies/privacy-policy`. Redirect the page URL to it
+instead:
+
+| From | To |
+|---|---|
+| `/pages/privacy-policy` | `/policies/privacy-policy` |
 
 ### FAQ topics worth covering
 
