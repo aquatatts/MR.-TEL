@@ -50,19 +50,25 @@ This is a proposed direction drawn from the brand, for Benny to confirm, sharpen
 
 | Stage | Direction | Keep away from |
 | --- | --- | --- |
-| Opening | Clean and dry. A bitter citrus or a cold aromatic, there for a minute and gone. | Sugary citrus, aquatic or ozonic notes, anything that reads as sport |
-| Heart | Smoke, resin and dry wood. Iris or a dry floral is welcome if it stays in the background. | Rose or jasmine up front, gourmand notes, anything powdery |
-| Base | Leather, amber, vetiver, a little musk. Long, skin-close, low sillage after the first hour. | Vanilla, oud as a headline, loud synthetic ambers |
+| Opening | Bright and clean. Bergamot or a cold citrus with a little pepper, confident for the first ten minutes, then gone. | Sugary citrus, aquatic or ozonic notes, anything that reads as sport |
+| Heart | Aromatic and dry: a smoky note (birch, tea or incense), a dry iris or a quiet floral under it. | Rose or jasmine up front, gourmand notes, anything powdery |
+| Base | Dry woods, an ambergris-style musk, a light aged leather. Long, skin-close, low sillage after the first hour. | Vanilla, oud as a headline, loud synthetic ambers |
 
 **Performance.** Eight hours on skin, close projection after the first hour. Built to be worn every day, not for an entrance.
 
 **References**
 
-[Benny: list three to five fragrances you wear or admire, and one line each on why. This is the most useful thing in the brief. Examples of the kind of line that helps: "X for the dry leather base, but it goes too sweet after two hours", "Y for how quiet it is, I want ours to last longer".]
+Benny wears, and keeps coming back to, three houses: Louis Vuitton, Montblanc and Creed, including Creed's newest line. The perfumers should read the pattern, not just the bottles.
 
-- [Reference 1] — [why]
-- [Reference 2] — [why]
-- [Reference 3] — [why]
+**The story in those three.** None of them is a fragrance company first. Louis Vuitton made trunks. Montblanc made pens. Creed dressed courts before it bottled anything. Each is a house with a craft at its centre that later put its name on a scent, and the scent carried the standard of the house. That is TEL's exact position: a house built on one craft, now putting its name on a fragrance that has to carry the same standard. The wearer is not buying a perfume brand. He is buying the house.
+
+**What the pattern says about the scent.** Across the three, the common ground is bright and clean on top, aromatic through the middle, dry and warm underneath, and recognisable: a signature you can pick from across a room without it shouting. Creed's Aventus is the obvious reference point for that structure. The brief for TEL is that family, made quieter, drier and longer, with the sweetness taken out.
+
+[Benny: name the specific bottles so the perfumers can smell what you mean. Which Louis Vuitton (Imagination, Météore, L'Immensité, Ombre Nomade, Nuit de Feu). Which Montblanc (Legend, Explorer, Signature). Which Creed, and which of the new line. One line each on what you like and what you would change.]
+
+- Louis Vuitton [bottle] — [what you like, what you would change]
+- Montblanc [bottle] — [what you like, what you would change]
+- Creed [bottle, new line] — [what you like, what you would change]
 
 **Avoid at all costs**
 
