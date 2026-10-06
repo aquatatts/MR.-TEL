@@ -19,8 +19,8 @@ The counter sells. The website does not. Four weeks in, the studio counter has m
 | Social and content | 5.5 | Reach spikes to 1,500 to 2,800 on post days and collapses to under 100 between. 30k profile views became 199 site sessions. |
 | Reviews and proof | 8.5 | 12 reviews at 5.0 inside four weeks, Judge.me live on PDP and home. |
 | Stockist and wholesale | 4.0 | The proven channel (counter) has not been offered to a single other studio yet. Stockist accordion exists, nothing behind it. |
-| Supply and manufacturing | n/a | 410 of 500 sets on hand. At the current 11 sets a week there is 37 weeks of stock. No supplier data was available to score. |
-| **Overall** | **5.3** | Brand is ahead of its distribution. Fix conversion and go to stockists. |
+| Supply and manufacturing | 6.5 | Reorder quoted (VOG, 17 Sep): US$4.59 a set at 1,000, US$4.29 at 2,000, 25 to 30 days, 50% deposit. Documents on file. Open: reformulation samples, stability data, freight quote, CNY timing. |
+| **Overall** | **5.4** | Brand is ahead of its distribution. Fix online conversion and build the list; Chapter Two is the pivot. |
 
 ## 1. Revenue
 
@@ -154,9 +154,51 @@ Rough maths at the current rate: 1 studio ≈ 10 sets a week ≈ $600 retail. Te
 
 Nothing exists for this yet: no wholesale price, no stockist page, no one-pager, no counter display spec. The "stockists" accordion on the PDP is a promise with nothing behind it.
 
-## 8. Supply and manufacturing
+## 8. Supply and manufacturing (updated 6 Oct from the VOG and perfumer threads)
 
-Could not score. Known: 410 of 500 sets on hand, 60 ml each, first run. Unknown and needed before Chapter Two or a stockist push: cost per set, supplier lead time, minimum reorder, batch expiry date on the current run, TGA/cosmetic labelling compliance status, and whether the manufacturer can do a 2,000-unit run at the same spec. Next review needs these in the sheet.
+**Chapter One reorder, VOG Cosmetics quote of 17 Sep 2026**
+
+| | 1,000 sets | 2,000 sets |
+|---|---|---|
+| Unit price, EXW | US$4.59 | US$4.29 |
+| At A$/US$ 0.66 | A$6.95 | A$6.50 |
+| Less US$200 seal credit | A$0.30 a set | A$0.15 a set |
+| Production | 25 to 30 days | 25 to 30 days |
+| Payment | 50% deposit, balance on completion | same |
+| Packing | 12 cartons, 175 kg, 84 sets a carton, 40 × 33 × 23.5 cm | 24 cartons, 350 kg |
+
+Landed cost build, 1,000 sets (estimates marked ~):
+
+| Item | Per set |
+|---|---|
+| Product, EXW, net of credit | A$6.65 |
+| Sea freight LCL to Brisbane plus port and broker (~A$1,200 total) | ~A$1.20 |
+| Import duty (ChAFTA) | 0 |
+| Metal card (GS-JJ, US$1.89 delivered) | A$2.86 |
+| Lifestyle card, gold foil on black | ~A$1.20 |
+| Satchel | ~A$1.20 |
+| Sticker and misc | ~A$0.30 |
+| **Landed, per set** | **~A$13.40** |
+
+Ben's "$14 off the top of my head" is right. Note that packaging is more than half of it: the jars and formulas are A$6.65, the presentation is A$5.50. At 2,000 sets the landed cost only drops to about A$13.00, so the volume break is not worth the cash tied up.
+
+Cash to place the 1,000 run: product A$6,650, freight ~A$1,200, metal cards A$2,860, cards and satchels ~A$2,700, GST at the border ~A$800 (claimed back). About **A$14,200**, of which A$3,300 is the deposit. Revenue at full sell-through: A$54,500 ex GST. Gross margin about 75%.
+
+**Timing.** 410 sets on hand at ~11 sets a week runs out around June 2027. Ben has told VOG the order comes early 2027. Chinese New Year is 6 Feb 2027 and the factory has not committed to closure dates. To land before CNY, the deposit needs to be paid by early December with samples already approved. The alternative is a March order, landing by sea in May 2027, which is tight if online sales lift. Decision date Ben set himself: Fri 16 Oct.
+
+**Open risk: the reformulation.** The 1 Oct email asks VOG for a lighter, fragrance-free Restore Balm and a Recovery Cream without vanilla, colourant, PEG emulsifiers or methylparaben. That is the right direction for a brand that publishes its lists, but it means run two is a different product from the one with twelve five-star reviews. It needs: samples tested on clients, a composition sheet per product, new INCI on the jar, fresh COAs, and the preservative-efficacy and accelerated-stability tests the factory does not hold (commission locally, budget ~A$1,500 to A$3,000 a product). Those tests take 8 to 12 weeks. Started now, they finish by mid-December, which is the same deadline as the pre-CNY deposit. Started later, run two is a May 2027 landing.
+
+**Chapter Two, the fragrance**
+
+| | JAJI Parfumerie (Brisbane) | By Luis (Melbourne) |
+|---|---|---|
+| Formula ownership | Stays with JAJI; exclusive to TEL; purchase option only if JAJI ceases | Assigned to TEL outright, compounder-ready |
+| Development | Stage 1 A$5,000 inc GST | Scoped at the meeting (Signature tier) |
+| Compliance | Stage 2 A$2,000 inc GST (IFRA, SDS, allergens) | Included in the package; to confirm |
+| Bulk oil | A$700 to 900+ a litre plus GST, 5 L minimum, repriced each run | To confirm |
+| Meeting | Wed 7 Oct, 12:30, Brisbane (confirmed) | 14 to 16 Oct, Williamstown (Ben owes a date and the brief) |
+
+Indicative unit economics for a 50 ml eau de parfum at 20% concentration: 5 L of oil makes about 500 bottles. Oil A$7 to 9 a bottle, premium glass and pump ~A$4 to 6, rigid box ~A$3 to 5, compounding and filling ~A$3 to 5, label and foil ~A$0.50. **Landed ~A$18 to 26 a bottle.** At an RRP of A$189 inc GST (A$171.82 ex), contribution is about **A$145 a bottle**. Outlay for a 500-bottle first run with JAJI: development A$7,000, oil ~A$4,400, packaging and filling ~A$10,000 to 12,000. About **A$22,000**, break-even at roughly 130 bottles. That is the lifestyle business. It needs a list of a few thousand, not a counter.
 
 ## 9. What to do, in order
 
@@ -168,13 +210,13 @@ Next 7 days:
 5. **Instagram bio link straight to the PDP**, and turn on website-click tracking.
 
 Next 30 days:
-6. Build the stockist offer: wholesale price, minimum order, counter display, one-page PDF, and a /stockists page behind the accordion. Walk it into five Gold Coast studios personally.
+6. Write the Chapter Two brief before Wed 7 Oct (JAJI) and send By Luis a date. Decide the formula-ownership question with both quotes in hand.
 7. Add one button above the fold to every campaign and flow template. Campaign click rate is 0%.
 8. Google: 19 sessions in a month. Claim the Google Business Profile for the product, write one "tattoo aftercare Gold Coast" page. Search converts at 10%.
 9. Watch 30 Clarity recordings of mobile home-page sessions before touching the design further.
-10. Get the supplier numbers (section 8) into the scoreboard.
+10. Commission stability and preservative-efficacy testing for the reformulated run now, so a pre-CNY deposit stays possible.
 
-Hold: Chapter Two promotion stays quiet until Chapter One passes 250 sets sold.
+Hold: no stockist or wholesale push. Founder decision 6 Oct: aftercare is the door, the brand is online. Chapter Two promotion stays quiet until the list can carry a drop.
 
 ## Scoring rubric (for every future review)
 
