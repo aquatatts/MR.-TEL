@@ -1,0 +1,208 @@
+<title>TEL Scoreboard · Review 1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column, scoreboard first, evidence tables after; ink-on-paper with one oxidised-copper accent (the balm tin). */
+:root{
+  --bg:#f3efe7; --paper:#faf7f1; --ink:#1c1a17; --muted:#6b645a; --rule:#d9d2c5;
+  --accent:#8a5a2b; --good:#3f6b45; --warn:#9a6b1f; --bad:#8f3a2e;
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --body:"EB Garamond",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15130f; --paper:#1d1a15; --ink:#ece6da; --muted:#a39a8b; --rule:#3a342b;
+  --accent:#d19a5c; --good:#8fbf94; --warn:#d9a94d; --bad:#d9816f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15130f; --paper:#1d1a15; --ink:#ece6da; --muted:#a39a8b; --rule:#3a342b;
+  --accent:#d19a5c; --good:#8fbf94; --warn:#d9a94d; --bad:#d9816f; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-block:40px 80px;padding-inline:18px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(34px,6vw,54px);line-height:1.05;margin:8px 0 10px;text-wrap:balance}
+h1 em{font-style:italic;color:var(--accent)}
+h2{font-family:var(--display);font-weight:600;font-size:28px;margin:48px 0 12px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:21px;margin:26px 0 8px}
+p{max-width:64ch;margin:0 0 14px}
+.lede{font-size:20px;font-family:var(--display);font-weight:500;line-height:1.35;max-width:38em;border-left:3px solid var(--accent);padding-left:16px;margin:24px 0 8px}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:28px}
+.board{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--rule);margin-top:18px}
+.row{display:grid;grid-template-columns:150px 64px 1fr;gap:14px;align-items:start;padding:12px 0;border-bottom:1px solid var(--rule)}
+.row .area{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.2}
+.row .score{font-family:var(--mono);font-size:24px;font-variant-numeric:tabular-nums;line-height:1.1}
+.row .why{color:var(--muted);font-size:15.5px;min-width:0}
+.row.total{background:var(--paper);padding-inline:12px;margin-inline:-12px}
+.s-good{color:var(--good)} .s-warn{color:var(--warn)} .s-bad{color:var(--bad)} .s-na{color:var(--muted)}
+.bar{height:4px;background:var(--rule);border-radius:2px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:currentColor}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.n,th.n{text-align:right;white-space:nowrap}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0 6px}
+.kpi{background:var(--paper);border:1px solid var(--rule);padding:12px 14px}
+.kpi b{display:block;font-family:var(--mono);font-size:24px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--muted)}
+ol,ul{padding-left:22px;max-width:66ch} li{margin-bottom:8px}
+.chart{display:grid;grid-template-columns:70px 1fr 44px;gap:10px;align-items:center;font-family:var(--mono);font-size:12.5px;margin:6px 0}
+.chart .t{height:14px;background:var(--rule)} .chart .t i{display:block;height:100%;background:var(--accent)}
+.note{font-size:14.5px;color:var(--muted)}
+.hold{border:1px solid var(--rule);background:var(--paper);padding:14px 16px;margin-top:20px;font-family:var(--display);font-size:19px}
+@media (max-width:520px){.row{grid-template-columns:1fr 56px;grid-template-areas:"a s" "w w"}.row .area{grid-area:a}.row .score{grid-area:s;text-align:right}.row .why{grid-area:w}}
+</style>
+<div class="wrap">
+<div class="eyebrow">TEL Collection · Chapter One · Review 1 of the scoreboard</div>
+<h1>The counter sells.<br>The website <em>doesn't yet.</em></h1>
+<div class="meta">Window Thu 10 Sep → Mon 5 Oct 2026 (25 days) · Shopify, Klaviyo, Meta Ads, Instagram Insights · theme v7.1 reviewed from templates (site not loadable from the review sandbox)</div>
+
+<p class="lede">Four weeks in, the studio counter has moved 36 sets and the online store has moved 7, off nearly 3,000 sessions. Everything here is about closing that gap and turning the one channel that works into the distribution model.</p>
+
+<div class="kpis">
+  <div class="kpi"><b>$2,180</b><span>net sales, 43 orders</span></div>
+  <div class="kpi"><b>36 / 7</b><span>counter vs online orders</span></div>
+  <div class="kpi"><b>0.23%</b><span>online conversion (2,989 sessions)</span></div>
+  <div class="kpi"><b>410</b><span>of 500 sets remaining</span></div>
+  <div class="kpi"><b>12 × 5.0</b><span>reviews in four weeks</span></div>
+  <div class="kpi"><b>≈0.1</b><span>return on ≈$560 ad spend</span></div>
+</div>
+
+<h2>Scoreboard</h2>
+<div class="board">
+  <div class="row"><div class="area">Revenue &amp; analytics</div><div class="score s-warn">4.0<div class="bar"><i style="width:40%"></i></div></div><div class="why">$2,180 net in 25 days, 90% at the counter. Weekly sessions fell 1,623 → 207 once ads stopped.</div></div>
+  <div class="row"><div class="area">Website design &amp; style</div><div class="score s-good">7.0<div class="bar"><i style="width:70%"></i></div></div><div class="why">Premium and coherent. Loses points for the product sitting fifth on the home page and three persuasion bands switched off.</div></div>
+  <div class="row"><div class="area">Website conversion</div><div class="score s-bad">3.5<div class="bar"><i style="width:35%"></i></div></div><div class="why">7 orders from 2,989 sessions. DTC skincare benchmark is 1.5 to 3%.</div></div>
+  <div class="row"><div class="area">Paid media</div><div class="score s-bad">2.5<div class="bar"><i style="width:25%"></i></div></div><div class="why">≈$560 spent, 1 attributed purchase. The traffic-objective campaign bought 2,664 clicks, zero sales, and the Iowa sessions.</div></div>
+  <div class="row"><div class="area">Email &amp; CRM</div><div class="score s-good">6.5<div class="bar"><i style="width:65%"></i></div></div><div class="why">List 21 → 154. Email drove 4 of the 7 online orders. Abandoned-checkout flow delivered 0 of 3.</div></div>
+  <div class="row"><div class="area">Social &amp; content</div><div class="score s-warn">5.5<div class="bar"><i style="width:55%"></i></div></div><div class="why">Reach 1,500 to 2,800 on post days, under 100 between. ≈30k profile views became 199 site sessions.</div></div>
+  <div class="row"><div class="area">Reviews &amp; proof</div><div class="score s-good">8.5<div class="bar"><i style="width:85%"></i></div></div><div class="why">12 five-star reviews inside four weeks, live on PDP and home.</div></div>
+  <div class="row"><div class="area">Stockists &amp; wholesale</div><div class="score s-warn">4.0<div class="bar"><i style="width:40%"></i></div></div><div class="why">The proven channel has not been offered to a single other studio. The stockists accordion has nothing behind it.</div></div>
+  <div class="row"><div class="area">Supply &amp; manufacturing</div><div class="score s-na">n/a</div><div class="why">410 sets on hand, 37 weeks at the current rate. No cost, lead-time or expiry data available to score.</div></div>
+  <div class="row total"><div class="area">Overall</div><div class="score s-warn">5.3<div class="bar"><i style="width:53%"></i></div></div><div class="why">The brand is ahead of its distribution. Fix conversion, then go to stockists.</div></div>
+</div>
+
+<h2>1 · Revenue</h2>
+<div class="tbl"><table>
+<tr><th></th><th class="n">Counter (POS)</th><th class="n">Online</th><th class="n">Total</th></tr>
+<tr><td>Orders since 8 Sep</td><td class="n">36</td><td class="n">7</td><td class="n">43</td></tr>
+<tr><td>Gross</td><td class="n">$2,158.00</td><td class="n">$239.80</td><td class="n">$2,343.50</td></tr>
+<tr><td>Refunds</td><td class="n"></td><td class="n">#1044 $49.99 · #1079 $59.95</td><td class="n">$109.94</td></tr>
+<tr><td><b>Net sales</b></td><td class="n"><b>$1,962.00</b></td><td class="n"><b>$218.00</b></td><td class="n"><b>$2,180.00</b></td></tr>
+</table></div>
+<div class="tbl"><table>
+<tr><th>Week of</th><th class="n">Sessions</th><th class="n">Add to cart</th><th class="n">Checkout</th><th class="n">Online orders</th><th class="n">Online net</th><th class="n">POS orders</th><th class="n">POS net</th></tr>
+<tr><td>7 Sep (launch)</td><td class="n">1,623</td><td class="n">10</td><td class="n">8</td><td class="n">4</td><td class="n">$163.50</td><td class="n">10</td><td class="n">$545.00</td></tr>
+<tr><td>14 Sep</td><td class="n">891</td><td class="n">3</td><td class="n">2</td><td class="n">2</td><td class="n">$54.50</td><td class="n">9</td><td class="n">$490.50</td></tr>
+<tr><td>21 Sep</td><td class="n">241</td><td class="n">2</td><td class="n">0</td><td class="n">0</td><td class="n">$0</td><td class="n">12</td><td class="n">$654.00</td></tr>
+<tr><td>28 Sep</td><td class="n">207</td><td class="n">3</td><td class="n">2</td><td class="n">1 (refunded)</td><td class="n">$0</td><td class="n">5</td><td class="n">$272.50</td></tr>
+<tr><td>5 Oct (one day)</td><td class="n">27</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n"></td><td class="n"></td><td class="n"></td></tr>
+</table></div>
+<p>The counter runs at 5 to 12 sets a week with nothing behind it. Online lives and dies by traffic, and traffic died when ads were paused on 15 Sep.</p>
+
+<h2>2 · Traffic and conversion</h2>
+<div class="chart"><span>Facebook</span><div class="t"><i style="width:100%"></i></div><span>1,942</span></div>
+<div class="chart"><span>Direct</span><div class="t"><i style="width:36%"></i></div><span>694</span></div>
+<div class="chart"><span>Instagram</span><div class="t"><i style="width:10%"></i></div><span>199</span></div>
+<div class="chart"><span>Google</span><div class="t"><i style="width:1%"></i></div><span>19</span></div>
+<p class="note">Sessions by source, 8 Sep → 5 Oct. Completed checkouts: Facebook 0 · Direct 2 · Instagram 2 · Google 2. 80% mobile.</p>
+<p>486 US sessions tagged "direct", 421 of them from Iowa. That is not a customer. It is Meta's Advantage+ audience serving the traffic campaign to the cheapest clicks it can find. It inflates sessions and crushes the conversion rate.</p>
+<p>Google search converts at 10% (2 of 19). Instagram at 1%. Facebook at 0% off nearly two thousand visits. Ads land on the product page (946 sessions); organic lands on the home page (1,019).</p>
+
+<h2>3 · Website (v7.1, live)</h2>
+<p>Home page order: hero → founder → chair → aim → <b>product</b> → spec (off) → steps (off) → proof (off) → reviews → chapter → Chapter Two newsletter.</p>
+<h3>What works</h3>
+<ul>
+<li>The tone holds across hero, founder, chair and chapter. Nobody mistakes this for a generic aftercare store.</li>
+<li>Announcement bar rotates three real messages. Judge.me, Klaviyo onsite and Clarity are all live.</li>
+<li>The product page is complete: price, review badge, credential box, assurance, facts, seven accordions, steps, proof, reviews, capture, chair, FAQ.</li>
+</ul>
+<h3>What is costing orders</h3>
+<ol>
+<li><b>Product is the fifth band.</b> On a phone the Ritual Duo appears about four screens down. Move it to position two, or give the hero a direct "Shop the Duo" button to the product page.</li>
+<li><b>Spec, steps and proof are disabled.</b> Those three bands answer "what is in it, how do I use it, why believe you". Proof scored as the strongest conversion element in the v6.1 audit. Turning them off made the page prettier and less persuasive.</li>
+<li><b>No sticky buy control on mobile.</b> A slim bar (Ritual Duo · $59.95 · Shop) fixes this for free.</li>
+<li><b>Chapter Two newsletter competes with Chapter One.</b> The page ends asking for a fragrance waitlist, not a purchase. Premature at 410 sets on hand.</li>
+<li><b>Stockists accordion with nothing behind it.</b> See section 7.</li>
+</ol>
+
+<h2>4 · Paid media (Meta)</h2>
+<div class="tbl"><table>
+<tr><th>Campaign</th><th class="n">Spend</th><th class="n">Impr.</th><th class="n">Clicks</th><th class="n">LPV</th><th class="n">ATC</th><th class="n">Purch.</th></tr>
+<tr><td>TRF · Warm Entry v2 (traffic objective)</td><td class="n">$272.80</td><td class="n">26,395</td><td class="n">2,664</td><td class="n">2,435</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>SLS · IG Prospecting</td><td class="n">$91.00</td><td class="n">7,273</td><td class="n">60</td><td class="n">50</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>SLS · Ritual Drop (Aug)</td><td class="n">$85.57</td><td class="n">3,281</td><td class="n">25</td><td class="n">17</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>SLS · Ritual Duo · Purchase</td><td class="n">$14.25</td><td class="n">624</td><td class="n">9</td><td class="n">5</td><td class="n">1</td><td class="n">0</td></tr>
+<tr><td>RMK · IG Engagers</td><td class="n">$3.35</td><td class="n">262</td><td class="n">4</td><td class="n">4</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>Squires acct · TEL Warm Studio</td><td class="n">$92.96</td><td class="n">5,412</td><td class="n">62</td><td class="n">55</td><td class="n"></td><td class="n"><b>1</b></td></tr>
+</table></div>
+<p>Total TEL spend ≈ $560 for 1 attributed purchase. Spend ran $27 to $74 a day through launch week, stopped 16 to 22 Sep, trickled 23 to 27 Sep, and has been off since 30 Sep.</p>
+<p>The traffic campaign did what traffic campaigns do: ten-cent clicks, 91% land, nobody buys, and Meta found the cheapest clicks on earth. The sales-objective campaigns were starved, and the one with a warm audience (Warm Studio) is the only one that sold.</p>
+
+<h2>5 · Email and CRM (Klaviyo)</h2>
+<p>Emailable audience 21 → 154. Email List is single opt-in. Popup live. Email revenue $239.80, which is 4 of the 7 online orders and the only online channel that paid for itself.</p>
+<div class="tbl"><table>
+<tr><th>Campaign</th><th>Sent</th><th class="n">Recip.</th><th class="n">Open</th><th class="n">Click</th><th class="n">Orders</th></tr>
+<tr><td>T-1 This time tomorrow</td><td>Wed 9 Sep 7pm</td><td class="n">21</td><td class="n">25%</td><td class="n">0</td><td class="n">1 · $59.95</td></tr>
+<tr><td>Doors Open</td><td>Thu 10 Sep 7pm</td><td class="n">20</td><td class="n">25%</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>Review ask (Aug backfill)</td><td>Fri 11 Sep</td><td class="n">14</td><td class="n">14%</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>T+3 Sets remaining</td><td>Sat 12 Sep</td><td class="n">20</td><td class="n">20%</td><td class="n">0</td><td class="n">1 · $59.95</td></tr>
+<tr><td>Founding Price Closes</td><td>Sun 13 Sep</td><td class="n">20</td><td class="n">25%</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>Review ask one-off (buyers)</td><td>22 Sep</td><td class="n">27</td><td class="n">31%</td><td class="n">1</td><td class="n">0 · 1 unsub</td></tr>
+<tr><td>TEL family welcome</td><td>3 Oct</td><td class="n">24</td><td class="n">50%</td><td class="n">0</td><td class="n">0</td></tr>
+</table></div>
+<div class="tbl"><table>
+<tr><th>Flow</th><th>Status</th><th class="n">Recip.</th><th class="n">Open</th><th class="n">Click</th><th class="n">Orders</th></tr>
+<tr><td>Welcome: The standard (3 emails)</td><td>live</td><td class="n">167</td><td class="n">24%</td><td class="n">4.9%</td><td class="n">2 · $119.90</td></tr>
+<tr><td>Waiver welcome (studio joiners)</td><td>live</td><td class="n">42</td><td class="n">29%</td><td class="n">0</td><td class="n">0 · 1 unsub</td></tr>
+<tr><td>Healing Guide (counter)</td><td>live</td><td class="n">30</td><td class="n">38%</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>Healing Guide (online)</td><td>live</td><td class="n">3</td><td class="n">67%</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>Long Stage day 50</td><td>live</td><td class="n">8</td><td class="n">38%</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td><b>Abandoned checkout (3 emails)</b></td><td>live</td><td class="n">3</td><td class="n" colspan="3"><b class="s-bad">0 of 3 delivered</b></td></tr>
+<tr><td>Browse abandonment · Review ask · Back in stock</td><td>draft</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td></tr>
+</table></div>
+<ul>
+<li><b>Campaign clicks are zero.</b> Opens are fine. The launch letters have one quiet link. Each needs one obvious button above the fold. Welcome 1, with the Healing Guide button, clicks at 10%. Copy that pattern.</li>
+<li><b>Abandoned checkout is silent.</b> Live, 3 recipients, 0 delivered. Likely a consent filter or Smart Sending skip. Highest-intent email in the account. Fix first.</li>
+<li><b>Review ask flow is still draft.</b> All 12 reviews came from manual sends. Every counter buyer should get it at day 14.</li>
+</ul>
+
+<h2>6 · Social (Instagram, TEL account)</h2>
+<p>Daily reach spikes on post days: 912 (3 Sep), 1,739 (10 Sep), 1,495 (11 Sep), 1,547 (13 Sep), 2,835 (14 Sep), 1,483 (18 Sep), 915 (23 Sep), 1,066 (30 Sep). Between posts: 24 to 160.</p>
+<p>Roughly 30,000 profile views in the period became 199 site sessions. Under 1% of people who look at the profile reach the store. The bio link is the leak. Website-click tracking is not set up on the account, so it cannot be measured yet. The 14 Sep post is the best content of the launch. Repeat its format.</p>
+
+<h2>7 · Stockists: the real lever</h2>
+<p>One counter, no marketing, 36 sets in 25 days. The product sells where tattoos are done, and every other studio on the Gold Coast is that same counter.</p>
+<p>At the current rate one studio is about 10 sets a week, $600 retail. Ten stockists at a 40% wholesale margin is about $3,600 a week to TEL, and the first 500 sets are gone in six weeks instead of 37.</p>
+<p>Nothing exists for this yet: no wholesale price, no stockist page, no one-pager, no counter display spec.</p>
+
+<h2>8 · Supply and manufacturing</h2>
+<p>Not scored. Known: 410 of 500 sets, 60 ml each, first run. Needed before Chapter Two or a stockist push: cost per set, supplier lead time, minimum reorder, batch expiry on the current run, cosmetic labelling compliance status, and whether the maker can do a 2,000-unit run at the same spec.</p>
+
+<h2>9 · What to do, in order</h2>
+<h3>Next 7 days</h3>
+<ol>
+<li><b>Fix the abandoned checkout flow.</b> Check the consent filter and Smart Sending on each of the three messages.</li>
+<li><b>Home page: product to position two, proof and steps back on, sticky buy bar.</b> One session in the theme editor on a duplicate of v7.1.</li>
+<li><b>Kill the traffic campaign for good.</b> One sales-objective campaign, Australia only, purchase optimisation, $15 a day, retargeting IG engagers plus site visitors, purchasers excluded.</li>
+<li><b>Review ask flow live</b> at day 14 after any order.</li>
+<li><b>Instagram bio link straight to the product page</b>, website-click tracking on.</li>
+</ol>
+<h3>Next 30 days</h3>
+<ol start="6">
+<li>Build the stockist offer: wholesale price, minimum order, counter display, one-page PDF, a stockists page behind the accordion. Walk it into five Gold Coast studios in person.</li>
+<li>One button above the fold in every campaign and flow template.</li>
+<li>Google: claim the Business Profile for the product and write one "tattoo aftercare Gold Coast" page. Search converts at 10%.</li>
+<li>Watch 30 Clarity recordings of mobile home-page sessions before touching the design further.</li>
+<li>Get the supplier numbers into the scoreboard.</li>
+</ol>
+<div class="hold">Hold: Chapter Two stays quiet until Chapter One passes 250 sets sold.</div>
+
+<h2>Review 2 targets (19 Oct)</h2>
+<ul>
+<li>Online conversion ≥ 1.0%</li>
+<li>Abandoned checkout delivery above zero</li>
+<li>One sales-objective campaign with return on ad spend ≥ 1.5</li>
+<li>One stockist signed</li>
+<li>Campaign click rate ≥ 3%</li>
+</ul>
+<p class="note">Rubric: each area scored 0 to 10 against the previous review, with the driving number written beside it. Fortnightly while under 100 online orders, monthly after.</p>
+</div>
