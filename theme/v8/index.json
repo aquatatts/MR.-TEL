@@ -14,7 +14,9 @@
         "eyebrow": "Chapter One · Look after the art",
         "heading": "Earned. Not <em>given</em>.",
         "button_text": "Shop the Ritual Duo",
-        "button_url": "shopify://products/tattoo-aftercare-kit"
+        "button_url": "shopify://products/tattoo-aftercare-kit",
+        "sub_text": "Not ready to buy? Join the list.",
+        "sub_url": "#tel-newsletter"
       }
     },
     "tel_spec": {
@@ -288,7 +290,7 @@
         "eyebrow": "Chapter One",
         "numeral": "500",
         "heading": "Five hundred <em>sets</em>.",
-        "body": "<p>Chapter One is open. Five hundred sets, sealed, never sold apart. When they’re gone, it closes.</p>",
+        "body": "<p>Chapter One is open. Five hundred sets, sealed, never sold apart. When they’re gone, it closes, and Chapter Two is named.</p>",
         "closed_heading": "Chapter One is <em>closed</em>.",
         "closed_body": "<p>Five hundred sets, gone. Chapter Two — fragrance — is in development. The list hears first.</p>",
         "product": "tattoo-aftercare-kit",
@@ -300,13 +302,13 @@
     "tel_newsletter": {
       "type": "tel-newsletter",
       "settings": {
-        "image": "shopify://shop_images/tel-ritual-duo-07-chapter-one-card.jpg",
+        "image": "",
         "focal": "50% 50%",
-        "eyebrow": "Chapter Two · Fragrance",
-        "heading": "Our signature scent. One <em>run</em>.",
-        "body": "<p>In development. The list gets the release date, the story behind it, and the doors 24 hours before they open to the public.</p>",
+        "eyebrow": "Chapter Two · In development",
+        "heading": "The list hears <em>first</em>.",
+        "body": "<p>Chapter Two is in development. One email when it is named, and the doors 24 hours before anyone else. That is the whole arrangement.</p>",
         "placeholder": "Your email address",
-        "button_text": "Put me on the list",
+        "button_text": "Join the list",
         "micro": "Chapter releases only. Nothing else.",
         "tags": "newsletter, chapter-two-waitlist"
       }
@@ -333,11 +335,11 @@
     "tel_proof",
     "tel_steps",
     "tel_reviews",
+    "tel_newsletter",
     "tel_founder",
     "tel_chair",
     "tel_aim",
     "tel_chapter",
-    "tel_newsletter",
     "tel_sticky"
   ]
 }

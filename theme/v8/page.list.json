@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "tel_list": {
+      "type": "tel-newsletter",
+      "settings": {
+        "image": "shopify://shop_images/tel-ritual-duo-07-chapter-one-card.jpg",
+        "focal": "50% 50%",
+        "eyebrow": "TEL Collection · Chapter Two",
+        "heading": "The list hears <em>first</em>.",
+        "body": "<p>Chapter Two is in development. One email when it is named, and the doors 24 hours before anyone else. Nothing else, ever.</p>",
+        "placeholder": "Your email address",
+        "tags": "newsletter, chapter-two-waitlist, instagram-bio",
+        "button_text": "Join the list",
+        "micro": "Chapter releases only. Unsubscribe in one tap."
+      }
+    }
+  },
+  "order": [
+    "tel_list"
+  ]
+}
