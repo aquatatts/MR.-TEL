@@ -2,7 +2,7 @@
 
 6 October 2026 · Benny Aquilina, TEL Collection
 
-Prepared for JAJI Parfumerie, Wednesday 7 October 2026, 12:30, Brisbane. The same brief goes to By Luis, Williamstown, the week of 12 October. Items in [square brackets] are Benny's to confirm before the meeting.
+Prepared for JAJI Parfumerie, Wednesday 7 October 2026, 12:30, Brisbane. The same brief goes to By Luis, Williamstown, the week of 12 October.
 
 ## The house
 
@@ -38,7 +38,7 @@ The TEL customer pays for things made properly and can tell the difference. Most
 
 They wear the scent the way they wear the work: daily, close, chosen once and kept. They are not fragrance collectors and they do not want a shelf of bottles. They want one that is theirs.
 
-[Benny: two or three sentences on the person you picture wearing it. Who they are, where they are at 7pm on a Thursday, what they already own that they are proud of.]
+Picture him at 7pm on a Thursday: work done, showered, sitting down somewhere good with people he chose. He owns one watch, one wallet, one fragrance, each bought once after thinking about it, and none of them replaced on a whim. TEL's job is to be the one he does not replace.
 
 ## Olfactive direction
 
@@ -58,17 +58,20 @@ This is a proposed direction drawn from the brand, for Benny to confirm, sharpen
 
 **References**
 
-Benny wears, and keeps coming back to, three houses: Louis Vuitton, Montblanc and Creed, including Creed's newest line. The perfumers should read the pattern, not just the bottles.
+Benny wears, and keeps coming back to, three houses: Creed, Louis Vuitton and Montblanc. Aventus is the one. The perfumers should read the pattern, not just the bottles.
 
 **The story in those three.** None of them is a fragrance company first. Louis Vuitton made trunks. Montblanc made pens. Creed dressed courts before it bottled anything. Each is a house with a craft at its centre that later put its name on a scent, and the scent carried the standard of the house. That is TEL's exact position: a house built on one craft, now putting its name on a fragrance that has to carry the same standard. The wearer is not buying a perfume brand. He is buying the house.
 
-**What the pattern says about the scent.** Across the three, the common ground is bright and clean on top, aromatic through the middle, dry and warm underneath, and recognisable: a signature you can pick from across a room without it shouting. Creed's Aventus is the obvious reference point for that structure. The brief for TEL is that family, made quieter, drier and longer, with the sweetness taken out.
+**What the pattern says about the scent.** Ten bottles, and eight of them are bright, clean and aromatic. Two are dark. So the signature sits in the Aventus family, bright and recognisable on top, with the depth of the two dark ones held in the base rather than announced. Quieter, drier and longer than any of the ten, with the sweetness taken out.
 
-[Benny: name the specific bottles so the perfumers can smell what you mean. Which Louis Vuitton (Imagination, Météore, L'Immensité, Ombre Nomade, Nuit de Feu). Which Montblanc (Legend, Explorer, Signature). Which Creed, and which of the new line. One line each on what you like and what you would change.]
+**The bottles.** Benny will talk through what he would keep and what he would change in each at the table.
 
-- Louis Vuitton [bottle] — [what you like, what you would change]
-- Montblanc [bottle] — [what you like, what you would change]
-- Creed [bottle, new line] — [what you like, what you would change]
+- **Creed Aventus.** The anchor. The reference for structure, performance and the way it is recognised across a room.
+- **Creed Green Irish Tweed, Silver Mountain Water, Viking.** The house classics: two cold and green, one spiced wood.
+- **Louis Vuitton Afternoon Swim, Pacific Chill, Orage, Sur la Route.** The fresh side of the house: citrus, air, salt.
+- **Louis Vuitton Ombre Nomade.** The one dark exception: oud and rose. This is the depth the base should carry, not the opening.
+- **Montblanc Explorer.** The Aventus-adjacent one: bergamot, vetiver, patchouli. Proof that the structure works at a quieter volume.
+- **Montblanc Explorer Platinum, Legend Red, Signature.** The recent ones.
 
 **Avoid at all costs**
 
@@ -80,16 +83,16 @@ Benny wears, and keeps coming back to, three houses: Louis Vuitton, Montblanc an
 
 | | Proposed | Note |
 | --- | --- | --- |
-| Concentration | Eau de parfum, around 20% | Benny's own working figure in the 11 Sep email. Confirm at the meeting whether the formula wants 18 or 22. |
-| Bottle | 50 ml [or 100 ml] | 5 L of oil at 20% makes about 500 bottles at 50 ml, or 250 at 100 ml. 50 ml keeps the run at five hundred and the price under A$200. |
+| Concentration | Eau de parfum, around 20% | Benny's working figure. To discuss at the table whether the formula wants 18 or 22. |
+| Bottle | 50 ml, with 100 ml discussed | 5 L of oil at 20% makes about 500 bottles at 50 ml, or 250 at 100 ml. 50 ml keeps the run at five hundred and the price under A$200. |
 | Run | 500, numbered | Same discipline as Chapter One. When they are gone, it closes. |
-| Retail | [A$189 inc GST for 50 ml] | Sits above Goldfield & Banks and below the European niche houses. Benny to confirm. |
+| Retail | A$189 inc GST for 50 ml, proposed | Sits above Goldfield & Banks and below the European niche houses. |
 | Discovery | 2 ml vials, 300 to 500 | Sent to the list before doors open. The sample is the launch. |
 | Packaging | Heavy glass, black, gold-filled engraving to match the metal card. Rigid box. | TEL sources; perfumer advises on closure and compatibility. |
 
 **Why 50 ml and not 100.** It keeps five hundred numbered bottles in the run, holds the price where the TEL customer already buys, and leaves the 100 ml for a later edition if the first sells through. The oil cost per bottle is roughly A$7 to 9 at 50 ml, so the price is set by the brand, not the juice.
 
-[Benny: confirm 50 or 100 ml, and the retail price you have in your head.]
+Both the bottle size and the price are proposals, to be tested against the perfumers' view of the formula on the day.
 
 ## The standard
 
