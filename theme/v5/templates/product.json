@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": { "type": "title", "settings": { "heading_tag": "h1" } },
+        "judge_me_reviews_preview_badge_aTx4T4": { "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8", "settings": {} },
+        "price": { "type": "price", "settings": { "show_taxes_notice": false } },
+        "payment_terms": { "type": "payment_terms", "settings": {} },
+        "separator": { "type": "separator", "settings": {} },
+        "lead": { "type": "text", "settings": { "text": "<p><strong>Sealed, because the routine is the product.</strong></p><p>Restore Balm seals. Recovery Cream conditions. They don’t come apart — not as a discount, as a discipline.</p>" } },
+        "spec": { "type": "liquid", "settings": { "liquid": "<p style=\"font-family:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C9A24B;line-height:1.8;margin:0 0 1.25rem\">60 ml × 2 · Sealed as a set · First run of five hundred<br>Built in a working studio · Surfers Paradise<br>Free shipping Australia-wide · Ships in 1–2 days</p>" } },
+        "buy_buttons": { "type": "buy_buttons", "settings": { "show_payment_button": true, "show_gift_card_recipient": false, "atc_button_background": "#C9A24B", "atc_button_text_color": "#080808", "payment_button_background": "", "payment_button_text_color": "" } },
+        "acc-ritual": { "type": "accordion", "settings": { "show_below_gallery": true, "icon": "none", "custom_icon": "", "title": "The Ritual", "content": "<p><strong>Restore Balm + Recovery Cream · 60 ml each · one sealed set.</strong></p><p>The Ritual Duo doesn’t come apart. Not as a bundle deal, not as a starter pack — as one sealed system, formulated as a pair and sold as a pair.</p><p><strong>Step one — Restore Balm.</strong> <em>Richer · Sealing · Protective.</em> For fresh ink. Thin layer, clean dry skin, morning and night.</p><p><strong>Step two — Recovery Cream.</strong> <em>Calm · Condition · Refresh.</em> For the second stage. A lighter daily cream that sinks in fast to hydrate and soothe while the work settles — the months most people skip.</p>", "liquid": "", "page": "" } },
+        "acc-routine": { "type": "accordion", "settings": { "show_below_gallery": true, "icon": "none", "custom_icon": "", "title": "The night, the morning, the second stage", "content": "<p><strong>The night.</strong> A few hours after the session: wrap off, a gentle wash, and nothing on it. Let the skin breathe overnight.</p><p><strong>The morning after.</strong> Restore Balm, thin. Keep it thin, keep it regular, through the first days.</p><p><strong>The second stage.</strong> Recovery Cream, morning and night, through the months it takes to settle. Most people stop at week two. Don’t.</p><p><em>Always follow the aftercare your artist gives you — they know what they put in your skin.</em></p>", "liquid": "", "page": "" } },
+        "acc-heavy": { "type": "accordion", "settings": { "show_below_gallery": true, "icon": "none", "custom_icon": "", "title": "Heavy work — the layered protocol", "content": "<p>Big work is not a big version of small work. A multi-session rework over old ink, a full back, a solid black fill — the skin takes far more than a single-sitting piece ever will. Heavy work needs its own protocol.</p><p><strong>Critical stage — both, layered.</strong> Recovery Cream first, Restore Balm straight over the top.</p><p><strong>Closing stage — Restore Balm alone.</strong> Thin layer, morning and night.</p><p><strong>Second stage — Recovery Cream alone.</strong> Weeks out, step down. Daily cream, until it’s settled.</p>", "liquid": "", "page": "" } },
+        "acc-standard": { "type": "accordion", "settings": { "show_below_gallery": true, "icon": "none", "custom_icon": "", "title": "Built to a standard", "content": "<p><strong>Formulated in Australia. Proven in a working studio. Manufactured to our specification by our production partner.</strong></p><p>Every batch is tested, not claimed: heavy metals not detected · no pathogenic microorganisms · pH 6.7 measured on batch · three-year shelf life · ISO 22716 and FDA GMP held at the manufacturing site.</p><p><em>One product. One price. No sales, no starter sizes, no half measures.</em></p>", "liquid": "", "page": "" } },
+        "acc-founder": { "type": "accordion", "settings": { "show_below_gallery": true, "icon": "none", "custom_icon": "", "title": "From the founder", "content": "<p><em>“I’ve looked after work with everything the market sells, and most of it made promises my skin never kept. So I built the thing I could never buy.”</em></p><p>— Benny Aquilina · fifteen years under the needle · owner, Squires Ink, Surfers Paradise</p><p><a href=\"/pages/founder\"><strong>Read the full story →</strong></a></p>", "liquid": "", "page": "" } },
+        "acc-shipping": { "type": "accordion", "settings": { "show_below_gallery": true, "icon": "none", "custom_icon": "", "title": "Shipping and returns", "content": "", "liquid": "", "page": "shipping-and-returns" } }
+      },
+      "block_order": ["title", "judge_me_reviews_preview_badge_aTx4T4", "price", "payment_terms", "separator", "lead", "spec", "buy_buttons", "acc-ritual", "acc-routine", "acc-heavy", "acc-standard", "acc-founder", "acc-shipping"],
+      "settings": {
+        "color_scheme": "",
+        "allow_transparent_header": false,
+        "transparent_header_use_primary_colors": false,
+        "container_size": "lg",
+        "product_info_size": 40,
+        "show_sticky_add_to_cart": true,
+        "center_basic_info": false,
+        "desktop_media_layout": "grid",
+        "desktop_media_grid_gap": 30,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3
+      }
+    },
+    "tel_proof_pdp": {
+      "type": "tel-proof",
+      "blocks": {
+        "p1": { "type": "item", "settings": { "icon": "shield", "title": "Heavy metals", "text": "Not detected. Lead, arsenic, mercury, cadmium, bismuth." } },
+        "p2": { "type": "item", "settings": { "icon": "check", "title": "Microbiology", "text": "No pathogenic micro-organisms." } },
+        "p3": { "type": "item", "settings": { "icon": "drop", "title": "pH 6.7", "text": "Measured on batch." } },
+        "p4": { "type": "item", "settings": { "icon": "clock", "title": "Three years", "text": "Shelf life." } },
+        "p5": { "type": "item", "settings": { "icon": "document", "title": "ISO 22716 · GMP", "text": "Held at the manufacturing site." } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
+      "settings": { "aria": "Batch testing" }
+    },
+    "1784842957c477dfe5": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_fexwMM": { "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8", "settings": { "review_data": "real_data", "max_width": 1200, "show_shop_reviews": false, "empty_state": "empty_widget" } }
+      },
+      "block_order": ["judge_me_reviews_review_widget_fexwMM"],
+      "settings": { "color_scheme": "", "separate_section_with_border": true, "remove_vertical_spacing": false, "remove_horizontal_spacing": false }
+    }
+  },
+  "order": ["main", "tel_proof_pdp", "1784842957c477dfe5"]
+}

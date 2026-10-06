@@ -1,0 +1,345 @@
+{
+  "sections": {
+    "tel_hero": {
+      "type": "tel-hero",
+      "settings": {
+        "image": "shopify://shop_images/tel-chapter-one-scene-hero.jpg",
+        "mobile_image": "shopify://shop_images/tel-chapter-one-scene-hero.jpg",
+        "focal": "50% 50%",
+        "desktop_focal": "50% 50%",
+        "mobile_height": 700,
+        "desktop_height": 860,
+        "veil": 86,
+        "kenburns": true,
+        "eyebrow": "Chapter One · Look after the art",
+        "heading": "Earned. Not <em>given</em>.",
+        "button_text": "Shop the Ritual Duo",
+        "button_url": "shopify://products/tattoo-aftercare-kit",
+        "sub_text": "Not ready to buy? Join the list.",
+        "sub_url": "#tel-newsletter"
+      }
+    },
+    "tel_spec": {
+      "type": "tel-spec-strip",
+      "blocks": {
+        "s1": {
+          "type": "item",
+          "settings": {
+            "text": "Two jars"
+          }
+        },
+        "s2": {
+          "type": "item",
+          "settings": {
+            "text": "60 ml each"
+          }
+        },
+        "s3": {
+          "type": "item",
+          "settings": {
+            "text": "Sealed as a set, for a reason"
+          }
+        },
+        "s4": {
+          "type": "item",
+          "settings": {
+            "text": "First run of five hundred"
+          }
+        },
+        "s5": {
+          "type": "item",
+          "settings": {
+            "text": "Free shipping Australia-wide"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "settings": {}
+    },
+    "tel_product": {
+      "type": "tel-product",
+      "settings": {
+        "product": "tattoo-aftercare-kit",
+        "image": "shopify://shop_images/tel-ritual-duo-11-pair-and-box-r1.jpg",
+        "use_product_image": true,
+        "eyebrow": "The Ritual Duo · Chapter One",
+        "heading": "Sealed, because the routine is the <em>product</em>.",
+        "lead": "<p>One set. Two formulas. Restore Balm for fresh work. Recovery Cream for the second stage and the months after.</p>",
+        "body": "<p>Every piece needs both, one after the other. No single product does the job, so they don’t come apart. Not as a discount. As a discipline.</p>",
+        "shipping_line": "Free shipping · Australia-wide",
+        "button_text": "Shop the Ritual",
+        "show_remaining": true,
+        "run_size": 500,
+        "closed_text": "Chapter One is closed",
+        "micro_1": "Ships in 1–2 business days from Surfers Paradise",
+        "micro_2": "Sealed sets · Never sold apart"
+      }
+    },
+    "tel_proof": {
+      "type": "tel-proof",
+      "blocks": {
+        "p4": {
+          "type": "item",
+          "settings": {
+            "icon": "clock",
+            "title": "Three years",
+            "text": "Shelf life."
+          }
+        },
+        "p5": {
+          "type": "item",
+          "settings": {
+            "icon": "document",
+            "title": "ISO 22716 · FDA GMP",
+            "text": "Held at the manufacturing site."
+          }
+        },
+        "p2": {
+          "type": "item",
+          "settings": {
+            "icon": "check",
+            "title": "Microbiology",
+            "text": "No pathogenic micro-organisms."
+          }
+        },
+        "p3": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "title": "pH 6.7",
+            "text": "Measured on batch."
+          }
+        }
+      },
+      "block_order": [
+        "p4",
+        "p5",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "eyebrow": "The chemistry · Lists published in full",
+        "heading": "Tested. Not <em>claimed</em>.",
+        "sub": "In order, exactly as they read on the jar. Every batch tested in the lab, trialled in the chair. Not claimed.",
+        "aria": "Batch testing"
+      }
+    },
+    "tel_steps": {
+      "type": "tel-steps",
+      "blocks": {
+        "one": {
+          "type": "step",
+          "settings": {
+            "label": "Step one · Days 1–14",
+            "name": "Restore Balm",
+            "descriptor": "Richer · Sealing · Protective",
+            "body": "<p>A concentrated balm that lays down a protective layer and holds moisture in while the work closes over. Thin layer, clean dry skin, morning and night.</p>"
+          }
+        },
+        "two": {
+          "type": "step",
+          "settings": {
+            "label": "Step two · The months after",
+            "name": "Recovery Cream",
+            "descriptor": "Calm · Condition · Refresh",
+            "body": "<p>A lighter daily cream that sinks in fast to hydrate and soothe while the work settles. The stage most people skip. Don’t.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "one",
+        "two"
+      ],
+      "settings": {
+        "alt": false,
+        "eyebrow": "Why two",
+        "heading": "Two stages. Two <em>formulas</em>.",
+        "intro": "<p>Fresh work needs sealing. Settling work needs conditioning. The balm is too heavy for the second stage. The cream is too light for the first.</p>",
+        "image": "shopify://shop_images/tel-ritual-duo-05-both-open-top-down-r2.jpg",
+        "focal": "50% 50%",
+        "caption": "Two textures. Two jobs.",
+        "outro": "<p>Heavy, detailed work uses both, layered. Seventeen years in the chair says one product can’t do it. That is why they’re sealed together.</p>",
+        "button_text": "Look after the art",
+        "button_url": "shopify://pages/aftercare-guide"
+      }
+    },
+    "tel_reviews": {
+      "type": "tel-reviews",
+      "blocks": {
+        "q1": {
+          "type": "quote",
+          "settings": {
+            "quote": "I’ve tried plenty of tattoo aftercare products over the years, but nothing has compared to this. … Loved it so much I decided to support the business and got the logo tattooed on me.",
+            "name": "Jordan Keen",
+            "role": "Verified buyer · 15 September 2026",
+            "stars": 5
+          }
+        },
+        "q2": {
+          "type": "quote",
+          "settings": {
+            "quote": "Works great keeps my tattoo looking and feeling fresh",
+            "name": "Brock Appleby",
+            "role": "Verified buyer · 19 August 2026",
+            "stars": 5
+          }
+        },
+        "q3": {
+          "type": "quote",
+          "settings": {
+            "quote": "This stuff is elite, if you’re getting a tattoo the only two things you need are the best tattoo artist and the best aftercare in the game! This is the best aftercare, buy some then go find your artist!",
+            "name": "James H",
+            "role": "Review · 28 August 2026",
+            "stars": 5
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "settings": {
+        "product": "tattoo-aftercare-kit",
+        "alt": false,
+        "eyebrow": "From the first five hundred",
+        "heading": "In their own <em>words</em>.",
+        "sub": "Collected by Judge.me after purchase. Published as written.",
+        "more_text": "Read every review",
+        "more_url": "shopify://products/tattoo-aftercare-kit#reviews",
+        "show_all": false,
+        "list_note": "Newest first. Nothing edited.",
+        "schema": false
+      }
+    },
+    "tel_founder": {
+      "type": "tel-band",
+      "settings": {
+        "alt": true,
+        "image": "shopify://shop_images/tel-founder-benny-aquilina.jpg",
+        "image_position": "end",
+        "aspect": "4/5",
+        "focal": "50% 30%",
+        "eyebrow": "The founder · The studio",
+        "heading": "Built at the counter of a working <em>studio</em>.",
+        "quote": "Nothing goes on a client’s skin that has not been proven on my own first.",
+        "attr_name": "Benny Aquilina",
+        "attr_role": "Owner, Squires Ink · Surfers Paradise",
+        "attr_credential": "Seventeen years under the needle · Still to this day",
+        "body": "<p>Every piece that leaves this counter comes back through it. We see what holds, what fades, and what it was looked after with. Hundreds of times a year.</p><p>Aftercare is usually made at a distance from the chair. This was made at the counter of a working studio, by the person who owns it — and it goes on his own skin before it goes on anyone else’s.</p><p>So we built the thing that couldn’t be bought.</p>",
+        "ornament": true,
+        "mono_line": "Squires Ink · Orchid Avenue · Surfers Paradise",
+        "button_text": "The founder",
+        "button_url": "shopify://pages/founder",
+        "button_solid": false
+      }
+    },
+    "tel_chair": {
+      "type": "tel-band",
+      "settings": {
+        "alt": false,
+        "image": "shopify://shop_images/IMG_0060.jpg",
+        "image_position": "end",
+        "aspect": "4/5",
+        "focal": "50% 30%",
+        "eyebrow": "From the chair",
+        "heading": "The artists it was built <em>alongside</em>.",
+        "quote": "What I recommend to my clients is formulas that work in hydrating the skin and look after my work long after it leaves the studio. Because this is my passion.",
+        "attr_name": "Valerio Ciciarelli",
+        "attr_role": "Large-scale realism · Squires Ink, Surfers Paradise",
+        "attr_credential": "",
+        "body": "<p>Calabria to the Gold Coast. Best Realism Piece, Caserta 2019. The artist currently working the founder’s chest, session after session, with the Ritual on the counter beside him.</p><p>No payment. No free product. No arrangement. His words are his own.</p>",
+        "ornament": false,
+        "mono_line": "",
+        "button_text": "Trusted by",
+        "button_url": "shopify://pages/trusted-by",
+        "button_solid": false
+      }
+    },
+    "tel_aim": {
+      "type": "tel-band",
+      "settings": {
+        "alt": true,
+        "image": "shopify://shop_images/IMG-9469.png",
+        "image_position": "start",
+        "aspect": "1/1",
+        "focal": "50% 50%",
+        "eyebrow": "Our aim",
+        "heading": "Built on discipline. Driven by <em>purpose</em>.",
+        "quote": "TEL isn’t a brand you buy once. It’s a standard you choose.",
+        "attr_name": "",
+        "attr_role": "",
+        "attr_credential": "",
+        "body": "<p>Most things are made to be good enough. TEL started on the opposite belief: that good enough is a decision, and so is everything better.</p><p>It starts with aftercare, because looking after the work is the work. It grows the way it began — chapter by chapter, each one earned before it’s named.</p>",
+        "ornament": false,
+        "mono_line": "",
+        "button_text": "Our aim",
+        "button_url": "shopify://pages/about",
+        "button_solid": false
+      }
+    },
+    "tel_chapter": {
+      "type": "tel-chapter",
+      "settings": {
+        "eyebrow": "Chapter One",
+        "numeral": "500",
+        "heading": "Five hundred <em>sets</em>.",
+        "body": "<p>Chapter One is open. Five hundred sets, sealed, never sold apart. When they’re gone, it closes, and Chapter Two is named.</p>",
+        "closed_heading": "Chapter One is <em>closed</em>.",
+        "closed_body": "<p>Five hundred sets, gone. Chapter Two — fragrance — is in development. The list hears first.</p>",
+        "product": "tattoo-aftercare-kit",
+        "run_size": 500,
+        "show_meter": true,
+        "meter_label": "Sets remaining"
+      }
+    },
+    "tel_newsletter": {
+      "type": "tel-newsletter",
+      "settings": {
+        "image": "",
+        "focal": "50% 50%",
+        "eyebrow": "Chapter Two · In development",
+        "heading": "The list hears <em>first</em>.",
+        "body": "<p>Chapter Two is in development. One email when it is named, and the doors 24 hours before anyone else. That is the whole arrangement.</p>",
+        "placeholder": "Your email address",
+        "button_text": "Join the list",
+        "micro": "Chapter releases only. Nothing else.",
+        "tags": "newsletter, chapter-two-waitlist"
+      }
+    },
+    "tel_sticky": {
+      "type": "tel-sticky-buy",
+      "settings": {
+        "product": "tattoo-aftercare-kit",
+        "label": "The Ritual Duo",
+        "show_price": true,
+        "show_remaining": true,
+        "run_size": 500,
+        "meta": "Free shipping · Australia-wide",
+        "button_text": "Shop the Ritual",
+        "anchor": "#tel-product",
+        "mobile_only": true
+      }
+    }
+  },
+  "order": [
+    "tel_hero",
+    "tel_product",
+    "tel_spec",
+    "tel_proof",
+    "tel_steps",
+    "tel_reviews",
+    "tel_newsletter",
+    "tel_founder",
+    "tel_chair",
+    "tel_aim",
+    "tel_chapter",
+    "tel_sticky"
+  ]
+}

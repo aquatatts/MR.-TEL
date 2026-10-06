@@ -1,0 +1,77 @@
+{%- comment -%} TEL v8 · Sticky buy bar: appears once the product plate has scrolled past, one quiet line and one button. Mobile-first; optional on desktop. {%- endcomment -%}
+{%- liquid
+  assign product = section.settings.product
+  assign variant = product.selected_or_first_available_variant
+  assign run = section.settings.run_size | default: 500
+  assign remaining = variant.inventory_quantity | default: 0
+  if remaining < 0
+    assign remaining = 0
+  endif
+  if remaining > run
+    assign remaining = run
+  endif
+-%}
+{%- if product != blank and variant.available -%}
+<style>
+  #shopify-section-{{ section.id }}{position:fixed;left:0;right:0;bottom:0;z-index:40;transform:translateY(110%);transition:transform .35s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+  #shopify-section-{{ section.id }}.is-shown{transform:translateY(0);pointer-events:auto}
+  #shopify-section-{{ section.id }} .tel-sticky{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:10px var(--tel-gutter);padding-bottom:calc(10px + env(safe-area-inset-bottom, 0px));background:rgba(8,8,8,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid rgba(var(--tel-gold-rgb) / .45);color:var(--tel-ink)}
+  #shopify-section-{{ section.id }} .tel-sticky__name{font-family:var(--tel-serif);font-size:19px;line-height:1.1;color:var(--tel-ink);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #shopify-section-{{ section.id }} .tel-sticky__name b{font-weight:400;color:var(--tel-gold);margin-left:8px;font-variant-numeric:tabular-nums}
+  #shopify-section-{{ section.id }} .tel-sticky__meta{font-family:var(--tel-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tel-mute);margin:4px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
+  #shopify-section-{{ section.id }} .tel-btn{min-height:44px;width:auto;min-width:0;padding:0 16px;font-size:10.5px;letter-spacing:.2em;display:inline-flex;white-space:nowrap}
+  {%- if section.settings.mobile_only -%}
+  @media(min-width:900px){#shopify-section-{{ section.id }}{display:none}}
+  {%- else -%}
+  @media(min-width:900px){#shopify-section-{{ section.id }} .tel-sticky{max-width:1180px;margin:0 auto;border-left:1px solid rgba(var(--tel-gold-rgb) / .25);border-right:1px solid rgba(var(--tel-gold-rgb) / .25)}}
+  {%- endif -%}
+  @media(prefers-reduced-motion:reduce){#shopify-section-{{ section.id }}{transition:none}}
+</style>
+<div class="tel-sticky" role="complementary" aria-label="{{ section.settings.label | default: product.title | escape }}">
+  <div style="min-width:0">
+    <p class="tel-sticky__name">{{ section.settings.label | default: product.title | escape }}{% if section.settings.show_price %}<b>{{ variant.price | money }}</b>{% endif %}</p>
+    {%- if section.settings.show_remaining and variant.inventory_management != blank and remaining > 0 -%}
+      <p class="tel-sticky__meta">{{ remaining }} of {{ run }} sets left</p>
+    {%- elsif section.settings.meta != blank -%}
+      <p class="tel-sticky__meta">{{ section.settings.meta | escape }}</p>
+    {%- endif -%}
+  </div>
+  <a class="tel-btn tel-btn--solid" href="{{ product.url }}">{{ section.settings.button_text | default: 'Shop' | escape }}</a>
+</div>
+<script>
+  (function(){
+    var bar=document.getElementById('shopify-section-{{ section.id }}');
+    if(!bar)return;
+    var anchor=document.querySelector('{{ section.settings.anchor | default: "#tel-product" | escape }}');
+    if(!anchor||!('IntersectionObserver' in window)){bar.classList.add('is-shown');return;}
+    var passed=false;
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        passed = !e.isIntersecting && e.boundingClientRect.bottom < 0;
+        bar.classList.toggle('is-shown', passed);
+      });
+    },{threshold:0}).observe(anchor);
+  })();
+</script>
+{%- endif -%}
+{% schema %}
+{
+  "name": "TEL · Sticky buy bar",
+  "tag": "aside",
+  "class": "shopify-section--tel-sticky",
+  "limit": 1,
+  "disabled_on": { "groups": ["header", "footer", "custom.overlay"] },
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "label", "label": "Label", "default": "The Ritual Duo" },
+    { "type": "checkbox", "id": "show_price", "label": "Show price", "default": true },
+    { "type": "checkbox", "id": "show_remaining", "label": "Show sets remaining", "default": true },
+    { "type": "number", "id": "run_size", "label": "Run size", "default": 500 },
+    { "type": "text", "id": "meta", "label": "Fallback line", "default": "Free shipping · Australia-wide" },
+    { "type": "text", "id": "button_text", "label": "Button", "default": "Shop the Ritual" },
+    { "type": "text", "id": "anchor", "label": "Show after this element has scrolled past (CSS selector)", "default": "#tel-product" },
+    { "type": "checkbox", "id": "mobile_only", "label": "Mobile only", "default": true }
+  ],
+  "presets": [ { "name": "TEL · Sticky buy bar", "category": "TEL" } ]
+}
+{% endschema %}
