@@ -1,0 +1,86 @@
+<title>TEL Google Audit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column, scoreboard first, evidence tables after; ink-on-paper with one oxidised-copper accent (the balm tin). */
+:root{
+  --bg:#f3efe7; --paper:#faf7f1; --ink:#1c1a17; --muted:#6b645a; --rule:#d9d2c5;
+  --accent:#8a5a2b; --good:#3f6b45; --warn:#9a6b1f; --bad:#8f3a2e;
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --body:"EB Garamond",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15130f; --paper:#1d1a15; --ink:#ece6da; --muted:#a39a8b; --rule:#3a342b;
+  --accent:#d19a5c; --good:#8fbf94; --warn:#d9a94d; --bad:#d9816f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15130f; --paper:#1d1a15; --ink:#ece6da; --muted:#a39a8b; --rule:#3a342b;
+  --accent:#d19a5c; --good:#8fbf94; --warn:#d9a94d; --bad:#d9816f; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-block:40px 80px;padding-inline:18px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(34px,6vw,54px);line-height:1.05;margin:8px 0 10px;text-wrap:balance}
+h1 em{font-style:italic;color:var(--accent)}
+h2{font-family:var(--display);font-weight:600;font-size:28px;margin:48px 0 12px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:21px;margin:26px 0 8px}
+p{max-width:64ch;margin:0 0 14px}
+.lede{font-size:20px;font-family:var(--display);font-weight:500;line-height:1.35;max-width:38em;border-left:3px solid var(--accent);padding-left:16px;margin:24px 0 8px}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:28px}
+.board{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--rule);margin-top:18px}
+.row{display:grid;grid-template-columns:150px 64px 1fr;gap:14px;align-items:start;padding:12px 0;border-bottom:1px solid var(--rule)}
+.row .area{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.2}
+.row .score{font-family:var(--mono);font-size:24px;font-variant-numeric:tabular-nums;line-height:1.1}
+.row .why{color:var(--muted);font-size:15.5px;min-width:0}
+.row.total{background:var(--paper);padding-inline:12px;margin-inline:-12px}
+.s-good{color:var(--good)} .s-warn{color:var(--warn)} .s-bad{color:var(--bad)} .s-na{color:var(--muted)}
+.bar{height:4px;background:var(--rule);border-radius:2px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:currentColor}
+.tbl{overflow-x:auto;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.n,th.n{text-align:right;white-space:nowrap}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0 6px}
+.kpi{background:var(--paper);border:1px solid var(--rule);padding:12px 14px}
+.kpi b{display:block;font-family:var(--mono);font-size:24px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--muted)}
+ol,ul{padding-left:22px;max-width:66ch} li{margin-bottom:8px}
+.chart{display:grid;grid-template-columns:70px 1fr 44px;gap:10px;align-items:center;font-family:var(--mono);font-size:12.5px;margin:6px 0}
+.chart .t{height:14px;background:var(--rule)} .chart .t i{display:block;height:100%;background:var(--accent)}
+.note{font-size:14.5px;color:var(--muted)}
+.hold{border:1px solid var(--rule);background:var(--paper);padding:14px 16px;margin-top:20px;font-family:var(--display);font-size:19px}
+@media (max-width:520px){.row{grid-template-columns:1fr 56px;grid-template-areas:"a s" "w w"}.row .area{grid-area:a}.row .score{grid-area:s;text-align:right}.row .why{grid-area:w}}
+code{font-family:var(--mono);font-size:13px}
+</style>
+<div class="wrap">
+<div class="eyebrow">TEL Collection · Google audit · 6 October 2026</div><h1>Google drives Squires.<br>It has not <em>met</em> TEL.</h1>
+<div class="meta">What Google can see of TEL, what it sends, and what Squires Ink has that TEL does not. Sources: Shopify (sessions by referrer since 1 Sep, product and page data, live theme head), Supermetrics (Google Business Profile for Squires Ink, last 30 days; connected-source inventory), live web searches run 6 Oct. The live site is blocked from this sandbox, so on-page checks come from the theme and the Shopify records, not a crawl.</div>
+<h2>The one-line verdict</h2>
+<p>Google drives Squires because Squires has been introduced to Google: a Business Profile, reviews, directories, a studio site. TEL has none of that. It has one well-titled product page and a brand name Google already returns first. Everything else is missing, and all of it is free.</p>
+<h2>The numbers</h2>
+<div class="tbl"><table><tr><th></th><th>Squires Ink, last 30 days</th><th>TEL Collection, since 1 Sep</th></tr><tr><td>Google Business Profile views</td><td>2,230 (1,684 mobile search, 405 mobile maps, 120 desktop search, 21 desktop maps)</td><td>No profile</td></tr><tr><td>Website visits from the profile</td><td>121</td><td>—</td></tr><tr><td>Phone calls from the profile</td><td>58</td><td>—</td></tr><tr><td>Direction requests</td><td>96</td><td>—</td></tr><tr><td>Rating</td><td>4.9 across Google, Fresha and directories</td><td>12 reviews at 5.0, on Judge.me only; Google cannot see them yet</td></tr><tr><td>Google search sessions to the site</td><td>(Squires site, not measured here)</td><td>22 sessions, 2 orders. 9% conversion, the best of any source</td></tr><tr><td>Facebook sessions, for contrast</td><td></td><td>2,641 sessions, 0 orders</td></tr></table></div>
+<p>The 22 Google sessions that reached TEL converted at 9%. Facebook sent 120 times as many people and sold nothing. Search intent is the difference: a person who searches "tattoo aftercare" is inside the buying window. Nobody scrolling Facebook is.</p>
+<h2>Google assets, connected or not</h2>
+<div class="tbl"><table><tr><th>Asset</th><th>Squires Ink</th><th>TEL Collection</th></tr><tr><td>Google Business Profile</td><td>Yes, connected, active</td><td><b>No</b></td></tr><tr><td>Google Analytics</td><td>Yes (GA4 property)</td><td>No (Shopify analytics only; acceptable)</td></tr><tr><td>Google Search Console</td><td>Not connected to Supermetrics; unknown</td><td><b>Not connected; almost certainly not verified</b></td></tr><tr><td>Google Merchant Center (free Shopping listings)</td><td>n/a</td><td><b>No</b></td></tr><tr><td>Google Ads</td><td>Account exists (Squires)</td><td>None, and none wanted</td></tr><tr><td>Directory listings</td><td>Fresha, GetInked, Lucky's, Wheree, GoBeauty, LocalSearch</td><td>None</td></tr></table></div>
+<p>Without Search Console, TEL is blind: no query data, no index status, no error reports. That is the first fix, and it costs nothing.</p>
+<h2>What Google sees on the site</h2>
+<p><b>Done well</b></p>
+<ul><li>A brand search returns telcollection.com.au first.</li><li>The product page carries the right words where Google reads them: handle <code>tattoo-aftercare-kit</code>, SEO title "Tattoo Aftercare Kit | The Ritual Duo — TEL Collection", a meta description that says what it is. Keep the handle. It is the door.</li><li>Product structured data via Shopify, Organization and WebSite schema on the home page, breadcrumbs, canonical tags, a hard-coded home meta description, a share image fallback, six product images with descriptive alt text, and empty collections kept out of the index. This is a tidy head.</li><li>Judge.me premium can add review stars to the search result once rich snippets are switched on.</li></ul>
+<p><b>Missing or weak</b></p>
+<div class="tbl"><table><tr><th>Gap</th><th>Why it costs</th><th>Fix</th></tr><tr><td>No Google Business Profile for TEL</td><td>The single biggest driver for Squires does not exist for TEL. No map pin, no reviews on Google, no product tile.</td><td>Create one. See plan.</td></tr><tr><td>No Search Console</td><td>No visibility of what Google indexes or what people search to find TEL.</td><td>Verify the domain, submit the sitemap.</td></tr><tr><td>Not in Google Shopping</td><td>The Ritual Duo does not appear in the Shopping tab, which is free for merchants.</td><td>Shopify's Google &amp; YouTube app, free listings, Judge.me review feed.</td></tr><tr><td>Seven content pages with no search titles</td><td>Our Aim, Trusted By, The Founder, Look After the Art, FAQs, Contact, Shipping are built as custom HTML blocks that begin with CSS. Without an explicit search title and description, Google writes its own from that code.</td><td>Set "Search engine listing" title and description on every page in Shopify admin.</td></tr><tr><td>The aftercare guide is titled "Look After the Art"</td><td>Beautiful on the page, invisible in search. Nobody searches that phrase.</td><td>Keep the H1. Give the page a search title: "Tattoo aftercare guide: the first two weeks and the months after · TEL Collection".</td></tr><tr><td>No FAQ structured data</td><td>The product page has an FAQ accordion and the FAQs page has questions, but neither is marked up, so Google cannot show them.</td><td>Add FAQPage JSON-LD to the FAQ section, from the same questions.</td></tr><tr><td>Blog "News" with zero articles</td><td>No informational pages means no non-brand search traffic. Every competitor in the "best tattoo aftercare Australia" result has content; TEL is absent from that result.</td><td>A journal, two pieces a month, house voice, search titles.</td></tr><tr><td>No links in from Squires</td><td>Squires has a 4.9 rating, a studio site and a profile that sends 121 visits a month. None of it points at TEL.</td><td>One link each: Squires profile website field or product, squiresink.com aftercare page, Squires Instagram bio.</td></tr><tr><td>Reviews live only on Judge.me</td><td>Google cannot read them.</td><td>Rich snippets on; counter buyers asked for a Google review on the TEL profile once it exists.</td></tr></table></div>
+<h2>The voice problem, and the rule that solves it</h2>
+<p>You do not want TEL to read as an aftercare brand. Google only sends people who type "tattoo aftercare". Both are true, and they do not conflict.</p>
+<p>The rule: <b>the visible page speaks house, the invisible layer speaks category.</b> Title tags, meta descriptions, alt text, structured data, the Business Profile category and the Shopping feed carry the words Google needs. The hero, the headings and the copy on the page carry the words the house wants. A visitor from Google lands on "Earned. Not given." A visitor's search result read "Tattoo aftercare kit". Both are right. The product page already works this way. Extend it to every page.</p>
+<h2>What this is worth</h2>
+<p>Search is the only channel that has converted above 5% for TEL. Squires' profile alone generates 2,230 views and 121 site visits a month for a studio. A TEL profile, a Shopping listing and one link from Squires could reasonably bring 150 to 300 search sessions a month within a quarter. At the 9% search conversion seen so far that is 10 to 25 online orders a month, more than online does in total today, from traffic that costs nothing. Treat that as an estimate, not a forecast. Search Console will tell us the real number.</p>
+<h2>The plan, in order</h2>
+<p><b>This week, about two hours, all free</b></p>
+<ol><li><b>Search Console.</b> Verify telcollection.com.au, submit the sitemap at /sitemap.xml. Everything after this is measurable.</li><li><b>Google Business Profile for TEL Collection.</b> Category "Cosmetics store" or "Skin care products vendor". Two safe ways to list it beside Squires at the same address: as a separate business with its own name, phone line (info@ and a distinct number) and website, or as an online retailer with the address hidden and a service area of Australia. The second is cleaner and avoids a duplicate-address review. Add the Ritual Duo as a product, the six photos, the hours, and the link to the site.</li><li><b>Google Shopping free listings.</b> Install Shopify's Google &amp; YouTube channel, connect a new Merchant Center, approve the product. The Ritual Duo appears in the Shopping tab with price and, once Judge.me's feed is connected, stars.</li><li><b>Judge.me rich snippets on.</b> Settings, then Rich Snippets. Stars under the product result.</li><li><b>Search titles and descriptions on all seven pages.</b> Draft below.</li><li><b>Three links from Squires.</b> Profile, site, Instagram. One sentence: "The aftercare we hand you at the counter."</li></ol>
+<p><b>This month</b></p>
+<ol><li><b>FAQ schema</b> on the product FAQ and the FAQs page.</li><li><b>The journal.</b> Four pieces to start, already half-written in the product copy: "Heavy work needs its own protocol", "Why two formulas", "Every ingredient, explained", "The first 48 hours". Search titles, house voice, one photograph each.</li><li><b>Alt text</b> on the home page images in Shopify Files (hero scene, founder, the chair). Product images are done.</li><li><b>Google reviews.</b> Every counter buyer who leaves a Judge.me review gets one line asking for the same on Google, once the profile exists.</li></ol>
+<p><b>Hold</b></p>
+<ul><li>Google Ads for TEL. Same rule as Meta: no prospecting spend. The only exception worth watching is a competitor bidding on "TEL Collection", and there is no sign of that.</li></ul>
+<h2>Draft search titles and descriptions</h2>
+<div class="tbl"><table><tr><th>Page</th><th>Search title</th><th>Description</th></tr><tr><td>Home</td><td>TEL Collection · Sealed two-step tattoo aftercare, Surfers Paradise</td><td>Restore Balm for fresh ink, Recovery Cream for the months after. Sealed as a set, five hundred numbered. Free shipping Australia-wide.</td></tr><tr><td>The Ritual Duo</td><td>Tattoo Aftercare Kit · The Ritual Duo — TEL Collection</td><td>(as is)</td></tr><tr><td>Look After the Art</td><td>Tattoo aftercare guide: the first two weeks and the months after · TEL Collection</td><td>How to look after a new tattoo from day one, when to switch from balm to cream, and the layered protocol for heavy work. From a working studio.</td></tr><tr><td>FAQs</td><td>Tattoo aftercare questions, answered · TEL Collection</td><td>Healing time, what to avoid, when to switch products, heavy sessions and cover-ups. Answered from seventeen years in the chair.</td></tr><tr><td>The Founder</td><td>Benny Aquilina, founder of TEL Collection · Squires Ink, Surfers Paradise</td><td>Seventeen years under the needle. Why a studio owner built his own aftercare, and the standard every TEL chapter is held to.</td></tr><tr><td>Trusted By</td><td>The artists TEL was built alongside · Squires Ink, Surfers Paradise</td><td>Working artists on the Gold Coast who use and recommend the Ritual Duo, in their own words.</td></tr><tr><td>Our Aim</td><td>Our aim · TEL Collection, a house built on one standard</td><td>Elevated essentials, released in numbered chapters. Why TEL started with aftercare and where it goes next.</td></tr><tr><td>The list</td><td>Join the TEL list · Chapter Two hears first</td><td>One email when Chapter Two is named, and the doors 24 hours before anyone else.</td></tr></table></div>
+<h2>Score</h2>
+<p>Google readiness today: <b>3 / 10.</b> A strong product page and a brand result, nothing else. With the six free fixes this week it moves to about 6. With the journal and the reviews flowing to Google, 8 by the end of the year. This becomes a row on the scoreboard from Review 2 on 19 October.</p>
+</div>
