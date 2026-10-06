@@ -104,3 +104,20 @@ Search is the only channel that has converted above 5% for TEL. Squires' profile
 ## Score
 
 Google readiness today: **3 / 10.** A strong product page and a brand result, nothing else. With the six free fixes this week it moves to about 6. With the journal and the reviews flowing to Google, 8 by the end of the year. This becomes a row on the scoreboard from Review 2 on 19 October.
+
+## Done from here, 6 Oct
+
+- Search titles and descriptions set on all eight pages (aftercare guide, FAQs, founder, trusted by, our aim, the list, contact, shipping).
+- Alt text added to the one home-page image that had none (the monogram on the Our Aim band).
+- FAQ structured data: already output by the product page FAQ section in the theme. No change needed.
+- Blog renamed from "News" to "Journal" (telcollection.com.au/blogs/journal) and four pieces drafted, unpublished, each with a search title and description: "Heavy work needs its own protocol", "Two stages. Two formulas.", "The first 48 hours", "Tested. Not claimed." Benny reads and publishes.
+
+## For Benny, Wednesday or Thursday, with the Google login
+
+1. Search Console: verify telcollection.com.au, submit /sitemap.xml.
+2. Google Business Profile for TEL Collection: online retailer, address hidden, service area Australia, category Cosmetics store. Add the Ritual Duo and the six product photos.
+3. Shopify admin, Sales channels, Google & YouTube: connect a new Merchant Center, free listings on.
+4. Judge.me, Settings: Rich Snippets on. Integrations: connect Klaviyo.
+5. Online Store, Preferences: homepage title "TEL Collection · Sealed two-step tattoo aftercare, Surfers Paradise".
+6. Squires: website link on the Squires profile to telcollection.com.au, one line on the squiresink.com aftercare page, second link in the Squires Instagram bio.
+7. Read and publish the four journal drafts.
