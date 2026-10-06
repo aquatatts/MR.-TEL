@@ -76,7 +76,7 @@ What is costing orders:
 2. **Spec, steps and proof are disabled.** These were the three bands that answer "what is in it, how do I use it, why should I believe you". The v6.1 audit scored proof as the strongest conversion element on the page. Turning them off made the home page prettier and less persuasive.
 3. **No sticky buy control.** On mobile, once past the product band there is no way back to purchase without scrolling up. A slim sticky bar (Ritual Duo · $59.95 · Shop) fixes this with zero design cost.
 4. **Chapter Two newsletter band is competing with Chapter One.** The last thing on the page asks for a fragrance waitlist signup, not a purchase. Fine once Chapter One is sold through; premature at 410 sets.
-5. **Stockists accordion with nothing behind it.** See section 7.
+5. **Stockists accordion on the PDP.** There is no stockist plan (section 7), so the accordion invites a conversation you do not want. Remove it.
 
 Style score stays high. Conversion structure is what needs the work, and it is a one-evening change in the theme editor.
 
